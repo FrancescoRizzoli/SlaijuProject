@@ -85,5 +85,7 @@ namespace Grid
             if (selectDeselectView != null)
                 selectDeselectView.PlayParticleSystems().Forget();
         }
+
+        public virtual void OnCellExit() { }    // for flexibility purposes, the implementation is left to the children of this class; by default this does nothing
     }
 }
