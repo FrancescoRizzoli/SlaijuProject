@@ -5109,6 +5109,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
+--- !u!114 &457029943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7649733162874855315, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
+  m_PrefabInstance: {fileID: 457029942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027440555ea57b2468d5223c5294d44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &457382444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22499,6 +22510,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2007395782}
     m_Modifications:
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457029943}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Core.LevelControllerScene, Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+      propertyPath: OnCharacterReturn.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2780786485330669183, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
       propertyPath: m_Name
       value: PrefabVariantStart
