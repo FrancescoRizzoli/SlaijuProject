@@ -16,7 +16,8 @@ namespace Grid
         Exit,
         Generator,
         Start,
-        StraightRoad
+        StraightRoad,
+        CrossRoad
     }
 
     public class BaseCell : MonoBehaviour

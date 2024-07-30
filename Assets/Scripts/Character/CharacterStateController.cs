@@ -97,6 +97,7 @@ namespace Character
                         await ChangeState(FindState<WalkingState>());
                         break;
                     case CellID.StraightRoad:
+                    case CellID.CrossRoad:
                         await ChangeState(FindState<WalkingState>());
                         break;
                     case CellID.Generator:
