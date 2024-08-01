@@ -6,6 +6,7 @@ namespace Grid.Cell
     public class ExitCell : BaseCell
     {
         [SerializeField] private ExitCellView view = null;
+        [SerializeField] private GameObject turboArea = null;
 
 
 #if UNITY_EDITOR
@@ -20,6 +21,7 @@ namespace Grid.Cell
         {
             EnableAllSafeSides();
             await view.ChangeView();
+            turboArea.SetActive(true);
         }
     }
 }
