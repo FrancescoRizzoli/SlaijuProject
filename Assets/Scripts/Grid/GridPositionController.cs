@@ -59,7 +59,7 @@ namespace Grid
                 {
                     isOutOfGrid = false;
                 }
-
+                gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y].OnCellExit();
                 previousGridPosition = currentGridPosition;
                 currentGridPosition = newGridPosition;
                 //Debug.Log( gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y].ID +" entered");
