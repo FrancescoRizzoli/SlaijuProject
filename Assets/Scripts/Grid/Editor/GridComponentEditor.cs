@@ -17,7 +17,9 @@ namespace Grid.Editor
                 gridComponent.InitializeGrid();
             }
 
-            if (gridComponent.gridArray != null)
+            if (gridComponent.gridArray != null &&
+                gridComponent.gridArray.GetLength(0) == gridComponent.width &&
+                gridComponent.gridArray.GetLength(1) == gridComponent.height)
             {
                 EditorGUILayout.LabelField("Grid Array", EditorStyles.boldLabel);
 
@@ -32,6 +34,10 @@ namespace Grid.Editor
                     }
                     EditorGUILayout.EndHorizontal();
                 }
+            }
+            else
+            {
+                EditorGUILayout.LabelField("Grid dimensions do not match array size. Please re-initialize the grid.");
             }
         }
     }
