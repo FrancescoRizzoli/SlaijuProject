@@ -1927,39 +1927,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 194882452717394085, guid: f16aab054c0195945a76579acc6b80c1, type: 3}
   m_PrefabInstance: {fileID: 1899875073}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &787582840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 787582841}
-  m_Layer: 0
-  m_Name: VFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &787582841
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787582840}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.939964, y: -10.019079, z: 92.24844}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1165640279}
-  - {fileID: 1272143260}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &795136760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2703,11 +2670,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148076650}
   m_Mesh: {fileID: -2360695301914881251, guid: a0aa2f16d3f7fa7449c2841f3506f75b, type: 3}
---- !u!4 &1165640279 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-  m_PrefabInstance: {fileID: 2107435291}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1168094681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3153,11 +3115,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb20390303fc3bd4cb59decdf52500cf, type: 3}
---- !u!4 &1272143260 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-  m_PrefabInstance: {fileID: 1469579841}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1292234419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3796,67 +3753,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c971fd4070ef648b6ce1a2e508c77a, type: 3}
---- !u!1001 &1469579841
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 787582841}
-    m_Modifications:
-    - target: {fileID: 364069146875284769, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_Name
-      value: VolcanoSmokeVFX (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.72939
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 61.530037
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.359079
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -65.04845
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
 --- !u!4 &1520493616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 194882452717394085, guid: f16aab054c0195945a76579acc6b80c1, type: 3}
@@ -5148,67 +5044,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 717598528755591562, guid: 7f43804222d0b0c4abb06329de412189, type: 3}
   m_PrefabInstance: {fileID: 2084674877}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2107435291
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 787582841}
-    m_Modifications:
-    - target: {fileID: 364069146875284769, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_Name
-      value: VolcanoSmokeVFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.72939
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.469965
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 18.22908
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22.428444
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446970431787040725, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8186d78e93d8cdf468ae273b1059e24b, type: 3}
 --- !u!4 &2133764588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1205659131145824529, guid: 990461971006ae548b52f7ce4159f320, type: 3}
@@ -5226,6 +5061,5 @@ SceneRoots:
   - {fileID: 202571634}
   - {fileID: 221237377}
   - {fileID: 1267352792}
-  - {fileID: 787582841}
   - {fileID: 1527030889}
   - {fileID: 1330694364}
