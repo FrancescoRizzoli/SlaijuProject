@@ -114,8 +114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38, y: 260}
-  m_SizeDelta: {x: 400, y: 300}
+  m_AnchoredPosition: {x: 38, y: 247.08}
+  m_SizeDelta: {x: 400, y: 319.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7031114782858104176
 CanvasRenderer:
@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283.5, y: 77}
+  m_AnchoredPosition: {x: 291.6, y: 77}
   m_SizeDelta: {x: 299, y: 215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3034647599003131118
@@ -242,8 +242,9 @@ GameObject:
   - component: {fileID: 3272061313522619989}
   - component: {fileID: 4242239267340556267}
   - component: {fileID: 5665302508290746341}
-  - component: {fileID: 3359172858420567944}
   - component: {fileID: 7726680599425604817}
+  - component: {fileID: 5953114460633584915}
+  - component: {fileID: 1422492329300884961}
   m_Layer: 5
   m_Name: Text (Legacy) (1)
   m_TagString: Untagged
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -300,7 +301,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -311,8 +312,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Simeoni Alessandro
---- !u!114 &3359172858420567944
+  m_Text: Alessandro simeoni
+--- !u!114 &7726680599425604817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370027480823789882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/alessandro-simeoni-bb8390210
+--- !u!114 &5953114460633584915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,7 +348,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -356,7 +370,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7726680599425604817}
+      - m_Target: {fileID: 1422492329300884961}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -368,7 +382,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7726680599425604817
+--- !u!114 &1422492329300884961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,13 +584,13 @@ RectTransform:
   m_Children:
   - {fileID: 6556509653278167622}
   - {fileID: 3712168635333793529}
-  - {fileID: 1438575128364530092}
   - {fileID: 5236211145991113257}
+  - {fileID: 1438575128364530092}
   m_Father: {fileID: 4271523416718333746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 45}
+  m_AnchoredPosition: {x: -0, y: 68}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8577541916760658795
@@ -634,16 +648,16 @@ RectTransform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5577437729133758200}
-  - {fileID: 1987253028931497170}
-  - {fileID: 3630219270103002216}
   - {fileID: 8994891774609154916}
+  - {fileID: 3630219270103002216}
+  - {fileID: 1987253028931497170}
+  - {fileID: 5577437729133758200}
   - {fileID: 2422292238701681677}
   m_Father: {fileID: 1762191162087840508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 160}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.518661, y: -102.6483}
+  m_AnchoredPosition: {x: -19, y: -67}
   m_SizeDelta: {x: -220, y: -310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032031670617258369
@@ -684,6 +698,7 @@ GameObject:
   - component: {fileID: 5361978348945287112}
   - component: {fileID: 7764096690403780068}
   - component: {fileID: 8253629715162413331}
+  - component: {fileID: 3959029636144693409}
   m_Layer: 5
   m_Name: 'Text (Legacy) '
   m_TagString: Untagged
@@ -700,7 +715,7 @@ RectTransform:
   m_GameObject: {fileID: 3496318653550188906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2119022377255420521}
@@ -708,7 +723,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 513.758, y: 65.942}
+  m_SizeDelta: {x: 554.976, y: 65.942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5361978348945287112
 CanvasRenderer:
@@ -731,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -740,7 +755,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -774,7 +789,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.2688679, g: 0.5749439, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -795,7 +810,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7764096690403780068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3959029636144693409}
+        m_TargetAssemblyTypeName: Utility.UrlButton, Utility
+        m_MethodName: OpenURL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3959029636144693409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496318653550188906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: 
 --- !u!1 &3967520846753675820
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +847,9 @@ GameObject:
   - component: {fileID: 7862232834677014477}
   - component: {fileID: 4084677454609975651}
   - component: {fileID: 8005301037502606168}
-  - component: {fileID: 5793737945869336633}
   - component: {fileID: 5506853711994775671}
+  - component: {fileID: 8378524819267522220}
+  - component: {fileID: 3896195376971824230}
   m_Layer: 5
   m_Name: Text (Legacy) (1)
   m_TagString: Untagged
@@ -825,7 +866,7 @@ RectTransform:
   m_GameObject: {fileID: 3967520846753675820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2119022377255420521}
@@ -833,7 +874,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 513.758, y: 67.679}
+  m_SizeDelta: {x: 530.245, y: 67.679}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4084677454609975651
 CanvasRenderer:
@@ -856,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -865,7 +906,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -877,7 +918,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Silvia Musto Macchia
---- !u!114 &5793737945869336633
+--- !u!114 &5506853711994775671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967520846753675820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/silvia-musto-macchia-564418190/
+--- !u!114 &8378524819267522220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -899,8 +953,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
+    m_PressedColor: {r: 0.827451, g: 0.8352941, b: 0.98039216, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -921,7 +975,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5506853711994775671}
+      - m_Target: {fileID: 3896195376971824230}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -933,7 +987,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5506853711994775671
+--- !u!114 &3896195376971824230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -981,7 +1035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 257, y: -158.5}
+  m_AnchoredPosition: {x: 264, y: -158.5}
   m_SizeDelta: {x: 282, y: 229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8501753934039521071
@@ -1033,8 +1087,9 @@ GameObject:
   - component: {fileID: 5704527374453045475}
   - component: {fileID: 8521359334838692176}
   - component: {fileID: 2872824055420986041}
-  - component: {fileID: 1910890680295858932}
   - component: {fileID: 3882039889382103048}
+  - component: {fileID: 2315006162206564876}
+  - component: {fileID: 3585985157012837420}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1082,7 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1091,7 +1146,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1102,8 +1157,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rizzoli Francesco
---- !u!114 &1910890680295858932
+  m_Text: Francesco rizzoli
+--- !u!114 &3882039889382103048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4495621923062301497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/francesco-rizzoli-73b356183/
+--- !u!114 &2315006162206564876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1125,7 +1193,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1147,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3882039889382103048}
+      - m_Target: {fileID: 3585985157012837420}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -1159,7 +1227,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3882039889382103048
+--- !u!114 &3585985157012837420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1183,8 +1251,9 @@ GameObject:
   - component: {fileID: 1987253028931497170}
   - component: {fileID: 6162911293920110280}
   - component: {fileID: 7086331782384973010}
-  - component: {fileID: 11365730726950176}
   - component: {fileID: 275549721055865623}
+  - component: {fileID: 4660148022505698654}
+  - component: {fileID: 5915225034280662981}
   m_Layer: 5
   m_Name: Text (Legacy) (6)
   m_TagString: Untagged
@@ -1209,7 +1278,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 357.164, y: 70.241}
+  m_SizeDelta: {x: 523.702, y: 70.241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6162911293920110280
 CanvasRenderer:
@@ -1232,7 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1241,7 +1310,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1252,8 +1321,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Simeoni Kynto Giacomo
---- !u!114 &11365730726950176
+  m_Text: Giacomo kynto simeoni
+--- !u!114 &275549721055865623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523849099154303075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/giacomo-simeoni-bbaa93270/
+--- !u!114 &4660148022505698654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1275,7 +1357,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1297,7 +1379,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 275549721055865623}
+      - m_Target: {fileID: 5915225034280662981}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -1309,7 +1391,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &275549721055865623
+--- !u!114 &5915225034280662981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1333,8 +1415,9 @@ GameObject:
   - component: {fileID: 1438575128364530092}
   - component: {fileID: 469761041357625274}
   - component: {fileID: 4206363502175151080}
-  - component: {fileID: 2196454708491188946}
   - component: {fileID: 4897795476440228710}
+  - component: {fileID: 1871422072148940932}
+  - component: {fileID: 3853575594862327713}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1382,7 +1465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1391,7 +1474,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1403,7 +1486,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Jacopo Mariani
---- !u!114 &2196454708491188946
+--- !u!114 &4897795476440228710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646098241628231568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: 
+--- !u!114 &1871422072148940932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1425,7 +1521,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1447,7 +1543,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4897795476440228710}
+      - m_Target: {fileID: 3853575594862327713}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -1459,7 +1555,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4897795476440228710
+--- !u!114 &3853575594862327713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1471,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  link: https://www.linkedin.com/in/davide-cantamessa-606446316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
+  link: 
 --- !u!1 &4754215117708619518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1541,7 +1637,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1552,7 +1648,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Iacovella Simone
+  m_Text: Simone Iacovella
 --- !u!114 &4106988966471553591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,7 +1671,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1657,7 +1753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.038}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26, y: -45}
+  m_AnchoredPosition: {x: 26, y: -43}
   m_SizeDelta: {x: 322.34, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1023555425949243032
@@ -1709,8 +1805,9 @@ GameObject:
   - component: {fileID: 3630219270103002216}
   - component: {fileID: 7639465092512443096}
   - component: {fileID: 1324267639805552494}
-  - component: {fileID: 3070865452771600669}
   - component: {fileID: 7324786843891296227}
+  - component: {fileID: 4006327492060044296}
+  - component: {fileID: 4660567172380171049}
   m_Layer: 5
   m_Name: Text (Legacy) (4)
   m_TagString: Untagged
@@ -1758,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1767,7 +1864,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1778,8 +1875,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pardini Matteo
---- !u!114 &3070865452771600669
+  m_Text: Matteo Pardini
+--- !u!114 &7324786843891296227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777881784507336408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/matteo-pardini-816a12226
+--- !u!114 &4006327492060044296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1801,7 +1911,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1823,7 +1933,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7324786843891296227}
+      - m_Target: {fileID: 4660567172380171049}
         m_TargetAssemblyTypeName: Utility.UrlButton, Utility
         m_MethodName: OpenURL
         m_Mode: 1
@@ -1835,7 +1945,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7324786843891296227
+--- !u!114 &4660567172380171049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1906,7 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1915,7 +2025,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2017,6 +2127,8 @@ GameObject:
   - component: {fileID: 267352211282715943}
   - component: {fileID: 3710343701084569880}
   - component: {fileID: 3801785478608338594}
+  - component: {fileID: 3175609458750465466}
+  - component: {fileID: 6921414740087165411}
   m_Layer: 5
   m_Name: Text (Legacy) (2)
   m_TagString: Untagged
@@ -2033,7 +2145,7 @@ RectTransform:
   m_GameObject: {fileID: 6580008995565641951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2119022377255420521}
@@ -2064,7 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2073,7 +2185,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2085,6 +2197,75 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Gabriele Mangiapan
+--- !u!114 &3175609458750465466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580008995565641951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: 
+--- !u!114 &6921414740087165411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580008995565641951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3801785478608338594}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3175609458750465466}
+        m_TargetAssemblyTypeName: Utility.UrlButton, Utility
+        m_MethodName: OpenURL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6634000504099691789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,8 +2353,9 @@ GameObject:
   - component: {fileID: 5577437729133758200}
   - component: {fileID: 2580116910846920710}
   - component: {fileID: 8917395940759304986}
-  - component: {fileID: 539491861035011498}
   - component: {fileID: 4680571084992485105}
+  - component: {fileID: 4811470580866031780}
+  - component: {fileID: 2588848901997794495}
   m_Layer: 5
   m_Name: Text (Legacy) (5)
   m_TagString: Untagged
@@ -2221,7 +2403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2230,7 +2412,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2241,8 +2423,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Perasso Elia
---- !u!114 &539491861035011498
+  m_Text: Elia Perasso
+--- !u!114 &4680571084992485105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6666115700762697601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://www.linkedin.com/in/elia-perasso-7734b9184/overlay/contact-info/
+--- !u!114 &4811470580866031780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2264,7 +2459,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -2298,7 +2493,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4680571084992485105
+--- !u!114 &2588848901997794495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2340,14 +2535,14 @@ RectTransform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3272061313522619989}
   - {fileID: 5704527374453045475}
+  - {fileID: 3272061313522619989}
   - {fileID: 8781535955099420543}
   m_Father: {fileID: 5518014892955942306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 39}
+  m_AnchoredPosition: {x: 7.9, y: 40.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7104428372030579934
@@ -2406,14 +2601,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6932383476764078483}
+  - {fileID: 267352211282715943}
   - {fileID: 5270212309945253042}
   - {fileID: 7862232834677014477}
-  - {fileID: 267352211282715943}
   m_Father: {fileID: 3849167611289085234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.6, y: 68.3}
+  m_AnchoredPosition: {x: -21, y: 47}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3502883576142115416
@@ -2434,7 +2629,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2502,7 +2697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.23921569, b: 0.18039216, a: 1}
+  m_Color: {r: 0.8980392, g: 0.84705883, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2511,7 +2706,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba5b5b4821272fa4990486018d35c879, type: 3}
-    m_FontSize: 55
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2545,7 +2740,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.039215688, g: 0.4, b: 0.7607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -2591,7 +2786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321fc8a301db7da44927842b230d26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  link: https://www.linkedin.com/in/davide-cantamessa-606446316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
+  link: 
 --- !u!1 &8949888108964467198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,6 +3078,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.9999695
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984809209240044652, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 179.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5418974217404120666, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2979,6 +3206,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7179aa11f3be513408ca466f1729e8d7, type: 3}
+    - target: {fileID: 7233479441989928046, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
+      propertyPath: screenType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7245992990425273749, guid: 8e796cc9cc6d0e64588f7b9aee24b50c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
