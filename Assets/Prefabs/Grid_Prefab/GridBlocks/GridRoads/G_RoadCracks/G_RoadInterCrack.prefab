@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 5698369380247048762}
   - component: {fileID: 1709885103581765656}
   - component: {fileID: 6314585238412895837}
+  - component: {fileID: 5104082353341604394}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -651,6 +652,102 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!82 &5104082353341604394
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244860464385282238}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5516114654265507614
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,89 +997,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8242185389334734419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241560078198181887}
-  - component: {fileID: 5093572349594546987}
-  - component: {fileID: 7019906727433170140}
-  m_Layer: 0
-  m_Name: Grass
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1241560078198181887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8242185389334734419}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
-  m_LocalScale: {x: 10, y: 0.099999994, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9138513218261136401}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5093572349594546987
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8242185389334734419}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7019906727433170140
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8242185389334734419}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0e6e63b5724a04a4783c1a5488736d51, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &7652108461377399942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,9 +1089,6 @@ PrefabInstance:
       addedObject: {fileID: 3002470560531782293}
     - targetCorrespondingSourceObject: {fileID: 1505122845855029399, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1241560078198181887}
-    - targetCorrespondingSourceObject: {fileID: 1505122845855029399, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8842830080830196685}
     - targetCorrespondingSourceObject: {fileID: 1505122845855029399, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
@@ -1110,8 +1121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7049bf39d0417394e9c9d9555319c46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadGraphic: {fileID: 5244860464385282238}
-  emptyGraphic: {fileID: 8242185389334734419}
+  roadGraphic: {fileID: 6314585238412895837}
+  cellPhaseMaterial:
+  - {fileID: 2100000, guid: 08582ba256197264babc3aa1a876f241, type: 2}
+  - {fileID: 2100000, guid: 208079bdadd12a44e8ebcab1fdca1e77, type: 2}
+  emptyGraphic: {fileID: 5516114654265507614}
+  damageAudioClip: {fileID: 0}
+  roadToGrassParticle: {fileID: 0}
 --- !u!1 &6659806171135539101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
@@ -1133,7 +1149,7 @@ MonoBehaviour:
   safeSides: 00000000010000000200000003000000
   selectDeselectView: {fileID: 65070938366516299}
   curvePoint: []
-  health: 2
+  health: 3
   view: {fileID: 8134122108945099216}
 --- !u!114 &65070938366516299
 MonoBehaviour:
