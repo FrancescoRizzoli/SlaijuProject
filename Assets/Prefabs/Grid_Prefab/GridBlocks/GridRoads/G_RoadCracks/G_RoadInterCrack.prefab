@@ -663,7 +663,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1210,9 +1210,9 @@ MonoBehaviour:
   roadGraphic: {fileID: 6314585238412895837}
   cellPhaseMaterial:
   - {fileID: 2100000, guid: 08582ba256197264babc3aa1a876f241, type: 2}
-  - {fileID: 2100000, guid: 208079bdadd12a44e8ebcab1fdca1e77, type: 2}
   emptyGraphic: {fileID: 5516114654265507614}
   damageAudioClip: {fileID: 0}
+  damageParticle: {fileID: 0}
   roadToGrassParticle: {fileID: 0}
 --- !u!1 &6659806171135539101 stripped
 GameObject:
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   safeSides: 00000000010000000200000003000000
   selectDeselectView: {fileID: 65070938366516299}
   curvePoint: []
-  health: 3
+  health: 2
   view: {fileID: 8134122108945099216}
 --- !u!114 &65070938366516299
 MonoBehaviour:
