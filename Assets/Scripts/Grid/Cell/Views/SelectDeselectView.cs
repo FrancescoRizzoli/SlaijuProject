@@ -24,6 +24,7 @@ namespace Grid.Cell
 
         public override async UniTask ChangeView()
         {
+       
             if (defaultGraphic != null)
                 defaultGraphic.SetActive(!defaultGraphic.activeSelf);
             if (SelectedGraphic != null)
