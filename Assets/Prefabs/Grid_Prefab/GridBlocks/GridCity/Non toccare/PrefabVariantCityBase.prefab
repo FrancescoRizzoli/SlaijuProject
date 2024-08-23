@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 262355904142921699}
   - component: {fileID: 6859169283716263920}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: QuadOil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,12 +110,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80586624095098082}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6568071, y: -0.26192445, z: 0.26192445, w: -0.6568071}
-  m_LocalPosition: {x: 0.6519, y: 1.14, z: -0.1619}
-  m_LocalScale: {x: 5.245224, y: 5.078595, z: 1.006469}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.0007461547, y: 0.81406, z: -0.0013278964}
+  m_LocalScale: {x: 0.61258966, y: 0.593129, z: 11.754549}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1990871443624504916}
+  m_Father: {fileID: 2355898997497230665}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!33 &2521830792534963719
 MeshFilter:
@@ -839,7 +839,6 @@ Transform:
   m_LocalScale: {x: 1.1679, y: 1.1679, z: 1.1679}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1936738479710580239}
   - {fileID: 6065459584048580962}
   m_Father: {fileID: 5970325509215157630}
   m_LocalEulerAnglesHint: {x: 0, y: -313.483, z: 0}
@@ -1910,6 +1909,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1505122845855029399, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: 4
       addedObject: {fileID: 7628706263589108687}
+    - targetCorrespondingSourceObject: {fileID: 7498928714242869258, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1936738479710580239}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
@@ -1921,6 +1923,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4626374488601191708}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+--- !u!4 &2355898997497230665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7498928714242869258, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 5233286433437465923}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2547667650768438097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7780949611508121106, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
