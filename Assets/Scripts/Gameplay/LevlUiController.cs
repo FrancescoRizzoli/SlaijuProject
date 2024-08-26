@@ -29,6 +29,14 @@ namespace Gameplay
         TMP_Text cityText;
         [SerializeField]
         TMP_Text moves;
+        [SerializeField]
+        TimeCounter timeCounter;
+        [SerializeField]
+        TMP_Text timeCounterWin;
+        [SerializeField]
+        TMP_Text moveWin;
+        [SerializeField]
+        TMP_Text timeCounterLoose;
 
         bool pauseState = false;
 
@@ -82,11 +90,16 @@ namespace Gameplay
         {
             playerInput.enabled = false;
             UIManager.instance.ManageScreen(ScreenType.GameWin, true);
+            timeCounterWin.text = timeCounter.elapsedTime.ToString("F2");
+            moveWin.text = moves.text;
         }
 
         public void GameOver()
         {
+            
             playerInput.enabled = false;
+            Debug.Log(timeCounterLoose.text = timeCounter.elapsedTime.ToString());
+            timeCounterLoose.text = timeCounter.elapsedTime.ToString("F2");
             UIManager.instance.ManageScreen(ScreenType.GameOver, true);
         }
 
@@ -147,6 +160,7 @@ namespace Gameplay
         {
             moves.text = moveNumber.ToString();
         }
+
 
     }
 }
