@@ -68,6 +68,22 @@ namespace Grid
             int y = Mathf.FloorToInt(worldPosition.z / cellSize);
             return new Vector2Int(x, y);
         }
+        public Vector2Int GetNextGridPosition(Vector3 worldPosition, Vector3 forward)
+        {
+            
+            Vector2Int currentGridPosition = WorldToGridPosition(worldPosition);
+
+            
+            Vector2Int gridDirection = new Vector2Int(
+                Mathf.RoundToInt(forward.x),
+                Mathf.RoundToInt(forward.z)
+            );
+
+            
+            Vector2Int nextGridPosition = currentGridPosition + gridDirection;
+
+            return nextGridPosition;
+        }
 
         public Vector3 GridToWorldPosition(Vector2Int gridPosition)
         {
