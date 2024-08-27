@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MI_GrassFront
+  m_Name: MI_GrassEnvIntersection
   m_Shader: {fileID: 4800000, guid: a3968bfb95fccf04f89e592796a1a609, type: 3}
-  m_Parent: {fileID: 2100000, guid: 665afd6a92267cd459f8018475dfc3c1, type: 2}
+  m_Parent: {fileID: 2100000, guid: ae13ccc1d0532564f9c4f0b72cb673b4, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - USE_RT
@@ -23,9 +23,16 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _GroundTex:
+        m_Texture: {fileID: 2800000, guid: b70d9aeb3b464d14790d03d6c15ffebf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoGrassTex:
+        m_Texture: {fileID: 2800000, guid: f6310704c4ca9eb47becedeed53bceda, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _OffsetValue: 7.6
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
