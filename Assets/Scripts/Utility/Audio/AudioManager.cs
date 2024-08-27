@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Pool;
-using Utility;
-using System;
-using UnityEngine.SceneManagement;
+
 
 namespace Utility
 {
@@ -148,18 +145,9 @@ namespace Utility
         {
             if (AudioMixer == null)
                 return;
+                AudioMixer.SetFloat("MusicVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
+                AudioMixer.SetFloat("MusicVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
 
-           
-            if (Settings.keysValues[nameof(SettingType.Music)] == 1)
-            {
-                AudioMixer.SetFloat("MusicVolume", 0);
-                AudioMixer.SetFloat("SFXVolume", 0);
-            }
-            else
-            {
-                AudioMixer.SetFloat("MusicVolume", -80);
-                AudioMixer.SetFloat("SFXVolume", -80);
-            }
 
         }
 
