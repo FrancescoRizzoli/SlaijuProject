@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+
 using Utility;
 
 namespace UnityEngine.UI
@@ -13,11 +10,15 @@ namespace UnityEngine.UI
         GameObject active;
         [SerializeField]
         Button ToggleAudioButton;
+        [SerializeField]
+        Slider bar;
 
         private void Start()
         {
             ToggleAudioButton.onClick.AddListener(ToggleAudio);
+            bar.onValueChanged.AddListener(AudioSlider);
             UpdateToggleButtonText();
+            setSlider();
         }
 
         private void ToggleAudio()
@@ -31,5 +32,16 @@ namespace UnityEngine.UI
             bool isMusicOn = Settings.keysValues[nameof(SettingType.Music)] == 1;
             active.SetActive(!isMusicOn);
         }
+
+        private void setSlider()
+        {
+            bar.value = Settings.keysFloatValues[nameof(SettingType.Sfx)];
+        }
+
+        private void AudioSlider(float value)
+        {
+            Settings.SliderMusic(value);
+        }
+
     }
 }

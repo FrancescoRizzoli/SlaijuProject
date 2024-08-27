@@ -1,5 +1,6 @@
 using Character;
 using Cysharp.Threading.Tasks;
+using UnityEditor.Graphs;
 using UnityEngine;
 
 namespace Grid
@@ -13,13 +14,13 @@ namespace Grid
         private GridComponent gridComponent;
         public Vector2Int currentGridPosition;
         private Vector2Int previousGridPosition;
-        [SerializeField, Range(0f, 1f)]
-        private float boundaryWidthPercentage = 0.2f;
+        [SerializeField, Range(0f, 0.49f)]
+        private float boundaryWidthPercentage = 0.4f;
 
         private bool isWithinBoundary;
         private bool isOutOfGrid;
         public bool init = false;
-        
+
 
         public void Init(CharacterStateController character, GridComponent grid)
         {
@@ -63,7 +64,7 @@ namespace Grid
                 previousGridPosition = currentGridPosition;
                 currentGridPosition = newGridPosition;
                 //Debug.Log( gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y].ID +" entered");
-                objectToCheck.HandleCell(gridComponent.gridArray[currentGridPosition.x,currentGridPosition.y]).Forget();
+                objectToCheck.HandleCell(gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y]).Forget();
             }
             else
             {
@@ -72,27 +73,48 @@ namespace Grid
                     Vector2Int boundaryCell = GetBoundaryCell(objectToCheck.transform.position, currentGridPosition);
                     if (IsOutOfGrid(boundaryCell))
                     {
-                       // Debug.Log($"Approaching edge of the grid from cell {currentGridPosition}");
+                        // Debug.Log($"Approaching edge of the grid from cell {currentGridPosition}");
                     }
                     else
                     {
-                       // Debug.Log($"Entered boundary of cell {currentGridPosition} near cell {boundaryCell}");
+                        // Debug.Log($"Entered boundary of cell {currentGridPosition} near cell {boundaryCell}");
                         BaseCell cell = gridComponent.gridArray[boundaryCell.x, boundaryCell.y];
-                        objectToCheck.Warn(cell);
+                        
                         if (cell.ID == CellID.City || cell.ID == CellID.Generator)
                             objectToCheck.HandleCell(cell).Forget();
 
                     }
                     isWithinBoundary = true;
                 }
-                else if (!IsWithinBoundary(objectToCheck.transform.position, currentGridPosition))
-                {
+                else if (isWithinBoundary && !IsWithinBoundary(objectToCheck.transform.position, currentGridPosition))
+                    {
+                 
                     isWithinBoundary = false;
+                    BaseCell cell = gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y];
+                    Vector2Int nextCellPos;
+                    if (gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y].ID == CellID.CurveRoad)
+                    {
+                        CurveCell curve = (CurveCell)cell;
+                        Vector3 nextDirection = curve.GetExitDirection(objectToCheck.currentCellEntranceSide);
+                        nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, nextDirection);
+                        cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
+                        objectToCheck.Warn(cell, nextDirection);
+                    }
+                    else
+                    {
+                    nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, objectToCheck.transform.forward);
+
+                    cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
+                    objectToCheck.Warn(cell);
+                    }
+                    
                 }
+                
 
                 if (IsOutOfGrid(newGridPosition) && !isOutOfGrid)
                 {
-                   // Debug.Log($"Exited the grid from cell {currentGridPosition}");
+                    // Debug.Log($"Exited the grid from cell {currentGridPosition}");
+
                     isOutOfGrid = true;
                 }
                 else if (!IsOutOfGrid(newGridPosition) && isOutOfGrid)
@@ -106,11 +128,11 @@ namespace Grid
         {
             Vector3 cellCenter = gridComponent.GridToWorldPosition(currentCell);
             float halfCellSize = gridComponent.cellSize / 2;
-            float boundaryWidth = gridComponent.cellSize * boundaryWidthPercentage;
+            float boundaryWidth = halfCellSize - (gridComponent.cellSize * boundaryWidthPercentage);
 
-            bool withinXBoundary = Mathf.Abs(position.x - cellCenter.x) > (halfCellSize - boundaryWidth);
-            bool withinZBoundary = Mathf.Abs(position.z - cellCenter.z) > (halfCellSize - boundaryWidth);
-
+            bool withinXBoundary = Mathf.Abs(position.x - cellCenter.x) >= (boundaryWidth);
+            bool withinZBoundary = Mathf.Abs(position.z - cellCenter.z) >= (boundaryWidth);
+         
             return withinXBoundary || withinZBoundary;
         }
 
