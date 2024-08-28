@@ -12,6 +12,12 @@ namespace Utility
         [SerializeField]
         CinemachineVirtualCamera cam2;
 
+        private void Awake()
+        {
+            if(Settings.keysValues[nameof(SettingType.Camera)] ==1)
+                Switch();
+
+        }
         public void Switch()
         {
             if (cam1 == null || cam2 == null)

@@ -145,7 +145,7 @@ namespace Utility
         {
             if (AudioMixer == null)
                 return;
-                AudioMixer.SetFloat("MusicVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
+                AudioMixer.SetFloat("SFXVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
                 AudioMixer.SetFloat("MusicVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
 
 
