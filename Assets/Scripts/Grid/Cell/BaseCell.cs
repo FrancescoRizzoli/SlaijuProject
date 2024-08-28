@@ -43,6 +43,8 @@ namespace Grid
             get { return  _safeSide; }
         }
 
+        public SelectDeselectView SelectDeselectView { get { return selectDeselectView; } }
+
         private void Awake() => SetSafeSides();
 
         private void SetSafeSides()

@@ -46,5 +46,11 @@ namespace Grid.Cell
             await UniTask.NextFrame();
 
         }
+
+        public void ToggleSelectedGraphic(bool value)
+        {
+            if (SelectedGraphic != null)
+                SelectedGraphic.SetActive(value);
+        }
     }
 }
