@@ -22,7 +22,7 @@ namespace Character
         public Animator animator { get; private set; } = null;
 
         private AState currentState = null;
-        private Vector3 currentCellEntranceSide = Vector3.zero;
+        public Vector3 currentCellEntranceSide = Vector3.zero;
 
         private const float COSINE_TOLERANCE = 0.71f; // approximation of cos(45°) = 0.707
 
@@ -122,7 +122,18 @@ namespace Character
 
         public void Warn(BaseCell cell)
         {
+
             if (CheckCellSafeSide(cell))
+                return;
+
+            characterView.ChangeView().Forget();
+
+        }
+        public void Warn(BaseCell cell, Vector3 predictedDirection)
+        {
+            Debug.Log("next direction" + predictedDirection);
+
+            if (CheckCellSafeSide(cell, predictedDirection))
                 return;
 
             characterView.ChangeView().Forget();
@@ -152,6 +163,26 @@ namespace Character
 
             return false;
         }
+
+        private bool CheckCellSafeSide(BaseCell cell, Vector3 predictedDirection)
+        {
+           
+
+            if (cell.isSwitching)
+                return false;
+
+
+            foreach (Vector3 safeSide in cell.safeSide)
+            {
+                Debug.Log(safeSide);
+                if (predictedDirection == -safeSide)
+                    return true;
+
+            }
+
+            return false;
+        }
+
 
         private Vector3 GetCellEntranceSide(BaseCell cell)
         {

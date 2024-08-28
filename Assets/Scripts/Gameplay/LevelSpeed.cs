@@ -10,6 +10,7 @@ namespace Gameplay
         private float[] LevelSpeeds;
         private int currentSpeed = 0;
         private float currentLevelSpeed;
+        private float gameSpeed = 1;
 
         private void Awake()
         {
@@ -24,12 +25,15 @@ namespace Gameplay
 
         public void SetLevelSpeed()
         {
+            
             Time.timeScale = currentLevelSpeed;
+            gameSpeed = 1;
         }
 
         public void Freeze()
         {
             Time.timeScale = 0;
+            gameSpeed = 0;
         }
 
         public void IncrementSpeed()
@@ -45,9 +49,13 @@ namespace Gameplay
             currentLevelSpeed = LevelSpeeds[currentSpeed];
             SetLevelSpeed();
         }
-        public float GetCurrentSpeed()
+        public int GetCurrentSpeed()
         {
-            return currentLevelSpeed;
+            return currentSpeed;
+        }
+        public float GetGameSpeed()
+        {
+            return gameSpeed;
         }
     }
 }

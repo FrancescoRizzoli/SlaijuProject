@@ -31,6 +31,8 @@ namespace Gameplay
         [SerializeField]
         PlayerInput playerInput;
         [SerializeField]
+        TimeCounter timeCounter;
+        [SerializeField]
         Counter counter;
         [SerializeField]
         private Vector3 monsterStartOffset = Vector3.zero;
@@ -69,6 +71,7 @@ namespace Gameplay
             positionController.Init(characterStateController, gridComponent);
             levelSpeed.SetLevelSpeed();
             SetUpCity();
+            timeCounter.StartStopwatchAsync().Forget();
 
         }
 
@@ -151,7 +154,8 @@ namespace Gameplay
             playerInput.enabled = false;
             Settings.UpdateLevelReached((int)levelControllerScene.SceneName +1);
             AudioManager.instance.PlayAudioClip(win, sfx);
-            UIManager.instance.ManageScreen(ScreenType.GameWin, true);
+            levelUiController.GameWin();
+            timeCounter.StopStopwatch();
             levelSpeed.Freeze();
         }
         private void GameOver()
@@ -159,8 +163,8 @@ namespace Gameplay
             playerInput.enabled = false;
             AudioManager.instance.PlayAudioClip(loose, sfx);
             CameraShake.ShakeCinemachineTransform();
-            UIManager.instance.ManageScreen(ScreenType.GameOver, true);
-            
+            levelUiController.GameOver();
+            timeCounter.StopStopwatch();
             levelSpeed.Freeze();
             
         }
@@ -169,6 +173,9 @@ namespace Gameplay
         {
              levelUiController.UpdateMoves(move);
         }
-
+        private void TimeCounter(int move)
+        {
+            levelUiController.UpdateMoves(move);
+        }
     }
 }
