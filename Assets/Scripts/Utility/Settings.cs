@@ -15,6 +15,7 @@ namespace Utility
         {
             { nameof(SettingType.Music), 1 },
             { "levelReached", 3 },
+            {nameof(SettingType.Camera),0 },
         };
         public static Dictionary<string, float> keysFloatValues = new Dictionary<string, float>()
         {
