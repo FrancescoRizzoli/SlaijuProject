@@ -12,13 +12,17 @@ namespace UnityEngine.UI
         Button ToggleAudioButton;
         [SerializeField]
         Slider bar;
+        [SerializeField]
+        Toggle cameraToggle;
 
         private void Start()
         {
             ToggleAudioButton.onClick.AddListener(ToggleAudio);
             bar.onValueChanged.AddListener(AudioSlider);
+            cameraToggle.onValueChanged.AddListener(CameraChangeListener);
             UpdateToggleButtonText();
-            setSlider();
+            SetSlider();
+            SetCameraToggle();
         }
 
         private void ToggleAudio()
@@ -33,14 +37,27 @@ namespace UnityEngine.UI
             active.SetActive(!isMusicOn);
         }
 
-        private void setSlider()
+        private void SetSlider()
         {
             bar.value = Settings.keysFloatValues[nameof(SettingType.Sfx)];
         }
+        private void SetCameraToggle()
+        {
+            cameraToggle.isOn = Settings.keysValues[nameof(SettingType.Camera)] == 1;
+        }
+
 
         private void AudioSlider(float value)
         {
             Settings.SliderMusic(value);
+        }
+
+        private void CameraChangeListener(bool toggle)
+        {
+           
+            Settings.SetInt(nameof(SettingType.Camera),toggle ? 1 : 0);
+
+            Settings.SaveSettings();
         }
 
     }
