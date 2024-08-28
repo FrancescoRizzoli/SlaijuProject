@@ -86,6 +86,35 @@ namespace Grid
                 selectDeselectView.PlayParticleSystems().Forget();
         }
 
+        public void GetEnterDirection(Vector3 position)
+        {
+            Vector3 localPosition = transform.InverseTransformPoint(position);
+            Debug.Log("local pos"+localPosition);
+        }
+        public Side GetEnterDirectionSide(Vector3 direction)
+        {
+            // Convert the direction to the local space of the cell
+            Vector3 localDirection = transform.InverseTransformDirection(direction.normalized);
+
+            // Determine which axis the local direction is closest to
+            if (Mathf.Abs(localDirection.z) > Mathf.Abs(localDirection.x))
+            {
+                if (localDirection.z > 0)
+                    return Side.forward;  // Forward
+                else
+                    return Side.backward; // Backward
+            }
+            else
+            {
+                if (localDirection.x > 0)
+                    return Side.right;    // Right
+                else
+                    return Side.left;     // Left
+            }
+        }
+
         public virtual void OnCellExit() { }    // for flexibility purposes, the implementation is left to the children of this class; by default this does nothing
+
+        
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 namespace Grid
@@ -21,6 +22,18 @@ namespace Grid
 					return t;
 
 			return null;
+        }
+		public Vector3 GetExitDirection(Vector3 characterForwardEntrance)
+		{
+			
+			foreach (Vector3 t in safeSide)
+			{
+				if (characterForwardEntrance != t)
+                    return t;
+
+			}
+                
+			return Vector3.zero;
         }
 	}
 }
