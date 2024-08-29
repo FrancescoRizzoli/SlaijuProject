@@ -9,7 +9,9 @@ namespace Utility
         Music,
         Sfx,
         Vibration,
-        Quality
+        Quality,
+        LevelReached,
+        Camera
 
     }
     public enum SceneName

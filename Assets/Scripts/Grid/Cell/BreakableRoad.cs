@@ -24,6 +24,8 @@ namespace Grid.Cell
                 view.ChangeView().Forget();
                 SetCellAsEmpty();
             }
+            else
+                view.DamageCell(health).Forget();
         }
 
         private void SetCellAsEmpty()
