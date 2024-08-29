@@ -1,7 +1,6 @@
 using Grid;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace LevelEditor
 {
@@ -9,7 +8,7 @@ namespace LevelEditor
     public struct EditorCell
     {
         public BaseCell cellPrefab;
-        public Image cellSprite;
+        public Sprite cellSprite;
     }
 
     [CreateAssetMenu(fileName = "LevelEditorCellData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellData")]
