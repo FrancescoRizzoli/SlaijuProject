@@ -70,17 +70,25 @@ namespace Grid
         }
         public Vector2Int GetNextGridPosition(Vector3 worldPosition, Vector3 forward)
         {
-            
+
             Vector2Int currentGridPosition = WorldToGridPosition(worldPosition);
 
-            
+
             Vector2Int gridDirection = new Vector2Int(
                 Mathf.RoundToInt(forward.x),
                 Mathf.RoundToInt(forward.z)
             );
 
-            
+
             Vector2Int nextGridPosition = currentGridPosition + gridDirection;
+
+            if (nextGridPosition.x >= width)
+            {
+                nextGridPosition.x = width;
+            }
+            if (nextGridPosition.y >= height)
+            { nextGridPosition.y = height; }
+
 
             return nextGridPosition;
         }
