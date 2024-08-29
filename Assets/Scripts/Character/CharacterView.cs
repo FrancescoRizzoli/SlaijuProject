@@ -14,7 +14,7 @@ namespace Character
 
         [SerializeField] private ParticleSystem leftFootParticle = null;
         [SerializeField] private ParticleSystem rightFootParticle = null;
-        [SerializeField] private VisualEffect beamParticle = null;
+        [SerializeField] private ParticleSystem beamParticle = null;
 
         [Header("Audio")]
         [SerializeField] private AudioMixerGroup mixerGroup = null;

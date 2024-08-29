@@ -2637,9 +2637,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8134122108945099216}
-    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8102284815606630977}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!1 &5160239444787960563 stripped
 GameObject:
@@ -2660,37 +2657,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadGraphic: {fileID: 6314585238412895837}
   cellPhaseMaterial:
-  - {fileID: 2100000, guid: 08582ba256197264babc3aa1a876f241, type: 2}
+  - {fileID: 2100000, guid: 392527952e1d44b4a977b413788d19eb, type: 2}
   emptyGraphic: {fileID: 5516114654265507614}
   damageAudioClip: {fileID: 0}
   damageParticle: {fileID: 1560632543785450371}
   roadToGrassParticle: {fileID: 1560632543785450371}
---- !u!114 &8102284815606630977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160239444787960563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aeb17210b6bc2144b2e24f46760ac73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smokeEffect: []
-  smokeEffectPlayRateOnStop: 10
-  lastSmokeWaitTime: 0.5
-  toBeDestroyedGraphic: {fileID: 0}
-  cityGroundGameObject: {fileID: 0}
-  frontGrassGameObject: {fileID: 0}
-  cityToGrassParticle: {fileID: 0}
-  envShakeMagnitude: 0.5
-  collapseDistance: 5
-  collapseSpeed: 1.5
-  totalDestructionParticle: {fileID: 0}
-  collapseAudioClip: {fileID: 0}
-  envShakeDuration: 0.75
-  destructionCompletedParticle: {fileID: 0}
 --- !u!1 &6659806171135539101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
