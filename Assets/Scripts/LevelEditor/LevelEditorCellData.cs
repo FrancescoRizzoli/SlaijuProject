@@ -7,6 +7,7 @@ namespace LevelEditor
     [Serializable]
     public struct EditorCell
     {
+        public string setHeaderName;
         public BaseCell cellPrefab;
         public Sprite cellSprite;
     }
