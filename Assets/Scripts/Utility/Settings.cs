@@ -15,6 +15,12 @@ namespace Utility
         {
             { nameof(SettingType.Music), 1 },
             { "levelReached", 3 },
+            {nameof(SettingType.Camera),0 },
+        };
+        public static Dictionary<string, float> keysFloatValues = new Dictionary<string, float>()
+        {
+            { nameof(SettingType.Sfx), 1 },
+        
         };
 
         /// <summary>
@@ -23,12 +29,20 @@ namespace Utility
         static Settings()
         {
             List<string> keys = new List<string>(keysValues.Keys);
+            List<string> keysFloat = new List<string>(keysFloatValues.Keys);
 
             foreach (string key in keys)
             {
                 if (PlayerPrefs.HasKey(key))
                 {
                     keysValues[key] = PlayerPrefs.GetInt(key);
+                }
+            }
+            foreach (string key in keysFloat)
+            {
+                if (PlayerPrefs.HasKey(key))
+                {
+                    keysFloatValues[key] = PlayerPrefs.GetFloat(key);
                 }
             }
         }
@@ -41,6 +55,12 @@ namespace Utility
             foreach (string key in keysValues.Keys)
             {
                 PlayerPrefs.SetInt(key, keysValues[key]);
+                
+            }
+            foreach (string key in keysFloatValues.Keys)
+            {
+                PlayerPrefs.SetFloat(key, keysFloatValues[key]);
+
             }
 
             PlayerPrefs.Save();
@@ -87,6 +107,16 @@ namespace Utility
             if (keysValues.ContainsKey(nameof(SettingType.Music)))
             {
                 keysValues[nameof(SettingType.Music)] = keysValues[nameof(SettingType.Music)] == 1 ? 0 : 1;
+                SaveSettings();
+                onSettingsChange?.Invoke();
+            }
+        }
+        public static void SliderMusic(float musicValue)
+        {
+            if (keysFloatValues.ContainsKey(nameof(SettingType.Sfx)))
+            {
+               
+                keysFloatValues[nameof(SettingType.Sfx)] = musicValue;
                 SaveSettings();
                 onSettingsChange?.Invoke();
             }
