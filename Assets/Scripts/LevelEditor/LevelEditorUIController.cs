@@ -6,50 +6,49 @@ namespace LevelEditor
 {
     public class LevelEditorUIController : MonoBehaviour
     {
-        [Header("Data")]
-        [SerializeField] private LevelEditorCellData environmentCellData = null;
-        [SerializeField] private LevelEditorCellData objectiveCellData = null;
-        [SerializeField] private LevelEditorCellData roadCellData = null;
-        [Header("Buttons")]
-        [SerializeField] private Button environmentButton = null;
-        [SerializeField] private Button objectiveButton = null;
-        [SerializeField] private Button roadButton = null;
+        [Header("Cell Type Filter")]
+        [SerializeField] private LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = null;
+        [SerializeField] private TextMeshProUGUI cellTypeFilterName = null;
+        [SerializeField] private Button cellTypeFilterNextButton = null;
+        [SerializeField] private Button cellTypeFilterPreviousButton = null;
         [Header("Scroll view")]
         [SerializeField] private Transform scrollViewContentTransform = null;
         [SerializeField] private TextMeshProUGUI setNamePrefab = null;
         [SerializeField] private GameObject setGridGroupPrefab = null;
         [SerializeField] private Button cellEditorButtonPrefab = null;
 
+        private int currentCellTypeFilterIndex = -1;
         private string currentSetName = "";
-        private Button previousCellButtonClicked = null;
         private Transform currentGridTransform = null;
 
         private void Start()
         {
-            environmentButton.onClick.AddListener(ShowEnvironmentCells);
-            objectiveButton.onClick.AddListener(ShowObjectiveCells);
-            roadButton.onClick.AddListener(ShowRoadCells);
+            cellTypeFilterNextButton.onClick.AddListener(NextCellTypeFilter);
+            cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
+
+            SelectFilter(true);
         }
 
-        private void ShowEnvironmentCells()
+        private void NextCellTypeFilter() => SelectFilter(true);
+
+        private void PreviousCellTypeFilter() => SelectFilter(false);
+
+        private void SelectFilter(bool next)
         {
-            SwitchNonInteractableButton(environmentButton);
-            ClearViewport();
-            PopulateViewport(environmentCellData);
+            if (next)
+                currentCellTypeFilterIndex = (currentCellTypeFilterIndex + 1) % cellTypeFilterDataArray.Length;
+            else if (--currentCellTypeFilterIndex < 0)
+                    currentCellTypeFilterIndex += cellTypeFilterDataArray.Length;
+            
+
+            cellTypeFilterName.text = cellTypeFilterDataArray[currentCellTypeFilterIndex].filterName;
+            SetCellTypeFilter(currentCellTypeFilterIndex);
         }
 
-        private void ShowObjectiveCells()
+        private void SetCellTypeFilter(int index)
         {
-            SwitchNonInteractableButton(objectiveButton);
             ClearViewport();
-            PopulateViewport(objectiveCellData);
-        }
-
-        private void ShowRoadCells()
-        {
-            SwitchNonInteractableButton(roadButton);
-            ClearViewport();
-            PopulateViewport(roadCellData);
+            PopulateViewport(index);
         }
 
         private void ClearViewport()
@@ -58,18 +57,9 @@ namespace LevelEditor
                 Destroy(child.gameObject);
         }
 
-        private void SwitchNonInteractableButton(Button targetButton)
+        private void PopulateViewport(int index)
         {
-            if (previousCellButtonClicked != null)
-                previousCellButtonClicked.interactable = true;
-
-            targetButton.interactable = false;
-            previousCellButtonClicked = targetButton;
-        }
-
-        private void PopulateViewport(LevelEditorCellData targetEditorCellData)
-        {
-            foreach (EditorCell ec in targetEditorCellData.editorCell)
+            foreach (EditorCell ec in cellTypeFilterDataArray[currentCellTypeFilterIndex].editorCell)
             {
                 if (currentSetName != ec.setHeaderName)
                 {

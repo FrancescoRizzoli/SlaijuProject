@@ -12,9 +12,10 @@ namespace LevelEditor
         public Sprite cellSprite;
     }
 
-    [CreateAssetMenu(fileName = "LevelEditorCellData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellData")]
-    public class LevelEditorCellData : ScriptableObject
+    [CreateAssetMenu(fileName = "LevelEditorCellTypeFilterData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellTypeFilterData")]
+    public class LevelEditorCellTypeFilterData : ScriptableObject
     {
+        public string filterName = "";
         public EditorCell[] editorCell = Array.Empty<EditorCell>();
     }
 }
