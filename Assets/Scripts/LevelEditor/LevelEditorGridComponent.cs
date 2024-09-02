@@ -38,11 +38,21 @@ namespace LevelEditor
             }
         }
 
+        public Vector2Int GetCellIndexes(BaseCell targetCell)
+        {
+            for (int i = 0; i < width; i++)
+                for (int j = 0; j < height; j++)
+                    if (gridArray[i,j] == targetCell)
+                        return new Vector2Int(i, j);
+
+            return new Vector2Int(-1, -1);
+        }
+
         [ContextMenu("Initialize Grid")]
         private void InitGrid() => InitializeGrid();
 
         [ContextMenu("ResetVisualEditorElements")]
-        private void ResetVisualEditorElements()
+        public void ResetVisualEditorElements()
         {
             TurnOffGrayBoxes();
             TurnOffCellSelectedView();

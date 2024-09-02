@@ -18,6 +18,26 @@ namespace LevelEditor
 
         public void ProcessInput()
         {
+            VisualizeSelectedCell();
+
+            if (Input.GetButtonDown("Fire1") && controller.newSelectedBaseCell != null && currentSelectedGridBaseCell != null)
+                PositionCell();
+        }
+
+        private void PositionCell()
+        {
+            Vector2Int cellGridIndexes = controller.currentGrid.GetCellIndexes(currentSelectedGridBaseCell);
+            controller.newSelectedBaseCell.transform.parent = currentSelectedGridBaseCell.transform.parent;
+            controller.currentGrid.gridArray[cellGridIndexes.x, cellGridIndexes.y] = controller.newSelectedBaseCell;
+            Destroy(currentSelectedGridBaseCell.gameObject);
+            controller.newSelectedBaseCell = null;
+            currentSelectedGridBaseCell = null;
+            controller.currentGrid.InitializeGrid();
+            controller.currentGrid.ResetVisualEditorElements();
+        }
+
+        private void VisualizeSelectedCell()
+        {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.transform.TryGetComponent<BaseCell>(out targetCell))
             {
