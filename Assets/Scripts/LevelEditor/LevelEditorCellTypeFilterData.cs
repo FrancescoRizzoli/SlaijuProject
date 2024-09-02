@@ -12,10 +12,17 @@ namespace LevelEditor
         public Sprite cellSprite;
     }
 
+    public enum EditorCellFilterType
+    {
+        Environment,
+        Objective,
+        Road
+    }
+
     [CreateAssetMenu(fileName = "LevelEditorCellTypeFilterData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellTypeFilterData")]
     public class LevelEditorCellTypeFilterData : ScriptableObject
     {
-        public string filterName = "";
+        public EditorCellFilterType filterType;
         public EditorCell[] editorCell = Array.Empty<EditorCell>();
     }
 }

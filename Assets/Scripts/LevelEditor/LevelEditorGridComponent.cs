@@ -72,7 +72,7 @@ namespace LevelEditor
         }
 
         [ContextMenu("Test EnvironmentCellSelected")]
-        private void EnvironmentCellSelected()
+        public void EnvironmentCellSelected()
         {
             ResetVisualEditorElements();
 
@@ -86,7 +86,7 @@ namespace LevelEditor
         }
 
         [ContextMenu("Test RoadCellSelected")]
-        private void RoadCellSelected()
+        public void RoadCellSelected()
         {
             ResetVisualEditorElements();
 
@@ -106,7 +106,7 @@ namespace LevelEditor
         }
 
         [ContextMenu("Test StartCellSelected")]
-        private void StartCellSelected()
+        public void StartCellSelected()
         {
             ResetVisualEditorElements();
 
@@ -119,7 +119,7 @@ namespace LevelEditor
         }
 
         [ContextMenu("Test ExitCellSelected")]
-        private void ExitCellSelected()
+        public void ExitCellSelected()
         {
             ResetVisualEditorElements();
 

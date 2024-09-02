@@ -15,14 +15,19 @@ namespace LevelEditor
         [SerializeField] private Transform scrollViewContentTransform = null;
         [SerializeField] private TextMeshProUGUI setNamePrefab = null;
         [SerializeField] private GameObject setGridGroupPrefab = null;
-        [SerializeField] private Button cellEditorButtonPrefab = null;
+        [SerializeField] private LevelEditorCellButton cellEditorButtonPrefab = null;
 
+        private LevelEditorController editorController = null;
+        private LevelEditorSpawner cellSpawner = null;
         private int currentCellTypeFilterIndex = -1;
         private string currentSetName = "";
         private Transform currentGridTransform = null;
 
-        private void Start()
+        public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
         {
+            editorController = controller;
+            cellSpawner = spawner;
+
             cellTypeFilterNextButton.onClick.AddListener(NextCellTypeFilter);
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
 
@@ -41,7 +46,7 @@ namespace LevelEditor
                     currentCellTypeFilterIndex += cellTypeFilterDataArray.Length;
             
 
-            cellTypeFilterName.text = cellTypeFilterDataArray[currentCellTypeFilterIndex].filterName;
+            cellTypeFilterName.text = cellTypeFilterDataArray[currentCellTypeFilterIndex].filterType.ToString();
             SetCellTypeFilter(currentCellTypeFilterIndex);
         }
 
@@ -67,7 +72,7 @@ namespace LevelEditor
                     currentSetName = ec.setHeaderName;
                     currentGridTransform = Instantiate(setGridGroupPrefab, scrollViewContentTransform).transform;
                 }
-                Instantiate(cellEditorButtonPrefab, currentGridTransform).image.sprite = ec.cellSprite;
+                Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform).Init(cellTypeFilterDataArray[currentCellTypeFilterIndex].filterType, ec, editorController, cellSpawner);
             }
 
             currentSetName = "";
