@@ -22,22 +22,17 @@ namespace LevelEditor
             VisualizeSelectedCell();
 
             if (Input.GetButtonDown("Fire1") && controller.newSelectedBaseCell != null && currentSelectedGridBaseCell != null)
-                PositionCell().Forget();
-        }
+            {
+                controller.currentGrid.PositionCell(controller.newSelectedBaseCell, currentSelectedGridBaseCell).Forget();
 
-        private async UniTask PositionCell()
-        {
-            //Vector2Int cellGridIndexes = controller.currentGrid.GetCellIndexes(currentSelectedGridBaseCell);
-            controller.newSelectedBaseCell.transform.parent = currentSelectedGridBaseCell.transform.parent;
-            //controller.currentGrid.gridArray[cellGridIndexes.x, cellGridIndexes.y] = controller.newSelectedBaseCell;
-            Destroy(currentSelectedGridBaseCell.gameObject);
-
-            await UniTask.NextFrame();
-
-            controller.newSelectedBaseCell = null;
-            currentSelectedGridBaseCell = null;
-            controller.currentGrid.InitializeGrid();
-            controller.currentGrid.ResetVisualEditorElements();
+                if (controller.newSelectedBaseCell.ID == CellID.LevelEditorEmpty && controller.currentGrid.nonEmptyCellsCounter > 0)
+                    controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);
+                else
+                {
+                    currentSelectedGridBaseCell = null;
+                    controller.newSelectedBaseCell = null;
+                }
+            }
         }
 
         private void VisualizeSelectedCell()

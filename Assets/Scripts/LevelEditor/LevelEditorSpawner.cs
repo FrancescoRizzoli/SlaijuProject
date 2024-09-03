@@ -5,6 +5,8 @@ namespace LevelEditor
 {
     public class LevelEditorSpawner : MonoBehaviour
     {
+        [SerializeField] private BaseCell editorEmptyCellPrefab = null;
+
         private LevelEditorController controller = null;
 
         public void Init(LevelEditorController editorController, LevelEditorGridComponent gridPrefab)
@@ -18,14 +20,11 @@ namespace LevelEditor
             //TODO
         }
 
-        public void SpawnCell(BaseCell cellPrefab)
+        public BaseCell SpawnCell(BaseCell cellPrefab)
         {
-            if (controller.newSelectedBaseCell != null)
-                Destroy(controller.newSelectedBaseCell.gameObject);
-
-            BaseCell cell = Instantiate(cellPrefab);
+            BaseCell cell = Instantiate(cellPrefab != null ? cellPrefab : editorEmptyCellPrefab);
             cell.gameObject.SetActive(false);
-            controller.newSelectedBaseCell = cell;
+            return cell;
         }
     }
 }

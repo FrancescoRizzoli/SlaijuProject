@@ -7,38 +7,38 @@ namespace LevelEditor
     [RequireComponent(typeof(Button))]
     public class LevelEditorCellButton : MonoBehaviour
     {
-        private Button button = null;
-        private BaseCell cellPrefab = null;
-        private LevelEditorSpawner cellSpawner;
+        protected Button button = null;
+        protected BaseCell cellPrefab = null;
+        protected LevelEditorController controller = null;
 
-        public void Init(EditorCellFilterType cellType, EditorCell cellData, LevelEditorController editorController, LevelEditorSpawner cellSpawner)
+        public void Init(EditorCellType cellType, EditorCell cellData, LevelEditorController editorController)
         {
+            controller = editorController;
             button = GetComponent<Button>();
             button.image.sprite = cellData.cellSprite;
             cellPrefab = cellData.cellPrefab;
-            this.cellSpawner = cellSpawner;
-            SetOnClickEvents(cellType, editorController);
+            SetOnClickEvents(cellType);
         }
 
-        private void SpawnRequested() => cellSpawner.SpawnCell(cellPrefab);
+        protected void SpawnRequested() => controller.RequestNewCell(cellPrefab);
 
-        private void SetOnClickEvents(EditorCellFilterType cellType, LevelEditorController editorController)
+        private void SetOnClickEvents(EditorCellType cellType)
         {
             switch (cellType)
             {
-                case EditorCellFilterType.Environment:
-                    button.onClick.AddListener(editorController.currentGrid.EnvironmentCellSelected);
+                case EditorCellType.Environment:
+                    button.onClick.AddListener(controller.currentGrid.EnvironmentCellSelected);
                     break;
-                case EditorCellFilterType.Objective:
+                case EditorCellType.Objective:
                     if (cellPrefab.ID == CellID.Start)
-                        button.onClick.AddListener(editorController.currentGrid.StartCellSelected);
+                        button.onClick.AddListener(controller.currentGrid.StartCellSelected);
                     else if (cellPrefab.ID == CellID.Exit)
-                        button.onClick.AddListener(editorController.currentGrid.ExitCellSelected);
+                        button.onClick.AddListener(controller.currentGrid.ExitCellSelected);
                     else
-                        button.onClick.AddListener(editorController.currentGrid.RoadCellSelected);
+                        button.onClick.AddListener(controller.currentGrid.RoadCellSelected);
                     break;
-                case EditorCellFilterType.Road:
-                    button.onClick.AddListener(editorController.currentGrid.RoadCellSelected);
+                case EditorCellType.Road:
+                    button.onClick.AddListener(controller.currentGrid.RoadCellSelected);
                     break;
             }
 

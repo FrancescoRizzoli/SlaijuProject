@@ -16,6 +16,8 @@ namespace LevelEditor
         [SerializeField] private TextMeshProUGUI setNamePrefab = null;
         [SerializeField] private GameObject setGridGroupPrefab = null;
         [SerializeField] private LevelEditorCellButton cellEditorButtonPrefab = null;
+        [Header("Trash Button")]
+        [SerializeField] private LevelEditorTrashButton trashButton = null;
 
         private LevelEditorController editorController = null;
         private LevelEditorSpawner cellSpawner = null;
@@ -30,6 +32,8 @@ namespace LevelEditor
 
             cellTypeFilterNextButton.onClick.AddListener(NextCellTypeFilter);
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
+
+            trashButton.Init(editorController);
 
             SelectFilter(true);
         }
@@ -72,7 +76,7 @@ namespace LevelEditor
                     currentSetName = ec.setHeaderName;
                     currentGridTransform = Instantiate(setGridGroupPrefab, scrollViewContentTransform).transform;
                 }
-                Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform).Init(cellTypeFilterDataArray[currentCellTypeFilterIndex].filterType, ec, editorController, cellSpawner);
+                Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform).Init(cellTypeFilterDataArray[currentCellTypeFilterIndex].filterType, ec, editorController);
             }
 
             currentSetName = "";

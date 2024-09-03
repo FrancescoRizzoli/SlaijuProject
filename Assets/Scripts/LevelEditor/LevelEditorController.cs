@@ -6,7 +6,7 @@ namespace LevelEditor
     public class LevelEditorController : MonoBehaviour
     {
         [SerializeField] private LevelEditorUIController uiController = null;
-        [SerializeField] private LevelEditorSpawner cellSpawner = null;
+        public LevelEditorSpawner cellSpawner = null;
         [SerializeField] private LevelEditorGridPlayerInput playerInput = null;
         [Header("Grid Prefabs")]
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
@@ -26,15 +26,20 @@ namespace LevelEditor
         }
 
 
-        private Ray ray;
-        private RaycastHit hit;
-
         private void Update()
         {
             if (newSelectedBaseCell == null)
                 return;
 
             playerInput.ProcessInput();
+        }
+
+        public void RequestNewCell(BaseCell prefab)
+        {
+            if (newSelectedBaseCell != null)
+                Destroy(newSelectedBaseCell.gameObject);
+
+            newSelectedBaseCell = cellSpawner.SpawnCell(prefab);
         }
     }
 }

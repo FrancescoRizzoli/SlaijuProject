@@ -17,7 +17,8 @@ namespace Grid
         Generator,
         Start,
         StraightRoad,
-        CrossRoad
+        CrossRoad,
+        LevelEditorEmpty
     }
 
     public class BaseCell : MonoBehaviour

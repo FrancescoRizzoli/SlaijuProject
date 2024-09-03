@@ -12,7 +12,7 @@ namespace LevelEditor
         public Sprite cellSprite;
     }
 
-    public enum EditorCellFilterType
+    public enum EditorCellType
     {
         Environment,
         Objective,
@@ -22,7 +22,7 @@ namespace LevelEditor
     [CreateAssetMenu(fileName = "LevelEditorCellTypeFilterData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellTypeFilterData")]
     public class LevelEditorCellTypeFilterData : ScriptableObject
     {
-        public EditorCellFilterType filterType;
+        public EditorCellType filterType;
         public EditorCell[] editorCell = Array.Empty<EditorCell>();
     }
 }

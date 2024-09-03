@@ -1,4 +1,6 @@
+using Cysharp.Threading.Tasks;
 using Grid;
+using Grid.Cell;
 using System;
 using UnityEngine;
 
@@ -11,6 +13,10 @@ namespace LevelEditor
         [SerializeField] private BaseCell[] levelButtonArray = Array.Empty<BaseCell>(); 
 
         private GameObject[,] grayBox;
+        public int nonEmptyCellsCounter { get; private set; } = 0;
+
+        public delegate void CellPositionedEvent();
+        public event CellPositionedEvent OnCellPositioned = null;
 
         protected override void Start()
         {
@@ -36,6 +42,28 @@ namespace LevelEditor
                     grayBox[i,j] = currentGrayBox;
                 }
             }
+        }
+
+        public async UniTask PositionCell(BaseCell newCell, BaseCell toBeReplacedCell)
+        {
+            if (newCell.ID != CellID.LevelEditorEmpty)
+                nonEmptyCellsCounter++;
+            else
+                nonEmptyCellsCounter--;
+
+            newCell.transform.parent = toBeReplacedCell.transform.parent;
+            Destroy(toBeReplacedCell.gameObject);
+
+            await UniTask.NextFrame();
+
+            InitializeGrid();
+
+            if (newCell.ID != CellID.LevelEditorEmpty)
+                ResetVisualEditorElements();
+            else if (nonEmptyCellsCounter == 0)
+                ResetVisualEditorElements();
+
+            OnCellPositioned?.Invoke();
         }
 
         public Vector2Int GetCellIndexes(BaseCell targetCell)
@@ -137,6 +165,19 @@ namespace LevelEditor
                 for (int j = 0; j < height; j++)
                     if (i != width - 1 || j == 0 || j == height - 1)
                         grayBox[i, j].SetActive(true);
+
+            TurnOnCellSelectedView();
+        }
+
+        public void CellRemoverSelected()
+        {
+            ResetVisualEditorElements();
+
+            foreach (BaseCell levelButton in levelButtonArray)
+                for (int i = 0; i < width; i++)
+                    for (int j = 0; j < height; j++)
+                        if (levelButton == gridArray[i, j] || gridArray[i,j].ID == CellID.LevelEditorEmpty)
+                            grayBox[i, j].SetActive(true);
 
             TurnOnCellSelectedView();
         }
