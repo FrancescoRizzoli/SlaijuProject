@@ -1,7 +1,5 @@
 using Architecture;
 using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Grid.Cell
@@ -12,6 +10,7 @@ namespace Grid.Cell
         [SerializeField] private GameObject defaultGraphic = null;
         [SerializeField] private GameObject SelectedGraphic = null;
         [SerializeField] private ParticleSystem[] particleSystems = null;
+        [SerializeField] private GameObject levelEditorSelectedGraphic = null;
 
         private void Start()
         {
@@ -47,10 +46,10 @@ namespace Grid.Cell
 
         }
 
-        public void ToggleSelectedGraphic(bool value)
+        public void ToggleLevelEditorGraphic(bool value)
         {
-            if (SelectedGraphic != null)
-                SelectedGraphic.SetActive(value);
+            if (levelEditorSelectedGraphic != null)
+                levelEditorSelectedGraphic.SetActive(value);
         }
     }
 }

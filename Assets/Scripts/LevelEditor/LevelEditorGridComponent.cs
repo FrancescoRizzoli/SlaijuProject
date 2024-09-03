@@ -70,7 +70,7 @@ namespace LevelEditor
             for (int i =0; i < width; i++)
                 for(int j = 0; j<height; j++)
                     if (gridArray[i, j].SelectDeselectView != null)
-                        gridArray[i,j].SelectDeselectView.ToggleSelectedGraphic(false);
+                        gridArray[i,j].SelectDeselectView.ToggleLevelEditorGraphic(false);
         }
 
         private void TurnOnCellSelectedView()
@@ -78,7 +78,7 @@ namespace LevelEditor
             for (int i = 0; i < width; i++)
                 for (int j = 0; j < height; j++)
                     if (!grayBox[i, j].activeSelf && gridArray[i, j].SelectDeselectView != null)
-                        gridArray[i, j].SelectDeselectView.ToggleSelectedGraphic(true);
+                        gridArray[i, j].SelectDeselectView.ToggleLevelEditorGraphic(true);
         }
 
         [ContextMenu("Test EnvironmentCellSelected")]

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Grid;
 using UnityEngine;
 
@@ -21,15 +22,18 @@ namespace LevelEditor
             VisualizeSelectedCell();
 
             if (Input.GetButtonDown("Fire1") && controller.newSelectedBaseCell != null && currentSelectedGridBaseCell != null)
-                PositionCell();
+                PositionCell().Forget();
         }
 
-        private void PositionCell()
+        private async UniTask PositionCell()
         {
-            Vector2Int cellGridIndexes = controller.currentGrid.GetCellIndexes(currentSelectedGridBaseCell);
+            //Vector2Int cellGridIndexes = controller.currentGrid.GetCellIndexes(currentSelectedGridBaseCell);
             controller.newSelectedBaseCell.transform.parent = currentSelectedGridBaseCell.transform.parent;
-            controller.currentGrid.gridArray[cellGridIndexes.x, cellGridIndexes.y] = controller.newSelectedBaseCell;
+            //controller.currentGrid.gridArray[cellGridIndexes.x, cellGridIndexes.y] = controller.newSelectedBaseCell;
             Destroy(currentSelectedGridBaseCell.gameObject);
+
+            await UniTask.NextFrame();
+
             controller.newSelectedBaseCell = null;
             currentSelectedGridBaseCell = null;
             controller.currentGrid.InitializeGrid();
