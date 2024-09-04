@@ -21,17 +21,22 @@ namespace LevelEditor
         {
             VisualizeSelectedCell();
 
-            if (Input.GetButtonDown("Fire1") && controller.newSelectedBaseCell != null && currentSelectedGridBaseCell != null)
+            if (Input.GetButtonDown("Fire1"))
             {
-                controller.currentGrid.PositionCell(controller.newSelectedBaseCell, currentSelectedGridBaseCell).Forget();
-
-                if (controller.newSelectedBaseCell.ID == CellID.LevelEditorEmpty && controller.currentGrid.nonEmptyCellsCounter > 0)
-                    controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);
-                else
+                if (controller.newSelectedBaseCell != null && currentSelectedGridBaseCell != null)
                 {
-                    currentSelectedGridBaseCell = null;
-                    controller.newSelectedBaseCell = null;
+                    controller.currentGrid.PositionCell(controller.newSelectedBaseCell, currentSelectedGridBaseCell).Forget();
+
+                    if (controller.newSelectedBaseCell.ID == CellID.LevelEditorEmpty && controller.currentGrid.nonEmptyCellsCounter > 0)
+                        controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);
+                    else
+                    {
+                        currentSelectedGridBaseCell = null;
+                        controller.newSelectedBaseCell = null;
+                    }
                 }
+                else if (targetCell != null && targetCell.ID != CellID.LevelEditorEmpty)
+                    targetCell.transform.Rotate(new Vector3(0.0f, 90.0f, 0.0f));
             }
         }
 
@@ -40,7 +45,7 @@ namespace LevelEditor
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.transform.TryGetComponent<BaseCell>(out targetCell))
             {
-                if (targetCell != currentSelectedGridBaseCell && targetCell != controller.newSelectedBaseCell)
+                if (targetCell != currentSelectedGridBaseCell && targetCell != controller.newSelectedBaseCell && controller.newSelectedBaseCell != null)
                 {
                     DisableNewSelectedCell();
                     currentSelectedGridBaseCell = targetCell;
@@ -61,7 +66,8 @@ namespace LevelEditor
                 currentSelectedGridBaseCell = null;
             }
 
-            controller.newSelectedBaseCell.gameObject.SetActive(false);
+            if (controller.newSelectedBaseCell != null)
+                controller.newSelectedBaseCell.gameObject.SetActive(false);
         }
     }
 }

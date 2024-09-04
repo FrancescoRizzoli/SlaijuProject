@@ -28,8 +28,10 @@ namespace LevelEditor
 
         private void Update()
         {
+            /*
             if (newSelectedBaseCell == null)
                 return;
+             */
 
             playerInput.ProcessInput();
         }
