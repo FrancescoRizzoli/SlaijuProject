@@ -39,6 +39,10 @@ namespace Gameplay
         TMP_Text moveLoose;
         [SerializeField]
         TMP_Text timeCounterLoose;
+        [SerializeField]
+        TMP_Text timePause;
+        [SerializeField]
+        TMP_Text movesPause;
 
         bool pauseState = false;
 
@@ -82,6 +86,8 @@ namespace Gameplay
             Debug.Log("pauseState" + pauseState);
             playerInput.enabled = !pauseState;
             UIManager.instance.ManageScreen(ScreenType.Pause, pauseState);
+            timePause.text = timeCounter.elapsedTime.ToString("F2");
+            movesPause.text = moves.text;
             if (pauseState)
                 levelSpeed.Freeze();
             else
