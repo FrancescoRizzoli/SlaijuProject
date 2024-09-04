@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MI_GrassEnvStartExit
   m_Shader: {fileID: 4800000, guid: a3968bfb95fccf04f89e592796a1a609, type: 3}
-  m_Parent: {fileID: 2100000, guid: ae13ccc1d0532564f9c4f0b72cb673b4, type: 2}
+  m_Parent: {fileID: 2100000, guid: 50d158c735640424b841d61372a75c38, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - USE_RT
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GroundTex:
-        m_Texture: {fileID: 2800000, guid: a0a9920b4dfe6b64e9a930ba2b0f2c31, type: 3}
+        m_Texture: {fileID: 2800000, guid: e588d3e76d7b0b643aea74cb3db554a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoGrassTex:
@@ -33,6 +33,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _GrassSaturation: 1.92
+    m_Colors:
+    - _Color: {r: 0.38039216, g: 0.6509804, b: 0.24313726, a: 1}
+    - _GroundColor: {r: 0.7490196, g: 0.73333335, b: 0.28627452, a: 1}
   m_BuildTextureStacks: []
