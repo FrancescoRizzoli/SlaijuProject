@@ -10,7 +10,6 @@ namespace Grid.Cell
         [SerializeField] private GameObject defaultGraphic = null;
         [SerializeField] private GameObject SelectedGraphic = null;
         [SerializeField] private ParticleSystem[] particleSystems = null;
-        [SerializeField] private GameObject levelEditorSelectedGraphic = null;
 
         private void Start()
         {
@@ -44,12 +43,6 @@ namespace Grid.Cell
             }
             await UniTask.NextFrame();
 
-        }
-
-        public void ToggleLevelEditorGraphic(bool value)
-        {
-            if (levelEditorSelectedGraphic != null)
-                levelEditorSelectedGraphic.SetActive(value);
         }
     }
 }

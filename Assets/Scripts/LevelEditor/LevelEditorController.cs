@@ -8,11 +8,16 @@ namespace LevelEditor
         [SerializeField] private LevelEditorUIController uiController = null;
         public LevelEditorSpawner cellSpawner = null;
         [SerializeField] private LevelEditorGridPlayerInput playerInput = null;
+        [Header("Actions")]
+        [SerializeField] private LevelEditorRotateCellAction rotateCellAction = null;
+        [SerializeField] private LevelEditorPositionCellAction positionCellAction = null;
+        [SerializeField] private LevelEditorDeleteCellAction deleteCellAction = null;
         [Header("Grid Prefabs")]
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
         [SerializeField] private LevelEditorGridComponent smallGridPrefab = null;
 
         public LevelEditorGridComponent currentGrid { get; private set; } = null;
+        public ALevelEditorAction currentAction { get; private set; } = null;
 
         public BaseCell newSelectedBaseCell { get; set; } = null;
 
@@ -23,25 +28,32 @@ namespace LevelEditor
             uiController.Init(this, cellSpawner);
             cellSpawner.Init(this, currentGrid);
             playerInput.Init(this);
+
+            currentAction = rotateCellAction;
         }
 
 
         private void Update()
         {
-            /*
-            if (newSelectedBaseCell == null)
+            if (currentAction == null)
                 return;
-             */
 
             playerInput.ProcessInput();
         }
 
-        public void RequestNewCell(BaseCell prefab)
+        public void RequestNewCellPositioning(BaseCell prefab)
         {
             if (newSelectedBaseCell != null)
                 Destroy(newSelectedBaseCell.gameObject);
 
             newSelectedBaseCell = cellSpawner.SpawnCell(prefab);
+
+            if (prefab != null)
+                currentAction = positionCellAction;
+            else
+                currentAction = deleteCellAction;
         }
+
+        public void GoToStandardAction() => currentAction = rotateCellAction;
     }
 }

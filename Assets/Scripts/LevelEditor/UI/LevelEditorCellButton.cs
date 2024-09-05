@@ -20,7 +20,7 @@ namespace LevelEditor
             SetOnClickEvents(cellType);
         }
 
-        protected void SpawnRequested() => controller.RequestNewCell(cellPrefab);
+        protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab);
 
         private void SetOnClickEvents(EditorCellType cellType)
         {
