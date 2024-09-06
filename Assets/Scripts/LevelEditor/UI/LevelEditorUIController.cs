@@ -19,6 +19,8 @@ namespace LevelEditor
         [SerializeField] private TextMeshProUGUI setNamePrefab = null;
         [SerializeField] private GameObject setGridGroupPrefab = null;
         [SerializeField] private LevelEditorCellButton cellEditorButtonPrefab = null;
+        [Header("Recently used cells")]
+        [SerializeField] private LevelEditorRecentlyUsedCells recentlyUsedCells = null;
         [Header("Trash Button")]
         [SerializeField] private LevelEditorTrashButton trashButton = null;
 
@@ -40,6 +42,8 @@ namespace LevelEditor
 
             trashButton.Init(editorController);
             editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
+
+            recentlyUsedCells.Init(editorController);
 
             PopulateViewport();
             SelectFilter(true);
@@ -93,7 +97,7 @@ namespace LevelEditor
                     if(ec.limited)
                         limitedCellButton.Add(button);
 
-                    button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController);
+                    button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController, recentlyUsedCells);
                 }
 
                 currentSetName = "";

@@ -7,32 +7,44 @@ namespace LevelEditor
 {
     public class LevelEditorCellButton : MonoBehaviour
     {
-        [SerializeField] protected Button button = null;
+        public Button button = null;
         [SerializeField] private TextMeshProUGUI quantityTextArea = null;
 
         private bool limitQuantity = false;
         private int maxQuantity = 1;
         private int currentQuantity;
+        
 
         protected LevelEditorController controller = null;
-        public BaseCell cellPrefab { get; protected set; } = null;
+        protected LevelEditorRecentlyUsedCells recentCells = null;
+        public BaseCell cellPrefab { get; set; } = null;
+        public EditorCellType cellType { get; set; }
 
-        public void Init(EditorCellType cellType, EditorCell cellData, LevelEditorController editorController)
+        public void Init(EditorCellType cellType, EditorCell cellData, LevelEditorController editorController, LevelEditorRecentlyUsedCells recentlyUsedCells)
         {
+            this.cellType = cellType;
             currentQuantity = cellData.maxQuantity;
             limitQuantity = cellData.limited;
             controller = editorController;
+            recentCells = recentlyUsedCells;
             button.image.sprite = cellData.cellSprite;
             cellPrefab = cellData.cellPrefab;
-            SetOnClickEvents(cellType);
+            SetOnClickEvents();
 
             if (limitQuantity)
                 quantityTextArea.gameObject.SetActive(true);
         }
 
+        public virtual void Init(LevelEditorController editorController)
+        {
+            controller = editorController;
+        }
+
         protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab);
 
-        private void SetOnClickEvents(EditorCellType cellType)
+        protected void HandleRecentCellClick() => recentCells.AddCell(this);
+
+        public void SetOnClickEvents()
         {
             switch (cellType)
             {
@@ -56,6 +68,8 @@ namespace LevelEditor
 
             if (limitQuantity)
                 button.onClick.AddListener(ListenCellPositioning);
+            else if (recentCells != null)
+                button.onClick.AddListener(HandleRecentCellClick);
         }
 
         private void ListenCellPositioning()

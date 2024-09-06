@@ -6,7 +6,7 @@ namespace LevelEditor
     {
         private bool clicked = false;
         
-        public void Init(LevelEditorController editorController)
+        public override void Init(LevelEditorController editorController)
         {
             controller = editorController;
             button = GetComponent<Button>();
