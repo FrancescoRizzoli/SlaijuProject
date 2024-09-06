@@ -1,23 +1,33 @@
 using Grid;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace LevelEditor
 {
-    [RequireComponent(typeof(Button))]
     public class LevelEditorCellButton : MonoBehaviour
     {
-        protected Button button = null;
-        protected BaseCell cellPrefab = null;
+        [SerializeField] protected Button button = null;
+        [SerializeField] private TextMeshProUGUI quantityTextArea = null;
+
+        private bool limitQuantity = false;
+        private int maxQuantity = 1;
+        private int currentQuantity;
+
         protected LevelEditorController controller = null;
+        public BaseCell cellPrefab { get; protected set; } = null;
 
         public void Init(EditorCellType cellType, EditorCell cellData, LevelEditorController editorController)
         {
+            currentQuantity = cellData.maxQuantity;
+            limitQuantity = cellData.limited;
             controller = editorController;
-            button = GetComponent<Button>();
             button.image.sprite = cellData.cellSprite;
             cellPrefab = cellData.cellPrefab;
             SetOnClickEvents(cellType);
+
+            if (limitQuantity)
+                quantityTextArea.gameObject.SetActive(true);
         }
 
         protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab);
@@ -43,6 +53,31 @@ namespace LevelEditor
             }
 
             button.onClick.AddListener(SpawnRequested);
+
+            if (limitQuantity)
+                button.onClick.AddListener(ListenCellPositioning);
+        }
+
+        private void ListenCellPositioning()
+        {
+            controller.positionCellAction.OnCellPositioning += HandleCellPositioned;
+        }
+
+        private void HandleCellPositioned()
+        {
+            if (--currentQuantity == 0)
+                button.interactable = false;
+
+            quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
+        }
+
+        public void IncrementQuantityAvailable()
+        {
+            if (currentQuantity == 0)
+                button.interactable = true;
+
+            currentQuantity++;
+            quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
         }
     }
 }

@@ -10,8 +10,8 @@ namespace LevelEditor
         [SerializeField] private LevelEditorGridPlayerInput playerInput = null;
         [Header("Actions")]
         [SerializeField] private LevelEditorRotateCellAction rotateCellAction = null;
-        [SerializeField] private LevelEditorPositionCellAction positionCellAction = null;
-        [SerializeField] private LevelEditorDeleteCellAction deleteCellAction = null;
+        public LevelEditorPositionCellAction positionCellAction = null;
+        public LevelEditorDeleteCellAction deleteCellAction = null;
         [Header("Grid Prefabs")]
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
         [SerializeField] private LevelEditorGridComponent smallGridPrefab = null;

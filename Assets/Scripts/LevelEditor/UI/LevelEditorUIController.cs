@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +13,7 @@ namespace LevelEditor
         [SerializeField] private TextMeshProUGUI cellTypeFilterName = null;
         [SerializeField] private Button cellTypeFilterNextButton = null;
         [SerializeField] private Button cellTypeFilterPreviousButton = null;
+        [SerializeField] private GameObject filterParentGOPrefab = null;
         [Header("Scroll view")]
         [SerializeField] private Transform scrollViewContentTransform = null;
         [SerializeField] private TextMeshProUGUI setNamePrefab = null;
@@ -24,6 +27,8 @@ namespace LevelEditor
         private int currentCellTypeFilterIndex = -1;
         private string currentSetName = "";
         private Transform currentGridTransform = null;
+        private GameObject[] filterGOArray;
+        private List<LevelEditorCellButton> limitedCellButton = new List<LevelEditorCellButton>();
 
         public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
         {
@@ -34,7 +39,9 @@ namespace LevelEditor
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
 
             trashButton.Init(editorController);
+            editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
 
+            PopulateViewport();
             SelectFilter(true);
         }
 
@@ -56,30 +63,49 @@ namespace LevelEditor
 
         private void SetCellTypeFilter(int index)
         {
-            ClearViewport();
-            PopulateViewport(index);
+            for(int i = 0; i < filterGOArray.Length; i++)
+                if (i == index)
+                    filterGOArray[i].SetActive(true);
+                else
+                    filterGOArray[i].SetActive(false);
         }
 
-        private void ClearViewport()
+        private void PopulateViewport()
         {
-            foreach(Transform child in scrollViewContentTransform)
-                Destroy(child.gameObject);
-        }
+            filterGOArray = new GameObject[cellTypeFilterDataArray.Length];
 
-        private void PopulateViewport(int index)
-        {
-            foreach (EditorCell ec in cellTypeFilterDataArray[currentCellTypeFilterIndex].editorCell)
+            for (int i = 0; i < cellTypeFilterDataArray.Length; i++)
             {
-                if (currentSetName != ec.setHeaderName)
-                {
-                    Instantiate(setNamePrefab, scrollViewContentTransform).text = ec.setHeaderName;
-                    currentSetName = ec.setHeaderName;
-                    currentGridTransform = Instantiate(setGridGroupPrefab, scrollViewContentTransform).transform;
-                }
-                Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform).Init(cellTypeFilterDataArray[currentCellTypeFilterIndex].filterType, ec, editorController);
-            }
+                GameObject filterGO = Instantiate(filterParentGOPrefab, scrollViewContentTransform);
+                filterGO.name = $"Filter [{i}]";
+                filterGOArray[i] = filterGO;
 
-            currentSetName = "";
+                foreach (EditorCell ec in cellTypeFilterDataArray[i].editorCell)
+                {
+                    if (currentSetName != ec.setHeaderName)
+                    {
+                        Instantiate(setNamePrefab, filterGO.transform).text = ec.setHeaderName;
+                        currentSetName = ec.setHeaderName;
+                        currentGridTransform = Instantiate(setGridGroupPrefab, filterGO.transform).transform;
+                    }
+                    LevelEditorCellButton button = Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform);
+
+                    if(ec.limited)
+                        limitedCellButton.Add(button);
+
+                    button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController);
+                }
+
+                currentSetName = "";
+
+            }
+        }
+
+        private void HandleCellDeleted(Type cellType)
+        {
+            foreach (LevelEditorCellButton button in limitedCellButton)
+                if (cellType == button.cellPrefab.GetType())
+                    button.IncrementQuantityAvailable();
         }
     }
 }

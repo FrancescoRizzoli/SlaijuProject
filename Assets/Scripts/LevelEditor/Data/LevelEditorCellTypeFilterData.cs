@@ -10,6 +10,8 @@ namespace LevelEditor
         public string setHeaderName;
         public BaseCell cellPrefab;
         public Sprite cellSprite;
+        public bool limited;
+        [Min(0)] public int maxQuantity;
     }
 
     public enum EditorCellType

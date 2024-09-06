@@ -648,6 +648,8 @@ MonoBehaviour:
   moveWin: {fileID: 0}
   moveLoose: {fileID: 0}
   timeCounterLoose: {fileID: 0}
+  timePause: {fileID: 0}
+  movesPause: {fileID: 0}
 --- !u!114 &3730979853111916099 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3826540491742265450, guid: bbfeea484ce2e574bb4fcf2ffbf88ce7, type: 3}
@@ -798,9 +800,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2856952055186322445, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609159459806547576, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4609159459806547576, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000014305115
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 4734123517882179304, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
       propertyPath: m_AnchorMax.y
@@ -979,9 +989,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 628365997}
     - target: {fileID: 7168660718372676389, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
+      propertyPath: filterParentGOPrefab
+      value: 
+      objectReference: {fileID: 3376244976747771173, guid: 9d9ba6031dd2ed645b2dc4ebe99fcff6, type: 3}
+    - target: {fileID: 7168660718372676389, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
       propertyPath: cellEditorButtonPrefab
       value: 
-      objectReference: {fileID: 6635947655715005267, guid: 0e4f3ceed955c214296f7af9c1e30013, type: 3}
+      objectReference: {fileID: 3594979141348493654, guid: 0e4f3ceed955c214296f7af9c1e30013, type: 3}
     - target: {fileID: 7443792982789816830, guid: 00afebbd3d64a9f42a5938f343af5825, type: 3}
       propertyPath: m_Value
       value: 1
@@ -1023,6 +1037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6feb5f4aa5a36be4fae08cd07e6a907d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  quantityTextArea: {fileID: 0}
 --- !u!114 &6019028340681325823
 MonoBehaviour:
   m_ObjectHideFlags: 0

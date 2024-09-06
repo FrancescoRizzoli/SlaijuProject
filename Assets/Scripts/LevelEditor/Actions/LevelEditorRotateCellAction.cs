@@ -8,13 +8,15 @@ namespace LevelEditor
     {
         public override void HandleClick(BaseCell targetCell)
         {
-            if (targetCell.ID != CellID.LevelEditorEmpty && Array.IndexOf(controller.currentGrid.levelButtonArray, targetCell) == -1)
-                targetCell.transform.Rotate(new Vector3(0.0f, 90.0f, 0.0f));
+            if (targetCell.ID == CellID.LevelEditorEmpty || targetCell.ID == CellID.Start || targetCell.ID == CellID.Exit || Array.IndexOf(controller.currentGrid.levelButtonArray, targetCell) != -1)
+                return;
+            
+            targetCell.transform.Rotate(new Vector3(0.0f, 90.0f, 0.0f));
         }
 
         public override void HandleGridVisualization(BaseCell targetCell)
         {
-            if (targetCell != null && (targetCell.ID == CellID.LevelEditorEmpty || Array.IndexOf(controller.currentGrid.levelButtonArray, targetCell) != -1))
+            if (targetCell != null && (targetCell.ID == CellID.LevelEditorEmpty || targetCell.ID == CellID.Start || targetCell.ID == CellID.Exit || Array.IndexOf(controller.currentGrid.levelButtonArray, targetCell) != -1))
             {
                 ToggleVisuals(true);
                 return;

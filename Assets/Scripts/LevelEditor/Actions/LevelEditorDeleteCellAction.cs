@@ -1,12 +1,20 @@
 using Cysharp.Threading.Tasks;
 using Grid;
+using System;
 
 namespace LevelEditor
 {
     public class LevelEditorDeleteCellAction : ALevelEditorAction
     {
+        public delegate void DeleteCellEvent(Type cell);
+        public event DeleteCellEvent OnCellDeleted = null;
+
+        public delegate void DeleteCompletedEvent();
+        public event DeleteCompletedEvent OnAllCellsDeleted = null;
+
         public override void HandleClick(BaseCell targetCell)
         {
+            OnCellDeleted?.Invoke(targetCell.GetType());
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
             controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleDeleteCubes(false);
             controller.newSelectedBaseCell.gameObject.SetActive(true);
@@ -14,11 +22,7 @@ namespace LevelEditor
             if (controller.currentGrid.nonEmptyCellsCounter > 0)
                 controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);
             else
-            {
-                controller.currentGrid.TurnOffVisualCells();
-                controller.newSelectedBaseCell = null;
-                controller.GoToStandardAction();
-            }
+                OnAllCellsDeleted?.Invoke();
         }
 
         public override void HandleGridVisualization(BaseCell targetCell)
