@@ -14,8 +14,6 @@ namespace LevelEditor
 
         public void AddCell(LevelEditorCellButton target)
         {
-            Debug.Log("Aggiungo?");
-
             // return if it's already in the recent list
             foreach (LevelEditorCellButton cell in cellButton)
                 if (cell.cellPrefab != null && cell.cellPrefab == target.cellPrefab)
