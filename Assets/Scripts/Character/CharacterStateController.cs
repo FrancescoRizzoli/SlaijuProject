@@ -132,6 +132,8 @@ namespace Character
         public void Warn(BaseCell cell, Vector3 predictedDirection)
         {
             Debug.Log("next direction" + predictedDirection);
+            if (cell.ID == CellID.CrossRoad)
+                return;
 
             if (CheckCellSafeSide(cell, predictedDirection))
                 return;
