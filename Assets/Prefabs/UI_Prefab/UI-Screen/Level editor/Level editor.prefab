@@ -62,8 +62,8 @@ GameObject:
   - component: {fileID: 5531256775257654487}
   - component: {fileID: 1515425228587518606}
   - component: {fileID: 4234475630882146453}
-  - component: {fileID: 545714411139413403}
   - component: {fileID: 4407262016998001060}
+  - component: {fileID: 1970486105677233405}
   m_Layer: 5
   m_Name: Level editor
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2698853301749036425}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -155,34 +155,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &545714411139413403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698853301749036425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194434e7fd783be43acbcc9056e0f82b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenType: 3
-  canvasGroup: {fileID: 0}
-  disableCameraRendering: 0
-  sortOrderModifier: 0
-  containerRectTransform: {fileID: 0}
-  animationType: 0
-  slideDirection: 0
-  animationDuration: 0
-  images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  nextButton: {fileID: 0}
-  prevButton: {fileID: 0}
 --- !u!95 &4407262016998001060
 Animator:
   serializedVersion: 5
@@ -204,6 +176,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1970486105677233405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698853301749036425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a47592f5bb5a4d948db11ff1fc2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenType: 16
+  canvasGroup: {fileID: 0}
+  disableCameraRendering: 0
+  sortOrderModifier: 0
+  containerRectTransform: {fileID: 0}
+  animationType: 0
+  slideDirection: 0
+  animationDuration: 0
 --- !u!1 &4187591954359009287
 GameObject:
   m_ObjectHideFlags: 0

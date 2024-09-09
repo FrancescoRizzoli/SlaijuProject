@@ -7,8 +7,6 @@ namespace UnityEngine.UI
     {
         [Header("Settings")]
         [SerializeField]
-        Button ToggleAudioButton;
-        [SerializeField]
         Slider barSFX;
         [SerializeField]
         Slider barMusic;

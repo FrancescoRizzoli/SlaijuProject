@@ -579,9 +579,9 @@ GameObject:
   - component: {fileID: 260250848839781195}
   - component: {fileID: 6029083330799428604}
   - component: {fileID: 7690617853705573055}
-  - component: {fileID: 8510650527585264172}
   - component: {fileID: 9092979899191727193}
   - component: {fileID: 7108945845090081}
+  - component: {fileID: 1396207965466951671}
   m_Layer: 5
   m_Name: Start Game
   m_TagString: Untagged
@@ -616,7 +616,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6117478796083918739}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -672,34 +672,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8510650527585264172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6117478796083918739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194434e7fd783be43acbcc9056e0f82b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenType: 0
-  canvasGroup: {fileID: 0}
-  disableCameraRendering: 0
-  sortOrderModifier: 0
-  containerRectTransform: {fileID: 0}
-  animationType: 0
-  slideDirection: 0
-  animationDuration: 0
-  images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  nextButton: {fileID: 0}
-  prevButton: {fileID: 0}
 --- !u!114 &9092979899191727193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,8 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e6df475a718842ab6f70c276d4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenType: 2
-  open: 1
+  screenType: 0
+  open: 0
 --- !u!95 &7108945845090081
 Animator:
   serializedVersion: 5
@@ -735,6 +707,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1396207965466951671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117478796083918739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12a47592f5bb5a4d948db11ff1fc2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenType: 0
+  canvasGroup: {fileID: 0}
+  disableCameraRendering: 0
+  sortOrderModifier: 0
+  containerRectTransform: {fileID: 0}
+  animationType: 0
+  slideDirection: 0
+  animationDuration: 0
 --- !u!1 &6592862696749629854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1269,10 @@ PrefabInstance:
     - target: {fileID: 2233901373478604797, guid: 615cad3e2e77cb44b9f5c8c1a45add3d, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233901373478604797, guid: 615cad3e2e77cb44b9f5c8c1a45add3d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5599595577024939095, guid: 615cad3e2e77cb44b9f5c8c1a45add3d, type: 3}
       propertyPath: m_Pivot.x
