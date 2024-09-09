@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using Grid;
+using Grid.Cell;
 using System;
 using UnityEngine;
 
@@ -12,16 +13,26 @@ namespace LevelEditor
         public BaseCell[] levelButtonArray = Array.Empty<BaseCell>(); 
 
         public LevelEditorVisualCell[,] visualCell { get; set; }
-        public int nonEmptyCellsCounter { get; private set; } = 0;
+        public int emptyCellsCounter { get; private set; } = 0;
+        public int maxEmptyCellNumber { get; private set; } = 0;
 
         public delegate void EditorGridEvent();
         public event EditorGridEvent OnCellPositioned = null;
         public event EditorGridEvent OnGridReady = null;
-        
+
+        public delegate void EditorGridSimulationConditionEvent(bool conditionValue);
+        public event EditorGridSimulationConditionEvent OnSimulationCondition = null;
+
         private GameObject visualCellsParent = null;
+        private GeneratorCell generatorCell = null;
+        private ShieldedCityCell shieldedCityCell = null;
+        private StartCell startCell = null;
+        private ExitCell exitCell = null;
 
         protected override void Start()
         {
+            maxEmptyCellNumber = (width * height) - levelButtonArray.Length;
+            emptyCellsCounter = maxEmptyCellNumber;
             base.Start();
             SpawnVisualCells();
             OnGridReady?.Invoke();
@@ -54,21 +65,36 @@ namespace LevelEditor
 
         public async UniTask PositionCell(BaseCell newCell, BaseCell toBeReplacedCell)
         {
-            if (newCell.ID != CellID.LevelEditorEmpty)
-                nonEmptyCellsCounter++;
-            else
-                nonEmptyCellsCounter--;
+            if (newCell.ID != CellID.LevelEditorEmpty && toBeReplacedCell.ID == CellID.LevelEditorEmpty)
+                emptyCellsCounter--;
+            else if (newCell.ID == CellID.LevelEditorEmpty)
+                emptyCellsCounter++;
 
             newCell.transform.parent = toBeReplacedCell.transform.parent;
             Destroy(toBeReplacedCell.gameObject);
+
+            if (newCell.ID == CellID.Generator)
+                generatorCell = (GeneratorCell)newCell;
+            else if (newCell.GetType() == typeof(ShieldedCityCell))
+                shieldedCityCell = (ShieldedCityCell)newCell;
+
+            if (generatorCell != null && shieldedCityCell != null)
+                generatorCell.targetCity = shieldedCityCell;
+
+            if (newCell.ID == CellID.Start)
+                startCell = (StartCell)newCell;
+
+            if (newCell.ID == CellID.Exit)
+                exitCell = (ExitCell)newCell;
 
             await UniTask.NextFrame();
 
             InitializeGrid();
 
-            if (nonEmptyCellsCounter == 0)
+            if (emptyCellsCounter == maxEmptyCellNumber)
                 TurnOffVisualCells();
-
+            
+            OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
             OnCellPositioned?.Invoke();
         }
 

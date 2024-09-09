@@ -5,7 +5,7 @@ namespace Grid.Cell
 {
     public class GeneratorCell : DestructibleCell
     {
-        [SerializeField] private ShieldedCityCell targetCity = null;
+        public ShieldedCityCell targetCity = null;
 
         private bool damageInProgress = false;
 

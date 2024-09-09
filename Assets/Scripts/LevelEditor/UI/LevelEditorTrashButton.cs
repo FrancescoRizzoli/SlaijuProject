@@ -36,7 +36,7 @@ namespace LevelEditor
 
         private void ToggleButton()
         {
-            button.interactable = controller.currentGrid.nonEmptyCellsCounter > 0;
+            button.interactable = controller.currentGrid.emptyCellsCounter < controller.currentGrid.maxEmptyCellNumber;
         }
     }
 }

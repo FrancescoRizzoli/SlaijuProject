@@ -23,6 +23,8 @@ namespace LevelEditor
         [SerializeField] private LevelEditorRecentlyUsedCells recentlyUsedCells = null;
         [Header("Trash Button")]
         [SerializeField] private LevelEditorTrashButton trashButton = null;
+        [Header("Simulate button")]
+        [SerializeField] private Button simulateButton = null;
 
         private LevelEditorController editorController = null;
         private LevelEditorSpawner cellSpawner = null;
@@ -43,6 +45,7 @@ namespace LevelEditor
 
             trashButton.Init(editorController);
             editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
+            editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
 
             recentlyUsedCells.Init(editorController);
 
@@ -115,6 +118,8 @@ namespace LevelEditor
                     button.IncrementQuantityAvailable();
         }
 
+        private void HandleGridFullEvent(bool conditionValue) => simulateButton.interactable = conditionValue;
+
         public void ResetUI()
         {
             foreach (LevelEditorCellButton editorButton in editorCellButtonList)
@@ -125,6 +130,8 @@ namespace LevelEditor
 
             foreach(LevelEditorCellButton recentCellButton in recentlyUsedCells.cellButton)
                 recentCellButton.SetOnClickEvents();
+
+            editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
         }
     }
 }

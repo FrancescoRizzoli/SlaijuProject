@@ -20,7 +20,7 @@ namespace LevelEditor
             controller.newSelectedBaseCell.gameObject.SetActive(true);
             controller.newSelectedBaseCell = null;
 
-            if (controller.currentGrid.nonEmptyCellsCounter > 0)
+            if (controller.currentGrid.emptyCellsCounter < controller.currentGrid.maxEmptyCellNumber)
                 controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);
             else
                 OnAllCellsDeleted?.Invoke();
