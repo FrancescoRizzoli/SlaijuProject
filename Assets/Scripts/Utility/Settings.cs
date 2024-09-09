@@ -13,14 +13,15 @@ namespace Utility
 
         public static Dictionary<string, int> keysValues = new Dictionary<string, int>()
         {
-            { nameof(SettingType.Music), 1 },
+           
             { "levelReached", 3 },
             {nameof(SettingType.Camera),0 },
         };
         public static Dictionary<string, float> keysFloatValues = new Dictionary<string, float>()
         {
             { nameof(SettingType.Sfx), 1 },
-        
+             { nameof(SettingType.Music), 1 },
+
         };
 
         /// <summary>
@@ -113,10 +114,20 @@ namespace Utility
         }
         public static void SliderMusic(float musicValue)
         {
-            if (keysFloatValues.ContainsKey(nameof(SettingType.Sfx)))
+            if (keysFloatValues.ContainsKey(nameof(SettingType.Music)))
             {
                
-                keysFloatValues[nameof(SettingType.Sfx)] = musicValue;
+                keysFloatValues[nameof(SettingType.Music)] = musicValue;
+                SaveSettings();
+                onSettingsChange?.Invoke();
+            }
+        }
+        public static void SliderSFX(float sfxValue)
+        {
+            if (keysFloatValues.ContainsKey(nameof(SettingType.Sfx)))
+            {
+
+                keysFloatValues[nameof(SettingType.Sfx)] = sfxValue;
                 SaveSettings();
                 onSettingsChange?.Invoke();
             }
