@@ -4,7 +4,7 @@ namespace LevelEditor
 {
     public class LevelEditorRecentlyUsedCells : MonoBehaviour
     {
-        [SerializeField] private LevelEditorCellButton[] cellButton = new LevelEditorCellButton[4];
+        public LevelEditorCellButton[] cellButton = new LevelEditorCellButton[4];
 
         public void Init(LevelEditorController editorController)
         {

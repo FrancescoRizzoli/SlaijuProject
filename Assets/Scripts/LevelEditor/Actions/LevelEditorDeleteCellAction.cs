@@ -18,6 +18,7 @@ namespace LevelEditor
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
             controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleDeleteCubes(false);
             controller.newSelectedBaseCell.gameObject.SetActive(true);
+            controller.newSelectedBaseCell = null;
 
             if (controller.currentGrid.nonEmptyCellsCounter > 0)
                 controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(null);

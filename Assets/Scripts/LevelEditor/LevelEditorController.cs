@@ -16,26 +16,26 @@ namespace LevelEditor
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
         [SerializeField] private LevelEditorGridComponent smallGridPrefab = null;
 
-        public LevelEditorGridComponent currentGrid { get; private set; } = null;
+        public LevelEditorGridComponent currentGrid { get; set; } = null;
         public ALevelEditorAction currentAction { get; private set; } = null;
 
         public BaseCell newSelectedBaseCell { get; set; } = null;
 
+        private bool inputEnabled = false;
+
         private void Start()
         {
-            currentGrid = largeGridPrefab;      // TODO: logic for the correct grid
-
+            cellSpawner.Init(this, largeGridPrefab);    // TODO: logic for the correct grid
+            currentGrid.OnGridReady += ToggleInput;
             uiController.Init(this, cellSpawner);
-            cellSpawner.Init(this, currentGrid);
             playerInput.Init(this);
-
             currentAction = rotateCellAction;
         }
 
 
         private void Update()
         {
-            if (currentAction == null)
+            if (currentAction == null || !inputEnabled)
                 return;
 
             playerInput.ProcessInput();
@@ -55,5 +55,16 @@ namespace LevelEditor
         }
 
         public void GoToStandardAction() => currentAction = rotateCellAction;
+
+        public void ResetLevel()
+        {
+            currentGrid.OnGridReady -= ToggleInput;
+            Destroy(currentGrid.gameObject);
+            currentGrid = cellSpawner.SpawnGrid(largeGridPrefab);       // TODO: logic for the correct grid
+            uiController.ResetUI();
+            currentGrid.OnGridReady += ToggleInput;
+        }
+
+        public void ToggleInput() => inputEnabled = !inputEnabled;
     }
 }

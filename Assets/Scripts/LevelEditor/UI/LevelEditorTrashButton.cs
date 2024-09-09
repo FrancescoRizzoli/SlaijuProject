@@ -21,7 +21,8 @@ namespace LevelEditor
             if (clicked)    // exit delete mode
             {
                 controller.currentGrid.TurnOffVisualCells();
-                controller.newSelectedBaseCell = null;
+                if (controller.newSelectedBaseCell != null)
+                    Destroy(controller.newSelectedBaseCell.gameObject);
                 controller.GoToStandardAction();
             }
             else

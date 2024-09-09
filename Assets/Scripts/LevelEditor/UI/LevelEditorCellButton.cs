@@ -46,6 +46,8 @@ namespace LevelEditor
 
         public void SetOnClickEvents()
         {
+            button.onClick.RemoveAllListeners();
+
             switch (cellType)
             {
                 case EditorCellType.Environment:
@@ -92,6 +94,13 @@ namespace LevelEditor
 
             currentQuantity++;
             quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
+        }
+
+        public void ResetQuantity()
+        {
+            currentQuantity = maxQuantity;
+            quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
+            button.interactable = true;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace LevelEditor
         private string currentSetName = "";
         private Transform currentGridTransform = null;
         private GameObject[] filterGOArray;
+        private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
         private List<LevelEditorCellButton> limitedCellButton = new List<LevelEditorCellButton>();
 
         public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
@@ -97,6 +98,8 @@ namespace LevelEditor
                     if(ec.limited)
                         limitedCellButton.Add(button);
 
+                    editorCellButtonList.Add(button);
+
                     button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController, recentlyUsedCells);
                 }
 
@@ -110,6 +113,18 @@ namespace LevelEditor
             foreach (LevelEditorCellButton button in limitedCellButton)
                 if (cellType == button.cellPrefab.GetType())
                     button.IncrementQuantityAvailable();
+        }
+
+        public void ResetUI()
+        {
+            foreach (LevelEditorCellButton editorButton in editorCellButtonList)
+                editorButton.SetOnClickEvents();
+
+            foreach (LevelEditorCellButton limitedButton in limitedCellButton)
+                limitedButton.ResetQuantity();
+
+            foreach(LevelEditorCellButton recentCellButton in recentlyUsedCells.cellButton)
+                recentCellButton.SetOnClickEvents();
         }
     }
 }

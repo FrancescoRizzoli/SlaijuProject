@@ -14,20 +14,29 @@ namespace LevelEditor
         public LevelEditorVisualCell[,] visualCell { get; set; }
         public int nonEmptyCellsCounter { get; private set; } = 0;
 
-        public delegate void CellPositionedEvent();
-        public event CellPositionedEvent OnCellPositioned = null;
+        public delegate void EditorGridEvent();
+        public event EditorGridEvent OnCellPositioned = null;
+        public event EditorGridEvent OnGridReady = null;
+        
+        private GameObject visualCellsParent = null;
 
         protected override void Start()
         {
             base.Start();
             SpawnVisualCells();
+            OnGridReady?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(visualCellsParent);
         }
 
         private void SpawnVisualCells()
         {
             visualCell = new LevelEditorVisualCell[width,height];
-            GameObject grayBoxesParent = new GameObject();
-            grayBoxesParent.name = "[Editor Visual Cells]";
+            visualCellsParent = new GameObject();
+            visualCellsParent.name = "[Editor Visual Cells]";
 
             for (int i = 0; i < width; i++)
             {
@@ -36,7 +45,7 @@ namespace LevelEditor
                     LevelEditorVisualCell currentVisualCell = Instantiate<LevelEditorVisualCell>(visualCellPrefab);
                     currentVisualCell.transform.localScale = new Vector3(cellSize, 1.0f, cellSize);
                     currentVisualCell.transform.position = gridArray[i, j].transform.position + Vector3.up * visualCellsHeight;
-                    currentVisualCell.transform.parent = grayBoxesParent.transform;
+                    currentVisualCell.transform.parent = visualCellsParent.transform;
                     currentVisualCell.name = $"Visual Cell [{i},{j}]";
                     visualCell[i,j] = currentVisualCell;
                 }

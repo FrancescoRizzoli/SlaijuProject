@@ -12,12 +12,12 @@ namespace LevelEditor
         public void Init(LevelEditorController editorController, LevelEditorGridComponent gridPrefab)
         {
             controller = editorController;
-            SpawnGrid(gridPrefab);
+            controller.currentGrid = SpawnGrid(gridPrefab);
         }
 
-        private void SpawnGrid(LevelEditorGridComponent gridPrefab)
+        public LevelEditorGridComponent SpawnGrid(LevelEditorGridComponent gridPrefab)
         {
-            //TODO
+            return Instantiate<LevelEditorGridComponent>(gridPrefab);
         }
 
         public BaseCell SpawnCell(BaseCell cellPrefab)
