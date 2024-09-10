@@ -17,7 +17,8 @@ namespace Grid
         Generator,
         Start,
         StraightRoad,
-        CrossRoad
+        CrossRoad,
+        LevelEditorEmpty
     }
 
     public class BaseCell : MonoBehaviour
@@ -42,6 +43,8 @@ namespace Grid
         {
             get { return  _safeSide; }
         }
+
+        public SelectDeselectView SelectDeselectView { get { return selectDeselectView; } }
 
         private void Awake() => SetSafeSides();
 

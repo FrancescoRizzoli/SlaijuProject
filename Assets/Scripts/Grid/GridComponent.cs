@@ -10,7 +10,7 @@ namespace Grid
         public float cellSize;
         public BaseCell[,] gridArray;
 
-        void Start()
+        protected virtual void Start()
         {
             InitializeGrid();
         }
