@@ -1193,7 +1193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4015716393714460482, guid: cfb376bdb87954047882be89bcf36a49, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8729031704941351495, guid: cfb376bdb87954047882be89bcf36a49, type: 3}
       propertyPath: height
@@ -1418,6 +1418,17 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 480289727379446347}
   m_SourcePrefab: {fileID: 100100000, guid: cfb376bdb87954047882be89bcf36a49, type: 3}
+--- !u!114 &1270380280416767509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 754825897119137710, guid: cfb376bdb87954047882be89bcf36a49, type: 3}
+  m_PrefabInstance: {fileID: 2006602145749152187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198209728106338041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f36b8b72fd48eb4bb987b9e2ea27118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2897256933848723178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3741925942121799505, guid: cfb376bdb87954047882be89bcf36a49, type: 3}
@@ -1450,6 +1461,8 @@ MonoBehaviour:
   - {fileID: 6585407633062788194}
   - {fileID: 4251396378504021343}
   - {fileID: 708237309610199762}
+  positionController: {fileID: 1270380280416767509}
+  envCellPrefab: {fileID: 2491826967559704887, guid: d01d43fbbd9444a43b701db72aeb96fe, type: 3}
 --- !u!1001 &2514960530082286412
 PrefabInstance:
   m_ObjectHideFlags: 0

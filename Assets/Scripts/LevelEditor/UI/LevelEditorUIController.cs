@@ -23,8 +23,9 @@ namespace LevelEditor
         [SerializeField] private LevelEditorRecentlyUsedCells recentlyUsedCells = null;
         [Header("Trash Button")]
         [SerializeField] private LevelEditorTrashButton trashButton = null;
-        [Header("Simulate button")]
+        [Header("Simulation")]
         [SerializeField] private Button simulateButton = null;
+        [SerializeField] private Canvas simulationCanvas = null;
 
         private LevelEditorController editorController = null;
         private LevelEditorSpawner cellSpawner = null;
@@ -132,6 +133,13 @@ namespace LevelEditor
                 recentCellButton.SetOnClickEvents();
 
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
+            simulateButton.interactable = false;
+        }
+
+        public void ToggleSimulation(bool value)
+        {
+            GetComponent<Canvas>().enabled = !value;
+            simulationCanvas.enabled = value;
         }
     }
 }

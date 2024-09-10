@@ -69,6 +69,13 @@ namespace Grid
                 }
             }
         }
+
+        public void RecalculateSafeSides()
+        {
+            _safeSide.Clear();
+            SetSafeSides();
+        }
+
         protected void EnableAllSafeSides()
         {
             safeSide.Clear();

@@ -10,7 +10,11 @@ namespace LevelEditor
     {
         [SerializeField] private LevelEditorVisualCell visualCellPrefab = null;
         [SerializeField] private float visualCellsHeight = 10.0f;
-        public BaseCell[] levelButtonArray = Array.Empty<BaseCell>(); 
+        public BaseCell[] levelButtonArray = Array.Empty<BaseCell>();
+        public GridPositionController positionController = null;
+#if UNITY_EDITOR
+        [SerializeField] private BaseCell envCellPrefab = null;
+#endif
 
         public LevelEditorVisualCell[,] visualCell { get; set; }
         public int emptyCellsCounter { get; private set; } = 0;
@@ -106,6 +110,22 @@ namespace LevelEditor
                         return new Vector2Int(i, j);
 
             return new Vector2Int(-1, -1);
+        }
+
+        [ContextMenu("Fill Grid")]
+        private void FillGrid()
+        {
+            foreach (BaseCell cell in gridArray)
+                if (Array.IndexOf(levelButtonArray, cell) == -1)
+                {
+                    BaseCell newCell = Instantiate(envCellPrefab);
+                    newCell.transform.position = cell.transform.position;
+                    newCell.transform.parent = cell.transform.parent;
+                    DestroyImmediate(cell.gameObject);
+                }
+
+            InitializeGrid();
+            emptyCellsCounter = 0;
         }
 
         [ContextMenu("Initialize Grid")]

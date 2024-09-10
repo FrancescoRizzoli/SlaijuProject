@@ -17,7 +17,9 @@ namespace LevelEditor
 
         public LevelEditorGridComponent SpawnGrid(LevelEditorGridComponent gridPrefab)
         {
-            return Instantiate<LevelEditorGridComponent>(gridPrefab);
+            LevelEditorGridComponent grid = Instantiate<LevelEditorGridComponent>(gridPrefab);
+            grid.gameObject.SetActive(true);
+            return grid;
         }
 
         public BaseCell SpawnCell(BaseCell cellPrefab)

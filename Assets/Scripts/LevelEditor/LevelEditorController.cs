@@ -1,3 +1,4 @@
+using Gameplay;
 using Grid;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace LevelEditor
         [Header("Grid Prefabs")]
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
         [SerializeField] private LevelEditorGridComponent smallGridPrefab = null;
+        [Header("Simulation")]
+        [SerializeField] private GridControls gridControls = null;
+        [SerializeField] private LevelEditorLevelController levelController = null;
 
         public LevelEditorGridComponent currentGrid { get; set; } = null;
         public ALevelEditorAction currentAction { get; private set; } = null;
@@ -22,6 +26,7 @@ namespace LevelEditor
         public BaseCell newSelectedBaseCell { get; set; } = null;
 
         private bool inputEnabled = false;
+        private LevelEditorGridComponent simulationGrid = null;
 
         private void Start()
         {
@@ -30,6 +35,7 @@ namespace LevelEditor
             uiController.Init(this, cellSpawner);
             playerInput.Init(this);
             currentAction = rotateCellAction;
+            levelController.OnGameSimulationOver += StopSimulation;
         }
 
 
@@ -66,5 +72,35 @@ namespace LevelEditor
         }
 
         public void ToggleInput() => inputEnabled = !inputEnabled;
+
+        public void StartSimulation()
+        {
+            currentAction = null;
+            uiController.ToggleSimulation(true);
+
+            simulationGrid =  cellSpawner.SpawnGrid(currentGrid);
+            simulationGrid.InitializeGrid();
+            currentGrid.gameObject.SetActive(false);
+
+            gridControls.gridComponent = simulationGrid;
+            gridControls.positionController = simulationGrid.positionController;
+            gridControls.transform.gameObject.SetActive(true);
+
+            levelController.gridComponent = simulationGrid;
+            levelController.positionController = simulationGrid.positionController;
+            levelController.characterStateController.gameObject.SetActive(true);
+            levelController.StartGame();
+        }
+
+        public void StopSimulation()
+        {
+            Destroy(simulationGrid.gameObject);
+            levelController.characterStateController.gameObject.SetActive(false);
+            levelController.characterStateController.ResetState();
+            currentGrid.gameObject.SetActive(true);
+            gridControls.transform.gameObject.SetActive(false);
+            uiController.ToggleSimulation(false);
+            currentAction = rotateCellAction;
+        }
     }
 }
