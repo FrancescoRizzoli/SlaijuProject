@@ -18,6 +18,9 @@ namespace UnityEngine.UI
 
         private Camera mainCamera;
 
+        public delegate void ScreenChange(int screenNummber);
+        public event ScreenChange onScreenChange;
+
         private void Awake()
         {
             mainCamera = Camera.main;
@@ -56,7 +59,7 @@ namespace UnityEngine.UI
             {
                 screenInScene[type].CloseScreen();
             }
-
+            onScreenChange?.Invoke(openedScreen.Count);
         }
 
         /// <summary>

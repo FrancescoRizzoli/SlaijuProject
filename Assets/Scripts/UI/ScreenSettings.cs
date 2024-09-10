@@ -7,39 +7,31 @@ namespace UnityEngine.UI
     {
         [Header("Settings")]
         [SerializeField]
-        GameObject active;
+        Slider barSFX;
         [SerializeField]
-        Button ToggleAudioButton;
-        [SerializeField]
-        Slider bar;
+        Slider barMusic;
         [SerializeField]
         Toggle cameraToggle;
 
         private void Start()
         {
-            ToggleAudioButton.onClick.AddListener(ToggleAudio);
-            bar.onValueChanged.AddListener(AudioSlider);
+           
+            barSFX.onValueChanged.AddListener(SfxSlider);
+            barMusic.onValueChanged.AddListener(MusicSlider);
             cameraToggle.onValueChanged.AddListener(CameraChangeListener);
-            UpdateToggleButtonText();
             SetSlider();
             SetCameraToggle();
         }
 
-        private void ToggleAudio()
-        {
-            Settings.ToggleMusic();
-            UpdateToggleButtonText();
-        }
+       
 
-        private void UpdateToggleButtonText()
-        {
-            bool isMusicOn = Settings.keysValues[nameof(SettingType.Music)] == 1;
-            active.SetActive(!isMusicOn);
-        }
+       
 
         private void SetSlider()
         {
-            bar.value = Settings.keysFloatValues[nameof(SettingType.Sfx)];
+            barSFX.value = Settings.keysFloatValues[nameof(SettingType.Sfx)];
+            barMusic.value = Settings.keysFloatValues[nameof(SettingType.Music)];
+
         }
         private void SetCameraToggle()
         {
@@ -47,7 +39,11 @@ namespace UnityEngine.UI
         }
 
 
-        private void AudioSlider(float value)
+        private void SfxSlider(float value)
+        {
+            Settings.SliderSFX(value);
+        }
+        private void MusicSlider(float value)
         {
             Settings.SliderMusic(value);
         }
