@@ -1,5 +1,6 @@
-using Gameplay;
 using Grid;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LevelEditor
@@ -27,9 +28,11 @@ namespace LevelEditor
 
         private bool inputEnabled = false;
         private LevelEditorGridComponent simulationGrid = null;
+        private CustomLevelSave customLevelSave = new CustomLevelSave("/SlaijuReborn_CustomLevels.save");
 
         private void Start()
         {
+            customLevelSave.Load();
             cellSpawner.Init(this, largeGridPrefab);    // TODO: logic for the correct grid
             currentGrid.OnGridReady += ToggleInput;
             uiController.Init(this, cellSpawner);
@@ -80,6 +83,7 @@ namespace LevelEditor
 
             simulationGrid =  cellSpawner.SpawnGrid(currentGrid);
             simulationGrid.InitializeGrid();
+            currentGrid.TurnOffVisualCells();
             currentGrid.gameObject.SetActive(false);
 
             gridControls.gridComponent = simulationGrid;
@@ -101,6 +105,28 @@ namespace LevelEditor
             gridControls.transform.gameObject.SetActive(false);
             uiController.ToggleSimulation(false);
             currentAction = rotateCellAction;
+        }
+
+        public void SaveLevel()
+        {
+            List<CustomGridCell> currentGridCells = new List<CustomGridCell>();
+            for (int i = 0; i < currentGrid.width; i++)
+            {
+                for (int j = 0; j < currentGrid.height; j++)
+                {
+                    if (currentGrid.gridArray[i, j].ID != CellID.LevelEditorEmpty && Array.IndexOf(currentGrid.levelButtonArray, currentGrid.gridArray[i, j]) == -1)
+                    {
+                        CustomGridCell currentGridCell = new CustomGridCell();
+                        currentGridCell.cellName = currentGrid.gridArray[i, j].name;
+                        currentGridCell.positionInGrid = new Vector2Int(i,j);
+                        currentGridCell.forwardDirection = currentGrid.gridArray[i, j].transform.forward;
+                        currentGridCells.Add(currentGridCell);
+                    }
+                }
+            }
+
+            customLevelSave.customGrids.Add(new CustomGrid { gridName = "PippoGrid", gridComplete = false, isLargeGrid = true, gridCells = currentGridCells });
+            customLevelSave.Save();
         }
     }
 }
