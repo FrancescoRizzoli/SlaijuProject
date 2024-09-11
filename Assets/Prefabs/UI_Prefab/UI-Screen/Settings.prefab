@@ -1213,8 +1213,8 @@ GameObject:
   - component: {fileID: 4106804987330633288}
   - component: {fileID: 668380298905065518}
   - component: {fileID: 8774356093371727950}
-  - component: {fileID: 7155436919247899096}
   - component: {fileID: 6328869682104907125}
+  - component: {fileID: 7155436919247899096}
   m_Layer: 5
   m_Name: Back_button
   m_TagString: Untagged
@@ -1336,20 +1336,6 @@ MonoBehaviour:
           m_StringArgument: Clash transition
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7155436919247899096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6151064717447974943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f520362ead7803c4ca3ebd4c203fb546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 49d4aca42d7880745968215cffec972c, type: 3}
-  audioMixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
 --- !u!114 &6328869682104907125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,6 +1350,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenType: 4
   open: 0
+--- !u!114 &7155436919247899096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151064717447974943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f520362ead7803c4ca3ebd4c203fb546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 49d4aca42d7880745968215cffec972c, type: 3}
+  audioMixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
 --- !u!1 &6172362802192695695
 GameObject:
   m_ObjectHideFlags: 0
