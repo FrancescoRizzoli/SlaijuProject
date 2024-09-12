@@ -7,7 +7,7 @@ namespace LevelEditor
 {
     public class LevelEditorController : MonoBehaviour
     {
-        [SerializeField] private LevelEditorUIController uiController = null;
+        public LevelEditorUIController uiController = null;
         public LevelEditorSpawner cellSpawner = null;
         [SerializeField] private LevelEditorGridPlayerInput playerInput = null;
         [Header("Actions")]
@@ -37,7 +37,6 @@ namespace LevelEditor
             currentGrid.OnGridReady += ToggleInput;
             uiController.Init(this, cellSpawner);
             playerInput.Init(this);
-            currentAction = rotateCellAction;
             levelController.OnGameSimulationOver += StopSimulation;
         }
 
@@ -50,20 +49,37 @@ namespace LevelEditor
             playerInput.ProcessInput();
         }
 
-        public void RequestNewCellPositioning(BaseCell prefab)
+        public void RequestNewCellPositioning(BaseCell prefab, LevelEditorCellButton buttonClicked)
         {
+            uiController.SetLastSelectedButton(buttonClicked);
+
             if (newSelectedBaseCell != null)
                 Destroy(newSelectedBaseCell.gameObject);
 
             newSelectedBaseCell = cellSpawner.SpawnCell(prefab);
 
             if (prefab != null)
+            {
+                uiController.trashButton.clicked = false;
+                uiController.rotateButton.clicked = false;
                 currentAction = positionCellAction;
+            }
             else
+            {
+                uiController.rotateButton.clicked = false;
                 currentAction = deleteCellAction;
+            }
+
+            currentAction.previousSelectedCell = null;
         }
 
-        public void GoToStandardAction() => currentAction = rotateCellAction;
+        public void GoToRotateAction()
+        {
+            currentAction = rotateCellAction;
+            uiController.trashButton.clicked = false;
+        }
+
+        public void GoToStandardAction() => currentAction = null;
 
         public void ResetLevel()
         {
@@ -71,6 +87,8 @@ namespace LevelEditor
             Destroy(currentGrid.gameObject);
             currentGrid = cellSpawner.SpawnGrid(largeGridPrefab);       // TODO: logic for the correct grid
             uiController.ResetUI();
+            currentAction = null;
+            Destroy(newSelectedBaseCell.gameObject);
             currentGrid.OnGridReady += ToggleInput;
         }
 

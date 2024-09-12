@@ -25,7 +25,7 @@ namespace LevelEditor
         public BaseCell SpawnCell(BaseCell cellPrefab)
         {
             BaseCell cell = Instantiate(cellPrefab != null ? cellPrefab : editorEmptyCellPrefab);
-            cell.name = cellPrefab.name;
+            cell.name = cellPrefab != null ? cellPrefab.name : editorEmptyCellPrefab.name;
             cell.gameObject.SetActive(false);
             return cell;
         }

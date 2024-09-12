@@ -21,8 +21,9 @@ namespace LevelEditor
         [SerializeField] private LevelEditorCellButton cellEditorButtonPrefab = null;
         [Header("Recently used cells")]
         [SerializeField] private LevelEditorRecentlyUsedCells recentlyUsedCells = null;
-        [Header("Trash Button")]
-        [SerializeField] private LevelEditorTrashButton trashButton = null;
+        [Header("Action Buttons")]
+        public LevelEditorTrashButton trashButton = null;
+        public LevelEditorRotateButton rotateButton = null;
         [Header("Simulation")]
         [SerializeField] private Button simulateButton = null;
         [SerializeField] private Canvas simulationCanvas = null;
@@ -36,6 +37,8 @@ namespace LevelEditor
         private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
         private List<LevelEditorCellButton> limitedCellButton = new List<LevelEditorCellButton>();
 
+        public LevelEditorCellButton lastSelectedButton { get; private set; } = null;
+
         public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
         {
             editorController = controller;
@@ -45,6 +48,7 @@ namespace LevelEditor
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
 
             trashButton.Init(editorController);
+            rotateButton.Init(editorController);
             editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
 
@@ -112,6 +116,14 @@ namespace LevelEditor
             }
         }
 
+        public void SetLastSelectedButton(LevelEditorCellButton button)
+        {
+            if (lastSelectedButton != null && lastSelectedButton.limitQuantity)
+                lastSelectedButton.UnsubscribeCellPositioning();
+
+            lastSelectedButton = button;
+        }
+
         private void HandleCellDeleted(Type cellType)
         {
             foreach (LevelEditorCellButton button in limitedCellButton)
@@ -134,6 +146,10 @@ namespace LevelEditor
 
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
             simulateButton.interactable = false;
+            rotateButton.ToggleButton();
+            rotateButton.SubscribeToCurrentGrid();
+            trashButton.ToggleButton();
+            trashButton.SubscribeToCurrentGrid();
         }
 
         public void ToggleSimulation(bool value)
