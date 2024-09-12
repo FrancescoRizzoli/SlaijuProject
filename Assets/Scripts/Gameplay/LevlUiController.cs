@@ -31,18 +31,23 @@ namespace Gameplay
         TMP_Text moves;
         [SerializeField]
         TimeCounter timeCounter;
+        [Header("Win")]
         [SerializeField]
         TMP_Text timeCounterWin;
         [SerializeField]
         TMP_Text moveWin;
-        [SerializeField]
-        TMP_Text moveLoose;
-        [SerializeField]
-        TMP_Text timeCounterLoose;
+        [Header("Pause")]
         [SerializeField]
         TMP_Text timePause;
         [SerializeField]
         TMP_Text movesPause;
+        [SerializeField]
+        TMP_Text cityTextPause;
+        [Header("Loose")]
+        [SerializeField]
+        TMP_Text moveLoose;
+        [SerializeField]
+        TMP_Text timeCounterLoose;
 
         bool pauseState = false;
 
@@ -88,6 +93,7 @@ namespace Gameplay
             UIManager.instance.ManageScreen(ScreenType.Pause, pauseState);
             timePause.text = timeCounter.elapsedTime.ToString("F2");
             movesPause.text = moves.text;
+            cityTextPause.text = cityText.text;
             if (pauseState)
                 levelSpeed.Freeze();
             else
@@ -154,7 +160,7 @@ namespace Gameplay
             // Implement camera change logic
         }
 
-        private void ResetLevel()
+        public void ResetLevel()
         {
             reset.TogglePosition();
             scene.Reload();
