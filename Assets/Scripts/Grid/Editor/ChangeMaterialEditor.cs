@@ -1,24 +1,42 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using Grid.Cell;
 
 namespace Grid.Editor
 {
 
     public class ChangeMaterialsEditor : UnityEditor.EditorWindow
     {
-        private Material newMaterial;
+
+        [SerializeField]
+        private List<Material> newMaterials = new List<Material>(); // Changed to List<Material>
+
+        [SerializeField]
+        private bool brokenRoad;
+
+        private SerializedObject serializedObject; // Serialized object for drawing the list
+        private SerializedProperty serializedMaterials; // Serialized property for the list
+        private SerializedProperty serializedBrokenRoad;
+
+
         private GridComponent grid;
         private CellID cellID;
-
 
         [MenuItem("Window/Material Changer")]
         public static void ShowWindow()
         {
-            // Crea la finestra
+            // Create the window
             GetWindow<ChangeMaterialsEditor>("Material Changer");
         }
+
         private void OnEnable()
         {
+            // Initialize the serialized object and property
+            serializedObject = new SerializedObject(this);
+            serializedMaterials = serializedObject.FindProperty("newMaterials");
+            serializedBrokenRoad = serializedObject.FindProperty("brokenRoad");
+
             if (grid == null)
             {
                 grid = GameObject.FindAnyObjectByType<GridComponent>();
@@ -27,15 +45,17 @@ namespace Grid.Editor
 
         private void OnGUI()
         {
-
             GUILayout.Label("Material Changer", EditorStyles.boldLabel);
 
-            cellID = (CellID)EditorGUILayout.EnumPopup("Cell ID",cellID);
+            cellID = (CellID)EditorGUILayout.EnumPopup("Cell ID", cellID);
 
-            // Crea un campo per inserire il materiale
-            newMaterial = (Material)EditorGUILayout.ObjectField("New Material", newMaterial, typeof(Material), false);
+            // Update and draw the serialized list
+            serializedObject.Update(); // Update serialized object
+            EditorGUILayout.PropertyField(serializedMaterials, new GUIContent("Materials"), true); // Draw the list
+            EditorGUILayout.PropertyField(serializedBrokenRoad, new GUIContent("brokenRoad"));
+            serializedObject.ApplyModifiedProperties(); // Apply changes
 
-            // Aggiungi un pulsante per cambiare i materiali
+            // Add a button to change the materials
             if (GUILayout.Button("Change Materials"))
             {
                 ChangeMaterial();
@@ -45,25 +65,52 @@ namespace Grid.Editor
 
         public void ChangeMaterial()
         {
-            foreach(BaseCell cell in grid.gridArray)
+            if (newMaterials.Count == 0)
+                return;
+
+            int i = 0; // Initialize the index for newMaterials
+            grid.InitializeGrid();
+
+            foreach (BaseCell cell in grid.gridArray)
             {
-                if (newMaterial == null)
-                    return;
-                if(cellID == CellID.None)
+                // If CellID is None, replace all materials
+                if (cellID == CellID.None)
                 {
-                    if(cell.meshRenderer != null)
-                    {
-                        cell.meshRenderer.material = newMaterial;
-                    }
+                    i = ReplaceMaterials(cell, i);
                 }
-                else if(cellID == cell.ID)
+                // If the cell's ID matches the selected CellID
+                else if (cellID == cell.ID)
                 {
-                    if (cell.meshRenderer != null)
+                    
+                    if (brokenRoad && cell.GetType() == typeof(BreakableRoad))
                     {
-                        cell.meshRenderer.material = newMaterial;
+                        i = ReplaceMaterials(cell, i);
+                    }
+                    
+                    else if (!brokenRoad && cell.GetType() != typeof(BreakableRoad))
+                    {
+                        i = ReplaceMaterials(cell, i);
                     }
                 }
             }
+        }
+
+        private int ReplaceMaterials(BaseCell cell, int materialIndex)
+        {
+            if (cell.meshRenderer.Count == 0)
+                return materialIndex;
+
+            foreach (MeshRenderer mr in cell.meshRenderer)
+            {
+                
+                if (materialIndex >= newMaterials.Count)
+                    return materialIndex;
+
+                mr.material = newMaterials[materialIndex];
+                materialIndex++;
+            }
+
+            return materialIndex;
         }
     }
 }

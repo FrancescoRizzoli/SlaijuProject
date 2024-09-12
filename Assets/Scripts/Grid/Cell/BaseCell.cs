@@ -34,7 +34,7 @@ namespace Grid
         [SerializeField] private CellID _ID = CellID.None;
         [SerializeField] private Side[] safeSides = Array.Empty<Side>();
         [SerializeField] private SelectDeselectView selectDeselectView = null;
-        [SerializeField] public MeshRenderer meshRenderer;
+        [SerializeField] public List <MeshRenderer> meshRenderer;
         
 
         public bool isSwitching { get; set; } = false;
