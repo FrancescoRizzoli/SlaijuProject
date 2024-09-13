@@ -11,6 +11,7 @@ namespace Core
     {
 
         public SceneName sceneName;
+        public string name;
         public int objetctiveNumber;
         public float time;
         public float Moves;

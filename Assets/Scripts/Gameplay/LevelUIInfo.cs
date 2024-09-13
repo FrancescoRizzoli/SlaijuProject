@@ -13,6 +13,8 @@ namespace Gameplay
         [SerializeField]
         LevelInfoObject levelInfo;
         [SerializeField]
+        TMP_Text levelName;
+        [SerializeField]
         TMP_Text objectiveNumber;
         [SerializeField]
         TMP_Text timeDev;
@@ -24,6 +26,7 @@ namespace Gameplay
             if (info == null)
                 return;
 
+            levelName.text = info.name;
             timeDev.text = info.time.ToString();
             moveDev.text = info.Moves.ToString();
             objectiveNumber.text = info.objetctiveNumber.ToString();
