@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace LevelEditor
 {
+    public enum LevelColor
+    {
+        ColorA,
+        ColorB,
+        ColorC,
+        ColorD
+    }
+
     public class LevelEditorController : MonoBehaviour
     {
         public LevelEditorUIController uiController = null;
@@ -28,7 +36,9 @@ namespace LevelEditor
 
         private bool inputEnabled = false;
         private LevelEditorGridComponent simulationGrid = null;
-        private CustomLevelSave customLevelSave = new CustomLevelSave("/SlaijuReborn_CustomLevels.save");
+        private CustomLevelSave customLevelSave = new CustomLevelSave(SAVE_PATH);
+
+        public const string SAVE_PATH = "/SlaijuReborn_CustomLevels.save";
 
         private void Start()
         {
