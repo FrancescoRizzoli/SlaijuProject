@@ -7,7 +7,7 @@ namespace Core
     public class LevelControllerScene : MonoBehaviour
     {
         public SceneName SceneName;
-
+        
         public void LoadNextLevel()
         {
             SceneLoader.LoadScene(((int)SceneName) + 1).Forget();
@@ -16,5 +16,7 @@ namespace Core
         {
             SceneLoader.ReloadCurrentLevel((int)SceneName).Forget();
         }
+
+
     }
 }
