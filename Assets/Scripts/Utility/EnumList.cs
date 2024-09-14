@@ -49,6 +49,7 @@ namespace Utility
         Level28,
         Level29,
         Level30,
+        LevelEditor,
         Level31,
         Level32,
         Level33,

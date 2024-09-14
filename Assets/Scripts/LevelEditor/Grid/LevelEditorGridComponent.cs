@@ -36,8 +36,8 @@ namespace LevelEditor
 
         protected override void Start()
         {
-            UpdateGridStatus();
             base.Start();
+            UpdateGridStatus();
             SpawnVisualCells();
             OnGridReady?.Invoke();
         }

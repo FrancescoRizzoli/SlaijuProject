@@ -1,4 +1,5 @@
 using Cinemachine;
+using Core;
 using Cysharp.Threading.Tasks;
 using Grid;
 using System;
@@ -17,6 +18,9 @@ namespace LevelEditor
 
     public class LevelEditorController : MonoBehaviour
     {
+#if UNITY_EDITOR
+        [SerializeField] private bool ignoreSceneLoading = false;
+#endif
         public LevelEditorUIController uiController = null;
         public LevelEditorSpawner cellSpawner = null;
         [SerializeField] private LevelEditorGridPlayerInput playerInput = null;
@@ -48,7 +52,10 @@ namespace LevelEditor
 
         private void Start()
         {
-            Initialize().Forget();
+#if UNITY_EDITOR
+            if (ignoreSceneLoading)
+                Initialize().Forget();
+#endif
         }
 
         private void Update()
@@ -58,6 +65,17 @@ namespace LevelEditor
 
             playerInput.ProcessInput();
         }
+
+        private void OnEnable()
+        {
+            SceneLoader.OnLoadingCompleted += InitEditor;
+        }
+        private void OnDisable()
+        {
+            SceneLoader.OnLoadingCompleted -= InitEditor;
+        }
+
+        private void InitEditor() => Initialize().Forget();
 
         private async UniTask Initialize()
         {
