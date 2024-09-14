@@ -25,24 +25,22 @@ namespace LevelEditor
         public LevelEditorTrashButton trashButton = null;
         public LevelEditorRotateButton rotateButton = null;
         [Header("Simulation")]
-        [SerializeField] private Button simulateButton = null;
+        public Button simulateButton = null;
         [SerializeField] private Canvas simulationCanvas = null;
 
         private LevelEditorController editorController = null;
-        private LevelEditorSpawner cellSpawner = null;
         private int currentCellTypeFilterIndex = -1;
         private string currentSetName = "";
         private Transform currentGridTransform = null;
         private GameObject[] filterGOArray;
         private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
-        private List<LevelEditorCellButton> limitedCellButton = new List<LevelEditorCellButton>();
+        private Dictionary<Type, LevelEditorCellButton> limitedCellButton = new Dictionary<Type, LevelEditorCellButton>();
 
         public LevelEditorCellButton lastSelectedButton { get; private set; } = null;
 
-        public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
+        public void Init(LevelEditorController controller)
         {
             editorController = controller;
-            cellSpawner = spawner;
 
             cellTypeFilterNextButton.onClick.AddListener(NextCellTypeFilter);
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
@@ -103,16 +101,15 @@ namespace LevelEditor
                     }
                     LevelEditorCellButton button = Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform);
 
-                    if(ec.limited)
-                        limitedCellButton.Add(button);
-
                     editorCellButtonList.Add(button);
 
                     button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController, recentlyUsedCells);
+
+                    if(ec.limited)
+                        limitedCellButton[button.cellPrefab.GetType()] = button;
                 }
 
                 currentSetName = "";
-
             }
         }
 
@@ -126,9 +123,14 @@ namespace LevelEditor
 
         private void HandleCellDeleted(Type cellType)
         {
-            foreach (LevelEditorCellButton button in limitedCellButton)
-                if (cellType == button.cellPrefab.GetType())
-                    button.IncrementQuantityAvailable();
+            if(limitedCellButton.ContainsKey(cellType))
+                limitedCellButton[cellType].IncrementQuantityAvailable();
+        }
+
+        public void HandleCellInserted(Type cellType)
+        {
+            if (limitedCellButton.ContainsKey(cellType))
+                limitedCellButton[cellType].HandleCellPositioned();
         }
 
         private void HandleGridFullEvent(bool conditionValue) => simulateButton.interactable = conditionValue;
@@ -138,8 +140,8 @@ namespace LevelEditor
             foreach (LevelEditorCellButton editorButton in editorCellButtonList)
                 editorButton.SetOnClickEvents();
 
-            foreach (LevelEditorCellButton limitedButton in limitedCellButton)
-                limitedButton.ResetQuantity();
+            foreach (KeyValuePair<Type, LevelEditorCellButton> kvp in limitedCellButton)
+                kvp.Value.ResetQuantity();
 
             foreach(LevelEditorCellButton recentCellButton in recentlyUsedCells.cellButton)
                 recentCellButton.SetOnClickEvents();

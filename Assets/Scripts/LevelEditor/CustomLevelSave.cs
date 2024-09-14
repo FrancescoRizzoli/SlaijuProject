@@ -10,7 +10,8 @@ namespace LevelEditor
     {
         public string gridName;
         public bool gridComplete;
-        public bool isLargeGrid;
+        public bool isSmallGrid;
+        public LevelColor gridColor;
         public List<CustomGridCell> gridCells;
     }
 

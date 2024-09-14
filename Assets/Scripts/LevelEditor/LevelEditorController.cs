@@ -1,3 +1,5 @@
+using Cinemachine;
+using Cysharp.Threading.Tasks;
 using Grid;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,9 @@ namespace LevelEditor
         [Header("Simulation")]
         [SerializeField] private GridControls gridControls = null;
         [SerializeField] private LevelEditorLevelController levelController = null;
+        [Header("Cameras")]
+        [SerializeField] private CinemachineVirtualCamera smallGridCamera = null;
+        [SerializeField] private CinemachineVirtualCamera largeGridCamera = null;
 
         public LevelEditorGridComponent currentGrid { get; set; } = null;
         public ALevelEditorAction currentAction { get; private set; } = null;
@@ -37,19 +42,14 @@ namespace LevelEditor
         private bool inputEnabled = false;
         private LevelEditorGridComponent simulationGrid = null;
         private CustomLevelSave customLevelSave = new CustomLevelSave(SAVE_PATH);
+        private CustomGrid customGrid;
 
         public const string SAVE_PATH = "/SlaijuReborn_CustomLevels.save";
 
         private void Start()
         {
-            customLevelSave.Load();
-            cellSpawner.Init(this, largeGridPrefab);    // TODO: logic for the correct grid
-            currentGrid.OnGridReady += ToggleInput;
-            uiController.Init(this, cellSpawner);
-            playerInput.Init(this);
-            levelController.OnGameSimulationOver += StopSimulation;
+            Initialize().Forget();
         }
-
 
         private void Update()
         {
@@ -57,6 +57,44 @@ namespace LevelEditor
                 return;
 
             playerInput.ProcessInput();
+        }
+
+        private async UniTask Initialize()
+        {
+            customLevelSave.Load();
+
+            await SpawnGridRequest();
+
+            currentGrid.OnGridReady += ToggleInput;
+            uiController.Init(this);
+            playerInput.Init(this);
+            if (customGrid.gridName != null)
+                cellSpawner.NotifyInsertedCellsToUI();
+            levelController.OnGameSimulationOver += StopSimulation;
+        }
+
+
+        private async UniTask SpawnGridRequest()
+        {
+            foreach (CustomGrid savedGrid in customLevelSave.customGrids)
+                if (savedGrid.gridName == LevelEditorNewLevelSetup.levelName)
+                {
+                    customGrid = savedGrid;
+                    if (!savedGrid.isSmallGrid)
+                        SetLargeCamera();
+                    await cellSpawner.Init(this, savedGrid.isSmallGrid ? smallGridPrefab : largeGridPrefab, savedGrid);
+                    return;
+                }
+
+            if (!LevelEditorNewLevelSetup.isSmallGrid)
+                SetLargeCamera();
+            cellSpawner.Init(this, LevelEditorNewLevelSetup.isSmallGrid ? smallGridPrefab : largeGridPrefab);
+        }
+
+        private void SetLargeCamera()
+        {
+            smallGridCamera.Priority--;
+            largeGridCamera.Priority += 2;
         }
 
         public void RequestNewCellPositioning(BaseCell prefab, LevelEditorCellButton buttonClicked)
@@ -95,10 +133,14 @@ namespace LevelEditor
         {
             currentGrid.OnGridReady -= ToggleInput;
             Destroy(currentGrid.gameObject);
-            currentGrid = cellSpawner.SpawnGrid(largeGridPrefab);       // TODO: logic for the correct grid
+            if (customGrid.gridName != null)
+                currentGrid = cellSpawner.SpawnGrid(customGrid.isSmallGrid? smallGridPrefab : largeGridPrefab);
+            else
+                currentGrid = cellSpawner.SpawnGrid(LevelEditorNewLevelSetup.isSmallGrid? smallGridPrefab : largeGridPrefab);
             uiController.ResetUI();
             currentAction = null;
-            Destroy(newSelectedBaseCell.gameObject);
+            if (newSelectedBaseCell != null)
+                Destroy(newSelectedBaseCell.gameObject);
             currentGrid.OnGridReady += ToggleInput;
         }
 
@@ -153,7 +195,13 @@ namespace LevelEditor
                 }
             }
 
-            customLevelSave.customGrids.Add(new CustomGrid { gridName = "PippoGrid", gridComplete = false, isLargeGrid = true, gridCells = currentGridCells });
+            customLevelSave.customGrids.RemoveAll(x => x.gridName == LevelEditorNewLevelSetup.levelName);
+            customLevelSave.customGrids.Add(new CustomGrid { gridName = LevelEditorNewLevelSetup.levelName,
+                                                             gridComplete = uiController.simulateButton.interactable,
+                                                             isSmallGrid = LevelEditorNewLevelSetup.isSmallGrid, 
+                                                             gridColor = LevelEditorNewLevelSetup.levelColor,
+                                                             gridCells = currentGridCells });
+
             customLevelSave.Save();
         }
     }

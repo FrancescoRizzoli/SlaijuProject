@@ -83,7 +83,7 @@ namespace LevelEditor
             controller.positionCellAction.OnCellPositioning -= HandleCellPositioned;
         }
 
-        private void HandleCellPositioned()
+        public void HandleCellPositioned()
         {
             if (--currentQuantity == 0)
             {

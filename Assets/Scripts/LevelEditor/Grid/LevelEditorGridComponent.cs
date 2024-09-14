@@ -32,11 +32,11 @@ namespace LevelEditor
         private ShieldedCityCell shieldedCityCell = null;
         private StartCell startCell = null;
         private ExitCell exitCell = null;
+        private int cityQuantity = 0;
 
         protected override void Start()
         {
-            maxEmptyCellNumber = (width * height) - levelButtonArray.Length;
-            emptyCellsCounter = maxEmptyCellNumber;
+            UpdateGridStatus();
             base.Start();
             SpawnVisualCells();
             OnGridReady?.Invoke();
@@ -67,12 +67,64 @@ namespace LevelEditor
             }
         }
 
+        public void UpdateGridStatus()
+        {
+            maxEmptyCellNumber = (width * height) - levelButtonArray.Length;
+            emptyCellsCounter = maxEmptyCellNumber;
+            cityQuantity = 0;
+
+            foreach (BaseCell c in gridArray)
+            {
+                if (Array.IndexOf(levelButtonArray, c) != -1)
+                    continue;
+
+                if (c.ID != CellID.LevelEditorEmpty)
+                    emptyCellsCounter--;
+
+                switch (c.ID)
+                {
+                    case CellID.City:
+                        cityQuantity++;
+                        break;
+                    case CellID.Start:
+                        startCell = (StartCell)c;
+                        break;
+                    case CellID.Exit:
+                        exitCell = (ExitCell)c;
+                        break;
+                    case CellID.Generator:
+                        generatorCell = (GeneratorCell)c;
+                        break;
+                }
+
+                if (c.GetType() == typeof(ShieldedCityCell))
+                    shieldedCityCell = (ShieldedCityCell)c;
+            }
+        }
+
         public async UniTask PositionCell(BaseCell newCell, BaseCell toBeReplacedCell)
         {
             if (newCell.ID != CellID.LevelEditorEmpty && toBeReplacedCell.ID == CellID.LevelEditorEmpty)
+            {
                 emptyCellsCounter--;
-            else if (newCell.ID == CellID.LevelEditorEmpty)
-                emptyCellsCounter++;
+                if (newCell.ID == CellID.City)
+                    cityQuantity++;
+            }
+            else
+            {
+                if (newCell.ID == CellID.LevelEditorEmpty)
+                {
+                    emptyCellsCounter++;
+                    if (toBeReplacedCell.ID == CellID.City)
+                        cityQuantity--;
+                }
+
+                if (newCell.ID == CellID.City && toBeReplacedCell.ID != CellID.City)
+                    cityQuantity++;
+
+                if (newCell.ID != CellID.City && newCell.ID != CellID.LevelEditorEmpty && toBeReplacedCell.ID == CellID.City)
+                    cityQuantity--;
+            }
 
             newCell.transform.parent = toBeReplacedCell.transform.parent;
             Destroy(toBeReplacedCell.gameObject);
@@ -98,7 +150,7 @@ namespace LevelEditor
             if (emptyCellsCounter == maxEmptyCellNumber)
                 TurnOffVisualCells();
             
-            OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
+            OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && cityQuantity > 0 && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
             OnCellPositioned?.Invoke();
         }
 

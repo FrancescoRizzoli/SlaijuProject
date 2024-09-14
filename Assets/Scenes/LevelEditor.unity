@@ -1830,6 +1830,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1429252758}
     - target: {fileID: 2206649618397007311, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: largeGridCamera
+      value: 
+      objectReference: {fileID: 8290446868680395814}
+    - target: {fileID: 2206649618397007311, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
       propertyPath: largeGridPrefab
       value: 
       objectReference: {fileID: 480289727379446347, guid: bbfeea484ce2e574bb4fcf2ffbf88ce7, type: 3}
@@ -1837,6 +1841,38 @@ PrefabInstance:
       propertyPath: levelController
       value: 
       objectReference: {fileID: 8957150235449284947}
+    - target: {fileID: 2206649618397007311, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: smallGridCamera
+      value: 
+      objectReference: {fileID: 8290446868680395815}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: prefabList
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c343e694337f004da5e869637b8a770, type: 2}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2491826967559704887, guid: d01d43fbbd9444a43b701db72aeb96fe, type: 3}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3278827452879676479, guid: e54b7f9a67b79e24d98e163cbf0dc884, type: 3}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 2351785923320152192, guid: 4b3771f21913e78458b0159dec0ab422, type: 3}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1174896778585354839, guid: 352e7aa2af0dcfb4392f71de7db22008, type: 3}
+    - target: {fileID: 2703933007138241558, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
+      propertyPath: cellPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: -2462425887535087060, guid: 078e74cc2203a344999ba4ffda207033, type: 3}
     - target: {fileID: 4291036763213416656, guid: f72e5c667b8e85a439ca99fc5760217a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1963,6 +1999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3010920462342695917, guid: db7a0637ba282e64bbbd8b803a9f0108, type: 3}
+      propertyPath: m_DefaultBlend.m_Time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3042647554830922123, guid: db7a0637ba282e64bbbd8b803a9f0108, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -1972,6 +2012,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7a0637ba282e64bbbd8b803a9f0108, type: 3}
+--- !u!114 &8290446868680395814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5234146866766375246, guid: db7a0637ba282e64bbbd8b803a9f0108, type: 3}
+  m_PrefabInstance: {fileID: 8290446868680395813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8290446868680395815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1779953056656927051, guid: db7a0637ba282e64bbbd8b803a9f0108, type: 3}
+  m_PrefabInstance: {fileID: 8290446868680395813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8612281737723094859
 MonoBehaviour:
   m_ObjectHideFlags: 0
