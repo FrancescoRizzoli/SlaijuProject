@@ -75,7 +75,14 @@ namespace Utility
         Pause,
         None,
         Levels2,
-        Tutorial
+        Levels3,
+        Levels4,
+        Levels5,
+        levels6,
+        Tutorial,
+        LeaderBoard,
+        LevelEditor,
+        LevelEditorNew
     }
     public enum SimpleDirection
     {

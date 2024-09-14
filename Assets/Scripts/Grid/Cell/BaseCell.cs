@@ -17,7 +17,8 @@ namespace Grid
         Generator,
         Start,
         StraightRoad,
-        CrossRoad
+        CrossRoad,
+        LevelEditorEmpty
     }
 
     public class BaseCell : MonoBehaviour
@@ -33,6 +34,8 @@ namespace Grid
         [SerializeField] private CellID _ID = CellID.None;
         [SerializeField] private Side[] safeSides = Array.Empty<Side>();
         [SerializeField] private SelectDeselectView selectDeselectView = null;
+        [SerializeField] public List <MeshRenderer> meshRenderer;
+        
 
         public bool isSwitching { get; set; } = false;
         public CellID ID { get { return _ID; } protected set { _ID = value; } }
@@ -42,6 +45,8 @@ namespace Grid
         {
             get { return  _safeSide; }
         }
+
+        public SelectDeselectView SelectDeselectView { get { return selectDeselectView; } }
 
         private void Awake() => SetSafeSides();
 
