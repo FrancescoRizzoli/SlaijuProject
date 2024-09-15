@@ -119,7 +119,7 @@ namespace LeaderBoard
                 else
                 {
                     Debug.LogWarning("Failed: " + response.errorData.message);
-                    Debug.LogWarning("key");
+                    Debug.LogWarning(key);
                     fetchCompletionSource.TrySetResult(true);
                     playerInfo.Add(key, response);
 
