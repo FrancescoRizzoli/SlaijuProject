@@ -2,41 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
+using Cysharp.Threading.Tasks; // Add UniTask namespace
 
 namespace LeaderBoard
 {
     public class PlayerManager : MonoBehaviour
     {
-        public LeaderBoard leaderBoard;
-        private void Start()
+        public LeaderBoardData leaderBoard;
+
+        private async void Start()
         {
-            StartCoroutine(SetUpRoutine());
+            await SetUpRoutine();
         }
-        IEnumerator SetUpRoutine()
+
+        private async UniTask SetUpRoutine()
         {
-            yield return LoginRoutine();
-            yield return leaderBoard.FectTopHighScore();
+            await LoginRoutine();
+            await leaderBoard.SetUpScoreDictionarys();
         }
-        IEnumerator LoginRoutine()
+
+        private async UniTask LoginRoutine()
         {
-            bool done = false;
+            var loginCompletionSource = new UniTaskCompletionSource<bool>();
+
             LootLockerSDKManager.StartGuestSession((response) =>
             {
                 if (response.success)
                 {
-                    Debug.Log("player Loged In");
+                    Debug.Log("Player Logged In");
                     PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
-                    done = true;
+                    loginCompletionSource.TrySetResult(true);
                 }
-
                 else
                 {
-                    Debug.Log("Could Not Start Sessions");
-                    done = true;
+                    Debug.Log("Could Not Start Session");
+                    loginCompletionSource.TrySetResult(true);
                 }
             });
-            yield return new WaitWhile(() => done == false);
-        }
 
+            await loginCompletionSource.Task;
+        }
     }
 }
