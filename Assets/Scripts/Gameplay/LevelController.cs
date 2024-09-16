@@ -8,6 +8,7 @@ using Grid.Cell;
 using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using LeaderBoard;
 
 
 namespace Gameplay
@@ -35,6 +36,7 @@ namespace Gameplay
         [SerializeField]
         Counter counter;
         [SerializeField]
+        ScoreSender sender;
         private Vector3 monsterStartOffset = Vector3.zero;
         private int cityNumber = 0;
         private int numberOfCity = 0;
@@ -157,6 +159,7 @@ namespace Gameplay
             levelUiController.GameWin();
             timeCounter.StopStopwatch();
             levelSpeed.Freeze();
+            sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.name.ToString());
         }
         private void GameOver()
         {

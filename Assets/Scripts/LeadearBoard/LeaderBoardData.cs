@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Cysharp.Threading.Tasks;
-using Core; // Add UniTask namespace
+using Core;
+using System; // Add UniTask namespace
 
 namespace LeaderBoard
 {
@@ -16,7 +17,9 @@ namespace LeaderBoard
 
         public Dictionary<string, LootLockerLeaderboardMember[]> leaderboardInfo = new Dictionary<string, LootLockerLeaderboardMember[]>();
         public Dictionary<string, LootLockerGetMemberRankResponse> playerInfo = new Dictionary<string, LootLockerGetMemberRankResponse>();
-
+        public delegate void  DataCollect();
+        public event DataCollect OnDataCollect;
+        
        
 
         public async UniTask SetUpScoreDictionarys()
@@ -31,6 +34,7 @@ namespace LeaderBoard
                 await AddScoreToDictionaryPlayer(levels.sceneName.ToString());
 
             }
+            OnDataCollect?.Invoke();
         }
         /*
         public async UniTask FetchTopHighScore(string key)
