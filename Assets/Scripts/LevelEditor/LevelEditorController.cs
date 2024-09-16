@@ -10,10 +10,10 @@ namespace LevelEditor
 {
     public enum LevelColor
     {
-        ColorA,
-        ColorB,
-        ColorC,
-        ColorD
+        Green,
+        Pink,
+        Blue,
+        Red
     }
 
     public class LevelEditorController : MonoBehaviour

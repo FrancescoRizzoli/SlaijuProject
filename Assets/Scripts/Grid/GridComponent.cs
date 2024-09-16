@@ -161,10 +161,17 @@ namespace Grid
         public void AddCellInGrid(BaseCell newCell, Vector2Int targetPosition, Vector3 cellForwardDirection)
         {
             BaseCell toBeRemovedCell = gridArray[targetPosition.x, targetPosition.y];
-            newCell.transform.position = toBeRemovedCell.transform.position;
-            newCell.transform.parent = toBeRemovedCell.transform.parent;
+
+            if (toBeRemovedCell != null)
+            {
+                newCell.transform.position = toBeRemovedCell.transform.position;
+                Destroy(toBeRemovedCell.gameObject);
+            }
+            else
+                newCell.transform.position = GridToWorldPosition(targetPosition);
+
+            newCell.transform.parent = transform;
             newCell.transform.forward = cellForwardDirection;
-            Destroy(toBeRemovedCell.gameObject);
         }
 
 

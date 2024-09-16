@@ -12,7 +12,7 @@ namespace LevelEditor
         private CustomLevelSave customLevelSave = new CustomLevelSave(LevelEditorController.SAVE_PATH);
 
         public static string levelName = "";
-        public static LevelColor levelColor = LevelColor.ColorA;
+        public static LevelColor levelColor = LevelColor.Green;
         public static bool isSmallGrid = true;
 
         private const string LEVEL_NAME_NOT_AVAILABLE = "Name already used! Choose another name for your level...";
@@ -21,7 +21,7 @@ namespace LevelEditor
         void Start()
         {
             levelName = "";
-            levelColor = LevelColor.ColorA;
+            levelColor = LevelColor.Green;
             isSmallGrid = true;
             levelNameWarningTextArea.gameObject.SetActive(false);
             createButton.interactable = false;

@@ -50,6 +50,7 @@ namespace Utility
         Level29,
         Level30,
         LevelEditor,
+        CustomLevelLoad,
         Level31,
         Level32,
         Level33,
