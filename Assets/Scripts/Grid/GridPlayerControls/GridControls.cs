@@ -33,7 +33,7 @@ namespace Grid
         [SerializeField]
         AudioClip MoveCell;
 
-        int move = 0;
+        public int move = 0;
         public delegate void PlayerMOves(int moveNumber);
         public event PlayerMOves onPlayerMoves;
 
