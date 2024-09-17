@@ -171,6 +171,7 @@ namespace LevelEditor
                 if (Array.IndexOf(levelButtonArray, cell) == -1)
                 {
                     BaseCell newCell = Instantiate(envCellPrefab);
+                    newCell.name = envCellPrefab.name;
                     newCell.transform.position = cell.transform.position;
                     newCell.transform.parent = cell.transform.parent;
                     DestroyImmediate(cell.gameObject);

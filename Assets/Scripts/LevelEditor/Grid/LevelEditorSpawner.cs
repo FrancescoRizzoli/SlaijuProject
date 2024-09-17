@@ -35,6 +35,7 @@ namespace LevelEditor
         public async UniTask<LevelEditorGridComponent> SpawnGrid(LevelEditorGridComponent gridPrefab, CustomGrid savedGrid)
         {
             LevelEditorGridComponent grid = Instantiate<LevelEditorGridComponent>(gridPrefab);
+            grid.gameObject.SetActive(false);
             savedCellsType.Clear();
 
             await PopulateGrid(grid, savedGrid);

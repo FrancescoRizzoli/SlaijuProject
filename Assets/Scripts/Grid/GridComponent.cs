@@ -172,6 +172,7 @@ namespace Grid
 
             newCell.transform.parent = transform;
             newCell.transform.forward = cellForwardDirection;
+            newCell.RecalculateSafeSides();
         }
 
 

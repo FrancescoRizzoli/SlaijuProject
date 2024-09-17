@@ -11,9 +11,9 @@ namespace LevelEditor
 
         private CustomLevelSave customLevelSave = new CustomLevelSave(LevelEditorController.SAVE_PATH);
 
-        public static string levelName = "";
+        public static string levelName = "PippoGrid";
         public static LevelColor levelColor = LevelColor.Green;
-        public static bool isSmallGrid = true;
+        public static bool isSmallGrid = false;
 
         private const string LEVEL_NAME_NOT_AVAILABLE = "Name already used! Choose another name for your level...";
         private const string LEVEL_NAME_EMPTY = "Name cannot be empty";

@@ -51,6 +51,7 @@ namespace Utility
         Level30,
         LevelEditor,
         CustomLevelLoad,
+        CustomLevelPlay,
         Level31,
         Level32,
         Level33,
