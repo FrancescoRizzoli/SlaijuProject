@@ -1077,6 +1077,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1139414179472467438}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7084329356660828318}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!4 &4725539150928915175 stripped
 Transform:
@@ -1110,6 +1113,7 @@ MonoBehaviour:
   selectDeselectView: {fileID: 1139414179472467438}
   meshRenderer:
   - {fileID: 7554571624185536163}
+  colorChanger: {fileID: 7084329356660828318}
   curvePoint:
   - {fileID: 4539390498546907210}
   - {fileID: 881425805435904252}
@@ -1132,6 +1136,30 @@ MonoBehaviour:
   - {fileID: 5665256538133522958}
   - {fileID: 5878504547985943919}
   - {fileID: 7411365951437408154}
+--- !u!1 &8708312308485489669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 6158454318536209008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7084329356660828318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708312308485489669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e469a768a51267644bcfcf2b5a5300df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 7554571624185536163}
+  colorMaterial:
+  - {fileID: 2100000, guid: 045a52e751275274cb29fbe3f4ea67b3, type: 2}
+  - {fileID: 2100000, guid: c31d44aa61c0b574a95d8325119f705f, type: 2}
+  - {fileID: 2100000, guid: e0fe7734023779f4ea3e37f5fc717540, type: 2}
+  - {fileID: 2100000, guid: 5fd1f66c91ba48e4391edb7f15968d6d, type: 2}
 --- !u!4 &9002865899366731504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2992539993922698368, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}

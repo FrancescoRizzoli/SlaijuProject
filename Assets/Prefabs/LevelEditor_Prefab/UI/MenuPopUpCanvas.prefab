@@ -507,11 +507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -522,15 +526,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ToggleInput
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelEditor.LevelEditorController, LevelEditor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -674,8 +694,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5846239561734089424, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2946306040509257140}
   m_SourcePrefab: {fileID: 100100000, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+--- !u!1 &298319301551946495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5846239561734089424, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+  m_PrefabInstance: {fileID: 6125410317571428399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2946306040509257140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298319301551946495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3973106118b3f54688a2ed5b5630b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 0
 --- !u!224 &3872315159611950802 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6970708169859028733, guid: e23320021c4bfc646b32e7739a81b171, type: 3}

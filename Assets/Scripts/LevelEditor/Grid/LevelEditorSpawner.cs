@@ -29,6 +29,7 @@ namespace LevelEditor
         {
             LevelEditorGridComponent grid = Instantiate<LevelEditorGridComponent>(gridPrefab);
             grid.gameObject.SetActive(true);
+            grid.InitializeGrid();
             return grid;
         }
 
@@ -61,6 +62,8 @@ namespace LevelEditor
         {
             BaseCell cell = Instantiate(cellPrefab != null ? cellPrefab : editorEmptyCellPrefab);
             cell.name = cellPrefab != null ? cellPrefab.name : editorEmptyCellPrefab.name;
+            if (cell.colorChanger != null)
+                cell.colorChanger.SetColor((int)LevelEditorNewLevelSetup.levelColor);
             cell.gameObject.SetActive(false);
             return cell;
         }

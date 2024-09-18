@@ -518,7 +518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00001335144}
+  m_AnchoredPosition: {x: 0, y: -0.0000071525574}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2856952055186322445
@@ -1098,10 +1098,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c4a78461736744dbe6d4c30b9779ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellTypeFilterDataArray:
+  environmentCellFilterDataArray:
   - {fileID: 11400000, guid: 42b9bc42aa339634eae9c693f4649e38, type: 2}
-  - {fileID: 11400000, guid: 016c745fa7c6da8478561417a8118caa, type: 2}
-  - {fileID: 11400000, guid: 2dba198dbd0922a438bb0132087fce31, type: 2}
+  - {fileID: 11400000, guid: dcfaf8a882795ed47919cef5b01b2b4a, type: 2}
+  - {fileID: 11400000, guid: 16c17e5537ca9ca44b8fef5090716c71, type: 2}
+  - {fileID: 11400000, guid: f8cd05371ae1102428725adca5922f10, type: 2}
+  objectiveCellFilterData: {fileID: 11400000, guid: 016c745fa7c6da8478561417a8118caa, type: 2}
+  roadCellFilterData: {fileID: 11400000, guid: 2dba198dbd0922a438bb0132087fce31, type: 2}
   cellTypeFilterName: {fileID: 1090268937901338381}
   cellTypeFilterNextButton: {fileID: 2191736322566439051}
   cellTypeFilterPreviousButton: {fileID: 732008220313259706}

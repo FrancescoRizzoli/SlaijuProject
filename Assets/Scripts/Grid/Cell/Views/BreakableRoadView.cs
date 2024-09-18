@@ -9,8 +9,8 @@ namespace Grid.Cell
     public class BreakableRoadView : AView
     {
         [SerializeField] private MeshRenderer roadGraphic = null;
-        [SerializeField] private Material[] cellPhaseMaterial = Array.Empty<Material>();
-        [SerializeField] private GameObject emptyGraphic = null;
+        public Material[] cellPhaseMaterial = Array.Empty<Material>();
+        public GameObject emptyGraphic = null;
         [SerializeField] private AudioClip damageAudioClip = null;
         [SerializeField] private ParticleSystem damageParticle = null;
         [SerializeField] private ParticleSystem roadToGrassParticle= null;

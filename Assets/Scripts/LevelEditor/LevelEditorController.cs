@@ -83,6 +83,7 @@ namespace LevelEditor
 
             await SpawnGridRequest();
 
+            currentGrid.SetCellsColor((int)LevelEditorNewLevelSetup.levelColor);
             currentGrid.OnGridReady += ToggleInput;
             uiController.Init(this);
             playerInput.Init(this);

@@ -9,7 +9,9 @@ namespace LevelEditor
     public class LevelEditorUIController : MonoBehaviour
     {
         [Header("Cell Type Filter")]
-        [SerializeField] private LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = null;
+        [SerializeField] private LevelEditorCellTypeFilterData[] environmentCellFilterDataArray = null;
+        [SerializeField] private LevelEditorCellTypeFilterData objectiveCellFilterData = null;
+        [SerializeField] private LevelEditorCellTypeFilterData roadCellFilterData = null;
         [SerializeField] private TextMeshProUGUI cellTypeFilterName = null;
         [SerializeField] private Button cellTypeFilterNextButton = null;
         [SerializeField] private Button cellTypeFilterPreviousButton = null;
@@ -35,6 +37,7 @@ namespace LevelEditor
         private GameObject[] filterGOArray;
         private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
         private Dictionary<Type, LevelEditorCellButton> limitedCellButton = new Dictionary<Type, LevelEditorCellButton>();
+        LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = new LevelEditorCellTypeFilterData[3];
 
         public LevelEditorCellButton lastSelectedButton { get; private set; } = null;
 
@@ -51,6 +54,10 @@ namespace LevelEditor
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
 
             recentlyUsedCells.Init(editorController);
+
+            cellTypeFilterDataArray[0] = environmentCellFilterDataArray[(int)LevelEditorNewLevelSetup.levelColor];
+            cellTypeFilterDataArray[1] = objectiveCellFilterData;
+            cellTypeFilterDataArray[2] = roadCellFilterData;
 
             PopulateViewport();
             SelectFilter(true);

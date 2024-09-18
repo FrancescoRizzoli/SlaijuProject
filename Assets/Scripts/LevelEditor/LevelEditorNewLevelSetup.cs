@@ -59,7 +59,6 @@ namespace LevelEditor
         public void HandleLevelColorSelection(int value)
         {
             levelColor = (LevelColor) value;
-            Debug.Log(levelColor);
         }
 
         public void HandleSmallGridSelected(bool value)

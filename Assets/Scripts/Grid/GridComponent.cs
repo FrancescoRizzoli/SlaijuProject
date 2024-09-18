@@ -175,6 +175,20 @@ namespace Grid
             newCell.RecalculateSafeSides();
         }
 
+        /// <summary>
+        /// Change color of cells in the grid.
+        /// DOES NOT WORK FOR ENVIRONMENT CELLS (they have a prefab for each color)
+        /// </summary>
+        /// <param name="colorIndex"></param>
+        public void SetCellsColor(int colorIndex)
+        {
+            foreach (BaseCell cell in gridArray)
+            {
+                if (cell != null && cell.colorChanger != null)
+                    cell.colorChanger.SetColor(colorIndex);
+            }
+        }
+
 
         // Optional: To visualize the grid in the editor
         private void OnDrawGizmos()

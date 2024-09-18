@@ -1315,6 +1315,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8134122108945099216}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 116618088485213323}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!1 &5160239444787960563 stripped
 GameObject:
@@ -1340,6 +1343,40 @@ MonoBehaviour:
   damageAudioClip: {fileID: 0}
   damageParticle: {fileID: 1560632543785450371}
   roadToGrassParticle: {fileID: 1560632543785450371}
+--- !u!114 &116618088485213323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160239444787960563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9f80f11bb42d1449e8fb11688867cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 6314585238412895837}
+  colorMaterial:
+  - {fileID: 2100000, guid: d44a97c8f041b3d40a075995e69e4e72, type: 2}
+  - {fileID: 2100000, guid: f50f37fc79eca80478f812130b9f6f7d, type: 2}
+  - {fileID: 2100000, guid: 0de45dae499f82d40b1ff74bfcb21583, type: 2}
+  - {fileID: 2100000, guid: a69db58e7a1660649a5f04d86bc61a7d, type: 2}
+  breakableRoadView: {fileID: 8134122108945099216}
+  cellPhaseMaterialColors:
+  - cellPhaseMaterials:
+    - {fileID: 2100000, guid: 392527952e1d44b4a977b413788d19eb, type: 2}
+  - cellPhaseMaterials:
+    - {fileID: 2100000, guid: 6ba8ccf42fbe5a640aad5bfadd59f9f2, type: 2}
+  - cellPhaseMaterials:
+    - {fileID: 2100000, guid: efbb2005f5fc71b4ba567d58a50d8954, type: 2}
+  - cellPhaseMaterials:
+    - {fileID: 2100000, guid: 60d8d9470362bd8448227808b3aa9be0, type: 2}
+  emptyGrassColors:
+  - {fileID: 2100000, guid: fd20690a57f37cf479aab5dcb399db57, type: 2}
+  - {fileID: 2100000, guid: 92b003cdf7ee4554ebb524bede4db3fc, type: 2}
+  - {fileID: 2100000, guid: 8df665067f484384a9a1db25b5629f21, type: 2}
+  - {fileID: 2100000, guid: 3f933041003eac846999873a0d7b2424, type: 2}
 --- !u!1 &6659806171135539101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
@@ -1362,6 +1399,7 @@ MonoBehaviour:
   selectDeselectView: {fileID: 65070938366516299}
   meshRenderer:
   - {fileID: 6314585238412895837}
+  colorChanger: {fileID: 116618088485213323}
   curvePoint: []
   health: 2
   view: {fileID: 8134122108945099216}

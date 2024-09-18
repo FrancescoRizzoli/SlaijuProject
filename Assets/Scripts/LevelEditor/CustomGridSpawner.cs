@@ -26,6 +26,7 @@ namespace LevelEditor
             await UniTask.NextFrame();      // wait one frame so that the cells removed in the grid are destroyed
 
             grid.InitializeGrid();
+            grid.SetCellsColor((int)savedGrid.gridColor);
         }
 
         protected virtual void SpawnCellIntoCurrentGrid(GridComponent grid, CustomGridCell cgc)

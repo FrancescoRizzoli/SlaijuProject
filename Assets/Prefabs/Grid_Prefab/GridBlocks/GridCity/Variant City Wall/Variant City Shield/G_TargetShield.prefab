@@ -2337,6 +2337,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9150747367693936216, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
       insertIndex: 2
       addedObject: {fileID: 2351785923320152192}
+    - targetCorrespondingSourceObject: {fileID: 7281551204286171958, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5693551945586653835}
   m_SourcePrefab: {fileID: 100100000, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
 --- !u!1 &1013974851867321472 stripped
 GameObject:
@@ -2361,11 +2364,42 @@ MonoBehaviour:
   meshRenderer:
   - {fileID: 5731810650689976765}
   - {fileID: 3864423859402657925}
+  colorChanger: {fileID: 5693551945586653835}
   cellHealth: 3
   destructionView: {fileID: 3520565773586606020}
   shieldEffectGameobject: {fileID: 4869972724664365831}
   mixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
   shieldOffAudioClip: {fileID: 8300000, guid: 49865236199f8054ba24c833fd35dac0, type: 3}
+--- !u!1 &1577074347066804718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7281551204286171958, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+  m_PrefabInstance: {fileID: 8137900068222517976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5693551945586653835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577074347066804718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2f23ed4fdca9f4d96570077fdcc422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 5731810650689976765}
+  colorMaterial:
+  - {fileID: 2100000, guid: a0c0d410deaa14f47bcb0a37f1e3b555, type: 2}
+  - {fileID: 2100000, guid: c67293176543faa49935bf6c81e7842c, type: 2}
+  - {fileID: 2100000, guid: ad809dbafb723c040a4f2d1ef6fb9847, type: 2}
+  - {fileID: 2100000, guid: 2575c72a91db32a49a30e968d730e8e8, type: 2}
+  destructionView: {fileID: 3520565773586606020}
+  emptyGrassColors:
+  - {fileID: 2100000, guid: fd20690a57f37cf479aab5dcb399db57, type: 2}
+  - {fileID: 2100000, guid: 92b003cdf7ee4554ebb524bede4db3fc, type: 2}
+  - {fileID: 2100000, guid: 8df665067f484384a9a1db25b5629f21, type: 2}
+  - {fileID: 2100000, guid: 3f933041003eac846999873a0d7b2424, type: 2}
 --- !u!4 &2465012254194483110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5970325509215157630, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
@@ -2381,7 +2415,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4626374488601191708, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
   m_PrefabInstance: {fileID: 8137900068222517976}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1577074347066804718}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aeb17210b6bc2144b2e24f46760ac73, type: 3}

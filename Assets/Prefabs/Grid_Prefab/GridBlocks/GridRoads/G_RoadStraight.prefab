@@ -993,6 +993,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7438875572003924287}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5430897653157338170}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!4 &6019685418917834950 stripped
 Transform:
@@ -1004,6 +1007,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1907983780112613437, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
   m_PrefabInstance: {fileID: 5145770211037784145}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7693389286104833572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 5145770211037784145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5430897653157338170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693389286104833572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e469a768a51267644bcfcf2b5a5300df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 2055194578635206643}
+  colorMaterial:
+  - {fileID: 2100000, guid: a3105097c1374df419dab417a0274cb4, type: 2}
+  - {fileID: 2100000, guid: cdc05e09d7cefdc48beb3bbe82e70c90, type: 2}
+  - {fileID: 2100000, guid: 96a40397f22328c49bdbcc90a69fb69d, type: 2}
+  - {fileID: 2100000, guid: 3994841bc2958214d8d295a946af5db7, type: 2}
 --- !u!1 &8157374388474508106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
@@ -1026,6 +1053,7 @@ MonoBehaviour:
   selectDeselectView: {fileID: 7438875572003924287}
   meshRenderer:
   - {fileID: 2055194578635206643}
+  colorChanger: {fileID: 5430897653157338170}
 --- !u!114 &7438875572003924287
 MonoBehaviour:
   m_ObjectHideFlags: 0
