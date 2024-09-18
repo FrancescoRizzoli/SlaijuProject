@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Cysharp.Threading.Tasks; 
+using Cysharp.Threading.Tasks;
+using TMPro;
 
 namespace Gameplay
 {
@@ -16,7 +17,7 @@ namespace Gameplay
         [SerializeField]
         private int startValue;
         [SerializeField]
-        private Text text;
+        private TMP_Text text;
 
         public delegate void CounterEnd();
         public event CounterEnd OnCounterEnd;

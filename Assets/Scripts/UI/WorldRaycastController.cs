@@ -25,7 +25,7 @@ namespace UnityEngine.UI
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.collider.name);
+                //Debug.Log(hit.collider.name);
                 if ((layerMask.value & (1 << hit.collider.gameObject.layer)) != 0)
                 {
                     hit.collider.gameObject.GetComponent<objectClick>().MouseClick();

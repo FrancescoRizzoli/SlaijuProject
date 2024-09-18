@@ -777,6 +777,10 @@ PrefabInstance:
       propertyPath: smokeEffect.Array.data[2]
       value: 
       objectReference: {fileID: 3160397704441335421}
+    - target: {fileID: 4626374488601191708, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+      propertyPath: destructionCompletedParticle
+      value: 
+      objectReference: {fileID: 5330085285436272596}
     - target: {fileID: 4720438683616104801, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -862,6 +866,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8846044575222915828, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+      propertyPath: meshRenderer.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846044575222915828, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
       propertyPath: safeSides.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
@@ -869,6 +877,14 @@ PrefabInstance:
       propertyPath: safeSides.Array.data[2]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8846044575222915828, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+      propertyPath: meshRenderer.Array.data[0]
+      value: 
+      objectReference: {fileID: 8986940889728973032}
+    - target: {fileID: 8846044575222915828, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+      propertyPath: meshRenderer.Array.data[1]
+      value: 
+      objectReference: {fileID: 473526064034484688}
     - target: {fileID: 9150747367693936216, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
       propertyPath: m_Name
       value: G_TargetWalled
@@ -878,6 +894,7 @@ PrefabInstance:
     - {fileID: 7029674479191096052, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
     - {fileID: 2359172451844838584, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
     - {fileID: 80586624095098082, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+    - {fileID: 5038500750048649667, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5970325509215157630, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
       insertIndex: 0
@@ -901,9 +918,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aeb17210b6bc2144b2e24f46760ac73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &473526064034484688 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4994089532903821917, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+  m_PrefabInstance: {fileID: 4890025781479113613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1226676611683221235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5970325509215157630, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
+  m_PrefabInstance: {fileID: 4890025781479113613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5330085285436272596 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 730877099789233241, guid: 06b1e0b806e27434fb0da5e5d9cc1119, type: 3}
   m_PrefabInstance: {fileID: 4890025781479113613}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7164392674703046340 stripped
