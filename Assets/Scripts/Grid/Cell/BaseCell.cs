@@ -35,7 +35,7 @@ namespace Grid
         [SerializeField] private Side[] safeSides = Array.Empty<Side>();
         [SerializeField] private SelectDeselectView selectDeselectView = null;
         [SerializeField] public List <MeshRenderer> meshRenderer;
-        
+        public ColorChanger colorChanger = null;
 
         public bool isSwitching { get; set; } = false;
         public CellID ID { get { return _ID; } protected set { _ID = value; } }
@@ -71,6 +71,13 @@ namespace Grid
                 }
             }
         }
+
+        public void RecalculateSafeSides()
+        {
+            _safeSide.Clear();
+            SetSafeSides();
+        }
+
         protected void EnableAllSafeSides()
         {
             safeSide.Clear();

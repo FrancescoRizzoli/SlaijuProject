@@ -7,7 +7,7 @@ namespace LevelEditor
     public abstract class ALevelEditorAction : MonoBehaviour
     {
         protected LevelEditorController controller = null;
-        protected BaseCell previousSelectedCell = null;
+        public BaseCell previousSelectedCell { get; set; } = null;
         protected Vector2Int previousSelectedCellPosition;
 
         private void Awake()

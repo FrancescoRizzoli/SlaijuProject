@@ -30,9 +30,19 @@ namespace Character
         public event CharacterEvent OnVictory = null;
         public event CharacterEvent OnDeath = null;
 
-        private void Start()
+        private void Awake()
         {
             animator = GetComponent<Animator>();
+        }
+
+        private void OnEnable()
+        {
+            ResetAnimator();
+            SetCharacterSpeed(characterData.movementSpeed);
+        }
+
+        private void Start()
+        {
             Init();
         }
 
@@ -158,7 +168,6 @@ namespace Character
             if (cell.isSwitching)
                 return false;
 
-
             foreach (Vector3 safeSide in cell.safeSide)
                 if (currentCellEntranceSide == safeSide)
                     return true;
@@ -215,5 +224,15 @@ namespace Character
 
         private void DamageCell() => ((AttackingState)FindState<AttackingState>()).DamageTargetCell();
 
+        public void ResetAnimator()
+        {
+            animator.Rebind();
+            animator.Update(0.0f);
+        }
+
+        public void ResetState()
+        {
+            ChangeState(initialState).Forget();
+        }
     }
 }

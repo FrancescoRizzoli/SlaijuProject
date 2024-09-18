@@ -14,9 +14,8 @@ namespace Grid
         Vector2Int emptyVector = new Vector2Int(-1, -1);
         CellExchange exchange;
         PlayerInput playerInput;
-        [SerializeField]
-        GridPositionController positionController;
-        GridComponent gridComponent;
+        public GridPositionController positionController;
+        [NonSerialized] public GridComponent gridComponent;
         [SerializeField]
         Vector2Int currentSelectedCell = new Vector2Int(-1, -1);
         [SerializeField]
@@ -88,6 +87,8 @@ namespace Grid
         public async UniTaskVoid CheckPosition(Vector2Int position)
         {
             BaseCell inputCell = gridComponent.gridArray[position.x, position.y];
+
+            Debug.Log(gridComponent.name);
 
             if (inputCell.ID == CellID.CurveRoad || inputCell.ID == CellID.StraightRoad)
             {

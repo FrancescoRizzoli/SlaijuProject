@@ -15,16 +15,13 @@ namespace Gameplay
 {
     public class LevelController : MonoBehaviour
     {
-        [SerializeField]
-        GridComponent gridComponent;
-        [SerializeField]
-        CharacterStateController characterStateController;
-        [SerializeField]
-        GridPositionController positionController;
+        public GridComponent gridComponent;
+        public CharacterStateController characterStateController;
+        public GridPositionController positionController;
         [SerializeField]
         LevelControllerScene levelControllerScene;
         [SerializeField]
-        LevelSpeed levelSpeed;
+        protected LevelSpeed levelSpeed;
         [SerializeField]
         GridControls gridcontrols;
         [SerializeField]
@@ -37,7 +34,7 @@ namespace Gameplay
         Counter counter;
         [SerializeField]
         ScoreSender sender;
-        private Vector3 monsterStartOffset = Vector3.zero;
+        protected Vector3 monsterStartOffset = Vector3.zero;
         private int cityNumber = 0;
         private int numberOfCity = 0;
 
@@ -49,7 +46,7 @@ namespace Gameplay
         [SerializeField]
         AudioClip loose;
         [SerializeField]
-        AudioComponent audioComponent;
+        protected AudioComponent audioComponent;
 
 
 
@@ -61,7 +58,7 @@ namespace Gameplay
 
 
         [ContextMenu("start game")]
-        public void StartGame()
+        public virtual void StartGame()
         {
            
             if (!Application.isPlaying)
@@ -85,7 +82,7 @@ namespace Gameplay
         {
             levelSpeed.SetLevelSpeed();
         }
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             counter.OnCounterEnd += StartGame;
             SceneLoader.OnLoadingCompleted += StartCounter;
@@ -93,17 +90,16 @@ namespace Gameplay
             characterStateController.OnVictory += GameWin;
             gridcontrols.onPlayerMoves += UpdateMoves;
         }
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             counter.OnCounterEnd -= StartGame;
             SceneLoader.OnLoadingCompleted -= StartCounter;
             characterStateController.OnDeath -= GameOver;
             characterStateController.OnVictory -= GameWin;
             gridcontrols.onPlayerMoves -= UpdateMoves;
-
         }
 
-        private void SetUpCity()
+        protected void SetUpCity()
         {
 
             List<BaseCell> city = gridComponent.GetCellsByID(CellID.City);
@@ -151,7 +147,7 @@ namespace Gameplay
         }
 
 
-        private void GameWin()
+        protected virtual void GameWin()
         {
             playerInput.enabled = false;
             Settings.UpdateLevelReached((int)levelControllerScene.SceneName +1);
@@ -161,7 +157,7 @@ namespace Gameplay
             levelSpeed.Freeze();
             sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.name.ToString());
         }
-        private void GameOver()
+        protected virtual void GameOver()
         {
             playerInput.enabled = false;
             AudioManager.instance.PlayAudioClip(loose, sfx);

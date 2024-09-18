@@ -206,6 +206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6312054760684725659}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5199701930650532491}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!4 &299966172231708147 stripped
 Transform:
@@ -239,6 +242,7 @@ MonoBehaviour:
   selectDeselectView: {fileID: 0}
   meshRenderer:
   - {fileID: 6392571322976951919}
+  colorChanger: {fileID: 5199701930650532491}
   view: {fileID: 6312054760684725659}
   OnCharacterReturn:
     m_PersistentCalls:
@@ -269,6 +273,25 @@ MonoBehaviour:
   mixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
   lightningSFX: {fileID: 8300000, guid: 60e6c137431aa8a489f9cdad548cb790, type: 3}
   bigSmokeParticle: {fileID: 2409009393445982454}
+--- !u!114 &5199701930650532491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424767465580397329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e469a768a51267644bcfcf2b5a5300df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 6392571322976951919}
+  colorMaterial:
+  - {fileID: 2100000, guid: fe5ddec248ad4a3459b86318c2ade25f, type: 2}
+  - {fileID: 2100000, guid: e68dbce502a102f4fa45faf1d6f34e0e, type: 2}
+  - {fileID: 2100000, guid: 64071162237ee8a41be5067dcb8fc433, type: 2}
+  - {fileID: 2100000, guid: b25dd5b79523a454fac449dc8730f45e, type: 2}
 --- !u!1001 &1654855717886003050
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,15 +10,14 @@ namespace LevelEditor
         public Button button = null;
         [SerializeField] private TextMeshProUGUI quantityTextArea = null;
 
-        private bool limitQuantity = false;
         private int maxQuantity = 1;
-        private int currentQuantity;
-        
 
         protected LevelEditorController controller = null;
         protected LevelEditorRecentlyUsedCells recentCells = null;
         public BaseCell cellPrefab { get; set; } = null;
         public EditorCellType cellType { get; set; }
+        public bool limitQuantity { get; private set; } = false;
+        public int currentQuantity { get; private set; }
 
         public void Init(EditorCellType cellType, EditorCell cellData, LevelEditorController editorController, LevelEditorRecentlyUsedCells recentlyUsedCells)
         {
@@ -40,7 +39,7 @@ namespace LevelEditor
             controller = editorController;
         }
 
-        protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab);
+        protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab, this);
 
         protected void HandleRecentCellClick() => recentCells.AddCell(this);
 
@@ -79,10 +78,18 @@ namespace LevelEditor
             controller.positionCellAction.OnCellPositioning += HandleCellPositioned;
         }
 
-        private void HandleCellPositioned()
+        public void UnsubscribeCellPositioning()
+        {
+            controller.positionCellAction.OnCellPositioning -= HandleCellPositioned;
+        }
+
+        public void HandleCellPositioned()
         {
             if (--currentQuantity == 0)
+            {
                 button.interactable = false;
+                UnsubscribeCellPositioning();
+            }
 
             quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
         }

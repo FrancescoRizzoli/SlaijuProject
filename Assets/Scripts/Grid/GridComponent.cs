@@ -151,6 +151,44 @@ namespace Grid
                 return cells;
         }
 
+        /// <summary>
+        /// Add a cell in the grid at a specific position and rotation.
+        /// DOES NOT RE-INITIALIZE THE GRID
+        /// </summary>
+        /// <param name="newCell">the cell to add</param>
+        /// <param name="targetPosition">the target position</param>
+        /// <param name="cellForwardDirection">the cell's forward direction</param>
+        public void AddCellInGrid(BaseCell newCell, Vector2Int targetPosition, Vector3 cellForwardDirection)
+        {
+            BaseCell toBeRemovedCell = gridArray[targetPosition.x, targetPosition.y];
+
+            if (toBeRemovedCell != null)
+            {
+                newCell.transform.position = toBeRemovedCell.transform.position;
+                Destroy(toBeRemovedCell.gameObject);
+            }
+            else
+                newCell.transform.position = GridToWorldPosition(targetPosition);
+
+            newCell.transform.parent = transform;
+            newCell.transform.forward = cellForwardDirection;
+            newCell.RecalculateSafeSides();
+        }
+
+        /// <summary>
+        /// Change color of cells in the grid.
+        /// DOES NOT WORK FOR ENVIRONMENT CELLS (they have a prefab for each color)
+        /// </summary>
+        /// <param name="colorIndex"></param>
+        public void SetCellsColor(int colorIndex)
+        {
+            foreach (BaseCell cell in gridArray)
+            {
+                if (cell != null && cell.colorChanger != null)
+                    cell.colorChanger.SetColor(colorIndex);
+            }
+        }
+
 
         // Optional: To visualize the grid in the editor
         private void OnDrawGizmos()

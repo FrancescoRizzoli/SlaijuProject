@@ -9,7 +9,9 @@ namespace LevelEditor
     public class LevelEditorUIController : MonoBehaviour
     {
         [Header("Cell Type Filter")]
-        [SerializeField] private LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = null;
+        [SerializeField] private LevelEditorCellTypeFilterData[] environmentCellFilterDataArray = null;
+        [SerializeField] private LevelEditorCellTypeFilterData objectiveCellFilterData = null;
+        [SerializeField] private LevelEditorCellTypeFilterData roadCellFilterData = null;
         [SerializeField] private TextMeshProUGUI cellTypeFilterName = null;
         [SerializeField] private Button cellTypeFilterNextButton = null;
         [SerializeField] private Button cellTypeFilterPreviousButton = null;
@@ -21,33 +23,41 @@ namespace LevelEditor
         [SerializeField] private LevelEditorCellButton cellEditorButtonPrefab = null;
         [Header("Recently used cells")]
         [SerializeField] private LevelEditorRecentlyUsedCells recentlyUsedCells = null;
-        [Header("Trash Button")]
-        [SerializeField] private LevelEditorTrashButton trashButton = null;
-        [Header("Simulate button")]
-        [SerializeField] private Button simulateButton = null;
+        [Header("Action Buttons")]
+        public LevelEditorTrashButton trashButton = null;
+        public LevelEditorRotateButton rotateButton = null;
+        [Header("Simulation")]
+        public Button simulateButton = null;
+        [SerializeField] private Canvas simulationCanvas = null;
 
         private LevelEditorController editorController = null;
-        private LevelEditorSpawner cellSpawner = null;
         private int currentCellTypeFilterIndex = -1;
         private string currentSetName = "";
         private Transform currentGridTransform = null;
         private GameObject[] filterGOArray;
         private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
-        private List<LevelEditorCellButton> limitedCellButton = new List<LevelEditorCellButton>();
+        private Dictionary<Type, LevelEditorCellButton> limitedCellButton = new Dictionary<Type, LevelEditorCellButton>();
+        LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = new LevelEditorCellTypeFilterData[3];
 
-        public void Init(LevelEditorController controller, LevelEditorSpawner spawner)
+        public LevelEditorCellButton lastSelectedButton { get; private set; } = null;
+
+        public void Init(LevelEditorController controller)
         {
             editorController = controller;
-            cellSpawner = spawner;
 
             cellTypeFilterNextButton.onClick.AddListener(NextCellTypeFilter);
             cellTypeFilterPreviousButton.onClick.AddListener(PreviousCellTypeFilter);
 
             trashButton.Init(editorController);
+            rotateButton.Init(editorController);
             editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
 
             recentlyUsedCells.Init(editorController);
+
+            cellTypeFilterDataArray[0] = environmentCellFilterDataArray[(int)LevelEditorNewLevelSetup.levelColor];
+            cellTypeFilterDataArray[1] = objectiveCellFilterData;
+            cellTypeFilterDataArray[2] = roadCellFilterData;
 
             PopulateViewport();
             SelectFilter(true);
@@ -98,24 +108,36 @@ namespace LevelEditor
                     }
                     LevelEditorCellButton button = Instantiate<LevelEditorCellButton>(cellEditorButtonPrefab, currentGridTransform);
 
-                    if(ec.limited)
-                        limitedCellButton.Add(button);
-
                     editorCellButtonList.Add(button);
 
                     button.Init(cellTypeFilterDataArray[i].filterType, ec, editorController, recentlyUsedCells);
+
+                    if(ec.limited)
+                        limitedCellButton[button.cellPrefab.GetType()] = button;
                 }
 
                 currentSetName = "";
-
             }
+        }
+
+        public void SetLastSelectedButton(LevelEditorCellButton button)
+        {
+            if (lastSelectedButton != null && lastSelectedButton.limitQuantity)
+                lastSelectedButton.UnsubscribeCellPositioning();
+
+            lastSelectedButton = button;
         }
 
         private void HandleCellDeleted(Type cellType)
         {
-            foreach (LevelEditorCellButton button in limitedCellButton)
-                if (cellType == button.cellPrefab.GetType())
-                    button.IncrementQuantityAvailable();
+            if(limitedCellButton.ContainsKey(cellType))
+                limitedCellButton[cellType].IncrementQuantityAvailable();
+        }
+
+        public void HandleCellInserted(Type cellType)
+        {
+            if (limitedCellButton.ContainsKey(cellType))
+                limitedCellButton[cellType].HandleCellPositioned();
         }
 
         private void HandleGridFullEvent(bool conditionValue) => simulateButton.interactable = conditionValue;
@@ -125,13 +147,24 @@ namespace LevelEditor
             foreach (LevelEditorCellButton editorButton in editorCellButtonList)
                 editorButton.SetOnClickEvents();
 
-            foreach (LevelEditorCellButton limitedButton in limitedCellButton)
-                limitedButton.ResetQuantity();
+            foreach (KeyValuePair<Type, LevelEditorCellButton> kvp in limitedCellButton)
+                kvp.Value.ResetQuantity();
 
             foreach(LevelEditorCellButton recentCellButton in recentlyUsedCells.cellButton)
                 recentCellButton.SetOnClickEvents();
 
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
+            simulateButton.interactable = false;
+            rotateButton.ToggleButton();
+            rotateButton.SubscribeToCurrentGrid();
+            trashButton.ToggleButton();
+            trashButton.SubscribeToCurrentGrid();
+        }
+
+        public void ToggleSimulation(bool value)
+        {
+            GetComponent<Canvas>().enabled = !value;
+            simulationCanvas.enabled = value;
         }
     }
 }

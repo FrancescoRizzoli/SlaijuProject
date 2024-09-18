@@ -138,7 +138,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1516137757038277094}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2158240497979234101}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+--- !u!23 &4037062871302717297 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8630169971303106086, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 5747158924342688087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7092915299230142242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 5747158924342688087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2158240497979234101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092915299230142242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e469a768a51267644bcfcf2b5a5300df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 4037062871302717297}
+  colorMaterial:
+  - {fileID: 2100000, guid: 10de3a0b39398994e9cc212baaecc8c1, type: 2}
+  - {fileID: 2100000, guid: b07ee851d6c784d4182e7fa4651a4d79, type: 2}
+  - {fileID: 2100000, guid: 2562579e1b545534a95b5c93199f5274, type: 2}
+  - {fileID: 2100000, guid: 19c6159f2fec9724e897fada3f663c0e, type: 2}
 --- !u!4 &7369474294897706455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2992539993922698368, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
@@ -164,7 +196,9 @@ MonoBehaviour:
   _ID: 4
   safeSides: 
   selectDeselectView: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  meshRenderer:
+  - {fileID: 0}
+  colorChanger: {fileID: 2158240497979234101}
 --- !u!1001 &6224413916585047579
 PrefabInstance:
   m_ObjectHideFlags: 0

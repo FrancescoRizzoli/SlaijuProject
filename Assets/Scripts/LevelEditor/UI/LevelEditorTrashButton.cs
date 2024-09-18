@@ -1,22 +1,14 @@
-using UnityEngine.UI;
-
 namespace LevelEditor
 {
-    public class LevelEditorTrashButton : LevelEditorCellButton
-    {
-        private bool clicked = false;
-        
+    public class LevelEditorTrashButton : LevelEditorActionButton
+    {        
         public override void Init(LevelEditorController editorController)
         {
-            controller = editorController;
-            button = GetComponent<Button>();
-            button.onClick.AddListener(TrashButtonClicked);
-            controller.currentGrid.OnCellPositioned += ToggleButton;
-            controller.deleteCellAction.OnAllCellsDeleted += TrashButtonClicked;
-            ToggleButton();
+            base.Init(editorController);
+            controller.deleteCellAction.OnAllCellsDeleted += ButtonClicked;
         }
 
-        private void TrashButtonClicked()
+        protected override void ButtonClicked()
         {
             if (clicked)    // exit delete mode
             {
@@ -34,7 +26,7 @@ namespace LevelEditor
             clicked = !clicked;
         }
 
-        private void ToggleButton()
+        public override void ToggleButton()
         {
             button.interactable = controller.currentGrid.emptyCellsCounter < controller.currentGrid.maxEmptyCellNumber;
         }

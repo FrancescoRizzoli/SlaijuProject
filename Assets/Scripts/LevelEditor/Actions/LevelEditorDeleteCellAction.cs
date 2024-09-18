@@ -14,6 +14,9 @@ namespace LevelEditor
 
         public override void HandleClick(BaseCell targetCell)
         {
+            if (targetCell.ID == CellID.LevelEditorEmpty)
+                return;
+
             OnCellDeleted?.Invoke(targetCell.GetType());
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
             controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleDeleteCubes(false);

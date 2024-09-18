@@ -2198,6 +2198,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2019622526343402459}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5172770559908252402}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!4 &2433688231455167357 stripped
 Transform:
@@ -2258,6 +2261,31 @@ MonoBehaviour:
   collapseAudioClip: {fileID: 8300000, guid: 6a965384aa477ad4dbf3157174c3125d, type: 3}
   envShakeDuration: 0.75
   destructionCompletedParticle: {fileID: 3800546292813407593}
+--- !u!114 &5172770559908252402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240278670804380930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2f23ed4fdca9f4d96570077fdcc422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 4472985647610633553}
+  colorMaterial:
+  - {fileID: 2100000, guid: a0c0d410deaa14f47bcb0a37f1e3b555, type: 2}
+  - {fileID: 2100000, guid: c67293176543faa49935bf6c81e7842c, type: 2}
+  - {fileID: 2100000, guid: ad809dbafb723c040a4f2d1ef6fb9847, type: 2}
+  - {fileID: 2100000, guid: 2575c72a91db32a49a30e968d730e8e8, type: 2}
+  destructionView: {fileID: 2019622526343402459}
+  emptyGrassColors:
+  - {fileID: 2100000, guid: fd20690a57f37cf479aab5dcb399db57, type: 2}
+  - {fileID: 2100000, guid: 92b003cdf7ee4554ebb524bede4db3fc, type: 2}
+  - {fileID: 2100000, guid: 8df665067f484384a9a1db25b5629f21, type: 2}
+  - {fileID: 2100000, guid: 3f933041003eac846999873a0d7b2424, type: 2}
 --- !u!1 &9190187766910451820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
@@ -2281,6 +2309,7 @@ MonoBehaviour:
   meshRenderer:
   - {fileID: 4472985647610633553}
   - {fileID: 4706908560623109484}
+  colorChanger: {fileID: 5172770559908252402}
   cellHealth: 3
   destructionView: {fileID: 2019622526343402459}
   targetCity: {fileID: 0}

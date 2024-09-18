@@ -18,7 +18,7 @@ namespace Grid.Cell
         [Header("Target Graphic")]
         [SerializeField] private GameObject toBeDestroyedGraphic = null;
         [SerializeField] private GameObject cityGroundGameObject = null;
-        [SerializeField] private GameObject frontGrassGameObject = null;
+        public GameObject frontGrassGameObject = null;
         [SerializeField] private ParticleSystem cityToGrassParticle = null;
         [Header("Shake")]
         [SerializeField] private float envShakeMagnitude = 0.5f;

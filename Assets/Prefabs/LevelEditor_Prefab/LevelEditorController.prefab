@@ -55,8 +55,12 @@ MonoBehaviour:
   rotateCellAction: {fileID: 5298516054205207176}
   positionCellAction: {fileID: 4128207472661248759}
   deleteCellAction: {fileID: 209005906376417916}
-  largeGridPrefab: {fileID: 0}
+  largeGridPrefab: {fileID: 480289727379446347, guid: bbfeea484ce2e574bb4fcf2ffbf88ce7, type: 3}
   smallGridPrefab: {fileID: 5718111476440484500, guid: 55f9852485809684abf7367aec25d026, type: 3}
+  gridControls: {fileID: 0}
+  levelController: {fileID: 0}
+  smallGridCamera: {fileID: 0}
+  largeGridCamera: {fileID: 0}
 --- !u!114 &2703933007138241558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bde9e1f383a8244a013755a7bea2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabList: {fileID: 11400000, guid: 7c343e694337f004da5e869637b8a770, type: 2}
   editorEmptyCellPrefab: {fileID: 6666675150143559720, guid: 113121ea3219d2642a33223a7f378867, type: 3}
 --- !u!114 &1175831895669810001
 MonoBehaviour:

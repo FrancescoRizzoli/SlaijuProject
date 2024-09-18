@@ -11,11 +11,17 @@ namespace LevelEditor
         public override void HandleClick(BaseCell targetCell)
         {
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
-            controller.currentGrid.TurnOffVisualCells();
-            controller.newSelectedBaseCell = null;
-            controller.GoToStandardAction();
             OnCellPositioning?.Invoke();
-            OnCellPositioning = null;
+            if (!controller.uiController.lastSelectedButton.limitQuantity || (controller.uiController.lastSelectedButton.limitQuantity && controller.uiController.lastSelectedButton.currentQuantity > 0))
+                controller.newSelectedBaseCell = controller.cellSpawner.SpawnCell(controller.newSelectedBaseCell);
+            else
+            {
+                OnCellPositioning = null;
+                controller.currentGrid.TurnOffVisualCells();
+                controller.newSelectedBaseCell = null;
+                controller.GoToStandardAction();
+            }
+
         }
 
         protected override void ToggleVisuals(bool value)

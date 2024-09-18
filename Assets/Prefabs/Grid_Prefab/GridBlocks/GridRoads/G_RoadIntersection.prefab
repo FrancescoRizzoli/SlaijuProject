@@ -941,6 +941,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3917465883677940507, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
       insertIndex: -1
       addedObject: {fileID: -216629255349150779}
+    - targetCorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1289360779979174262}
   m_SourcePrefab: {fileID: 100100000, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
 --- !u!4 &4811429294967127579 stripped
 Transform:
@@ -969,3 +972,28 @@ MonoBehaviour:
   selectDeselectView: {fileID: 0}
   meshRenderer:
   - {fileID: 6508674384432128946}
+  colorChanger: {fileID: 1289360779979174262}
+--- !u!1 &8902488666493767929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3291315992652854901, guid: d02d2c1a94e694e458f5c3e6fe6cc183, type: 3}
+  m_PrefabInstance: {fileID: 6207900045664052876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1289360779979174262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902488666493767929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e469a768a51267644bcfcf2b5a5300df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh:
+  - {fileID: 6508674384432128946}
+  colorMaterial:
+  - {fileID: 2100000, guid: 13c76e0592c629d46b0a7c12dc4d703c, type: 2}
+  - {fileID: 2100000, guid: dd93407be6ecd94488ed1cbd49c7330c, type: 2}
+  - {fileID: 2100000, guid: 035940f3d8ba93f4d8008f9de3c94f20, type: 2}
+  - {fileID: 2100000, guid: 8ab338f35aad0b24e92a16441ee1cc2b, type: 2}

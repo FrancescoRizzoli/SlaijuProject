@@ -134,19 +134,19 @@ namespace Gameplay
         {
 
 
-            if (objectClicked == pauseButton.gameObject)
+            if (pauseButton != null && objectClicked == pauseButton.gameObject)
             {
                 TogglePause();
             }
-            else if (objectClicked == speedUp.gameObject)
+            else if (speedUp != null && objectClicked == speedUp.gameObject)
             {
                 SpeedUp();
             }
-            else if (objectClicked == cameraChange.gameObject)
+            else if (cameraChange != null && objectClicked == cameraChange.gameObject)
             {
                 CameraChange();
             }
-            else if (objectClicked == reset.gameObject)
+            else if (reset != null && objectClicked == reset.gameObject)
             {
                 ResetLevel();
             }
@@ -167,12 +167,18 @@ namespace Gameplay
         }
         public void UpdateCityText(int remainingCity, int numberOfcity)
         {
+            if (cityText == null)
+                return;
+
             remainingCity = numberOfcity - remainingCity;
             cityText.text = remainingCity.ToString() + "/" + numberOfcity.ToString();
         }
     
         public void UpdateMoves(int moveNumber)
         {
+            if (moves == null)
+                return;
+
             moves.text = moveNumber.ToString();
         }
 
