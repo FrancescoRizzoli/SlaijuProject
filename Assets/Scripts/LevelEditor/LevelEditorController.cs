@@ -2,6 +2,7 @@ using Cinemachine;
 using Core;
 using Cysharp.Threading.Tasks;
 using Grid;
+using LootLocker.Requests;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,7 @@ namespace LevelEditor
         private LevelEditorGridComponent simulationGrid = null;
         private CustomLevelSave customLevelSave = new CustomLevelSave(SAVE_PATH);
         private CustomGrid customGrid;
+        private int assetCandidateID = -1;
 
         public const string SAVE_PATH = "/SlaijuReborn_CustomLevels.save";
 
@@ -79,6 +81,8 @@ namespace LevelEditor
 
         private async UniTask Initialize()
         {
+
+
             customLevelSave.Load();
 
             await SpawnGridRequest();
@@ -220,8 +224,115 @@ namespace LevelEditor
                                                              isSmallGrid = LevelEditorNewLevelSetup.isSmallGrid, 
                                                              gridColor = LevelEditorNewLevelSetup.levelColor,
                                                              gridCells = currentGridCells });
-
+            
             customLevelSave.Save();
+
+            SaveOnline().Forget();
+        }
+
+        private async UniTask SaveOnline()
+        {
+            //await AssetCandidateCreation();
+            //await AddFileToAssetCandidate();
+            //await CompleteAssetCandidate();
+
+            LootLockerSDKManager.ListingAssetCandidates((response) =>
+            {
+                if (response.success)
+                {
+                    foreach(var a in response.asset_candidates)
+                    {
+                        Debug.Log("Successfully retrieved asset candidate with ID: " + a.id);
+                        Debug.Log("ASSET ID: " + a.asset_id);
+                        LootLockerSDKManager.DeletingAnAssetCandidate((int)a.id, (response) =>
+                        {
+                            if (response.success)
+                            {
+                                Debug.Log("Successfully deleted asset candidate " + a.id);
+                            }
+                            else
+                            {
+                                Debug.Log("Error deleting asset canddidate " + a.id);
+                            }
+                        });
+                    }
+                }
+                else
+                {
+                    Debug.Log("Error asset candidate");
+                }
+            });
+        }
+
+        private async UniTask AssetCandidateCreation()
+        {
+            var loginCompletionSource = new UniTaskCompletionSource<bool>();
+
+            string name = $"AssetCandidate_{PlayerPrefs.GetString("PlayerID")}";
+            LootLockerSDKManager.CreatingAnAssetCandidate(name, (response) =>
+            {
+                if (response.success)
+                {
+                    Debug.Log("Successfully created asset candidate with ID: " + response.asset_candidate_id);
+                    assetCandidateID = response.asset_candidate_id;
+                    loginCompletionSource.TrySetResult(true);
+                }
+                else
+                {
+                    Debug.Log("Error asset candidate");
+                    loginCompletionSource.TrySetResult(true);
+                }
+            });
+
+            await loginCompletionSource.Task;
+        }
+
+        private async UniTask AddFileToAssetCandidate()
+        {
+            var loginCompletionSource = new UniTaskCompletionSource<bool>();
+
+            string filePath = Application.persistentDataPath + SAVE_PATH;
+            string fileName = $"customGrids_{PlayerPrefs.GetString("PlayerID")}.json";
+            LootLocker.LootLockerEnums.FilePurpose fileType = LootLocker.LootLockerEnums.FilePurpose.file;
+            LootLockerSDKManager.AddingFilesToAssetCandidates(assetCandidateID, filePath, fileName, fileType, (response) =>
+            {
+                if (response.success)
+                {
+                    Debug.Log("Successfully added file to asset candidate");
+                    loginCompletionSource.TrySetResult(true);
+                }
+                else
+                {
+                    Debug.Log("Error adding file to asset candidate");
+                    loginCompletionSource.TrySetResult(true);
+                }
+            });
+
+            await loginCompletionSource.Task;
+        }
+
+        private async UniTask CompleteAssetCandidate()
+        {
+            var loginCompletionSource = new UniTaskCompletionSource<bool>();
+            
+            bool isCompleted = true;
+            LootLockerSDKManager.UpdatingAnAssetCandidate(assetCandidateID, isCompleted, (response) =>
+            {
+                if (response.success)
+                {
+                    Debug.Log("Successfully completed asset candidate with ID: " + response.asset_candidate.id);
+                    Debug.Log("ASSET ID: " + response.asset_candidate.asset_id);
+                    //PlayerPrefs.SetInt("OnlineAssetID", (int)response.asset_candidate.asset_id);
+                    loginCompletionSource.TrySetResult(true);
+                }
+                else
+                {
+                    Debug.Log("Error updating asset candidate");
+                    loginCompletionSource.TrySetResult(true);
+                }
+            });
+
+            await loginCompletionSource.Task;
         }
     }
 }
