@@ -14,11 +14,9 @@ namespace GameSave
             SAVE_PATH = save_path;
         }
 
-        public string ToJson() => JsonUtility.ToJson(this);
-
         public void Save()
         {
-            string jsonString = ToJson();
+            string jsonString = JsonUtility.ToJson(this);
             File.WriteAllText(Application.persistentDataPath + SAVE_PATH, jsonString);
         }
 
