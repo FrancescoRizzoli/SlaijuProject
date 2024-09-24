@@ -8,6 +8,8 @@ namespace Grid.Cell
 {
     public class BreakableRoadView : AView
     {
+        [SerializeField] private SelectDeselectView selectDeselectView = null;
+        [SerializeField] private GameObject whiteSelectionCubes = null;
         [SerializeField] private MeshRenderer roadGraphic = null;
         public Material[] cellPhaseMaterial = Array.Empty<Material>();
         public GameObject emptyGraphic = null;
@@ -25,6 +27,9 @@ namespace Grid.Cell
             }
             emptyGraphic.SetActive(true);
             roadGraphic.gameObject.SetActive(false);
+            if (selectDeselectView.SelectedGraphic != null)
+                selectDeselectView.SelectedGraphic.SetActive(false);
+            selectDeselectView.SelectedGraphic = whiteSelectionCubes;
         }
 
         public async UniTask DamageCell(int cellCurrentHealth)
