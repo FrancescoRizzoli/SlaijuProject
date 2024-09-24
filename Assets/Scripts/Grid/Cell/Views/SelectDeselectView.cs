@@ -8,7 +8,7 @@ namespace Grid.Cell
     {
 
         [SerializeField] private GameObject defaultGraphic = null;
-        [SerializeField] private GameObject SelectedGraphic = null;
+        public GameObject SelectedGraphic = null;
         [SerializeField] private ParticleSystem[] particleSystems = null;
 
         private void Start()

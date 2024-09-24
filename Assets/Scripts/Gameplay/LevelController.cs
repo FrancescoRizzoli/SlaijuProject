@@ -34,7 +34,7 @@ namespace Gameplay
         Counter counter;
         [SerializeField]
         ScoreSender sender;
-        protected Vector3 monsterStartOffset = Vector3.zero;
+        protected Vector3 monsterStartOffset = new Vector3(0.0f, 1.09f, 0.0f);
         private int cityNumber = 0;
         private int numberOfCity = 0;
 
