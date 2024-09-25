@@ -2272,6 +2272,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d95fb8480e14ba4f91320237232ebe5, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6555624809456343429}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d95fb8480e14ba4f91320237232ebe5, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6540863036526808602}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d95fb8480e14ba4f91320237232ebe5, type: 3}
       insertIndex: -1
@@ -2287,6 +2290,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3d95fb8480e14ba4f91320237232ebe5, type: 3}
   m_PrefabInstance: {fileID: 6171884291693866553}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &6555624809456343429
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442286849761530728}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.009975771
+  m_Center: {x: 0.0000025662598, y: 0.000009249897, z: -0.000000003725965}
 --- !u!114 &6540863036526808602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4088,6 +4112,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.LevelGallery, UI
+        m_MethodName: Direct
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2481609380203300272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4160,6 +4196,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.LevelGallery, UI
+        m_MethodName: Direct
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1840769645344014736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4172,7 +4220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e6df475a718842ab6f70c276d4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenType: 10
+  screenType: 2
   open: 1
 --- !u!1 &1617168981515294841 stripped
 GameObject:
@@ -4381,6 +4429,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.LevelGallery, UI
+        m_MethodName: Direct
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7970445833648401458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4393,7 +4453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e6df475a718842ab6f70c276d4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenType: 9
+  screenType: 2
   open: 1
 --- !u!1 &5865884557811593112 stripped
 GameObject:
@@ -4435,19 +4495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   click:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2568844844124413069}
-        m_TargetAssemblyTypeName: UnityEngine.UI.ButtonUIController, UI
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2568844844124413069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,6 +4568,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.LevelGallery, UI
+        m_MethodName: Direct
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1449464756725568834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4532,7 +4592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e6df475a718842ab6f70c276d4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenType: 10
+  screenType: 2
   open: 1
 --- !u!4 &7569428133907516634 stripped
 Transform:
