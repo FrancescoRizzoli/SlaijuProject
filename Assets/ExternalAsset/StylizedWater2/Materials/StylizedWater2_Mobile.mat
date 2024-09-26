@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater2_Mobile
-  m_Shader: {fileID: -6465566751694194690, guid: d7b0192b9bf19c949900035fa781fdc4,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d7b0192b9bf19c949900035fa781fdc4, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ENVIRONMENTREFLECTIONS_OFF
   - _FOAM
@@ -17,11 +18,13 @@ Material:
   - _RECEIVE_SHADOWS_OFF
   - _SHARP_INERSECTION
   - _UNLIT
+  - _WAVES
   m_InvalidKeywords:
   - ADVANCED_LIGHTING
   - _CROSSPAN_INTERSECTION
   - _DEPTHEXP_ON
   - _DEPTH_TEX
+  - _RECEIVEDYNAMICEFFECTS_ON
   - _SIMPLE_LIGHTING
   - _WORLDSPACEUV_ON
   - _ZCLIP_ON
@@ -31,6 +34,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -39,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ec6f0adef15b52448a82f3f183525d84, type: 3}
+        m_Texture: {fileID: 2800000, guid: b8b8d6f606fb01f4d85ec095b78f8c32, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMapLarge:
@@ -51,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CausticsTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b747df9784233eb42a14a0f6604324b5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DepthTex:
@@ -139,7 +143,7 @@ Material:
     - _CROSSPAN_INTERSECTIONOn: 1
     - _CausticsBrightness: 4.83
     - _CausticsChromance: 1
-    - _CausticsDistortion: 0.15
+    - _CausticsDistortion: 0.61
     - _CausticsOn: 0
     - _CausticsSpeed: 0.1
     - _CausticsTiling: 0.5
@@ -149,7 +153,7 @@ Material:
     - _Cutoff: 0.5
     - _Depth: 5.01
     - _DepthExp: 1
-    - _DepthHorizontal: 1
+    - _DepthHorizontal: 2.8
     - _DepthMode: 0
     - _DepthTexture: 1
     - _DepthVertical: 4
@@ -163,8 +167,8 @@ Material:
     - _FlatShadingOn: 0
     - _FlowSpeed: 1
     - _FoamBaseAmount: 1
-    - _FoamClipping: 0.98
-    - _FoamDistortion: 0.1
+    - _FoamClipping: 0.94
+    - _FoamDistortion: 3
     - _FoamOn: 1
     - _FoamOpacity: 0.253
     - _FoamSize: 0.01
@@ -215,6 +219,7 @@ Material:
     - _PointSpotLightReflectionSize: 0
     - _PointSpotLightReflectionStrength: 10
     - _QueueOffset: 0
+    - _ReceiveDynamicEffects: 1
     - _ReceiveShadows: 0
     - _ReflectionBlur: 0
     - _ReflectionDistortion: 0.086
@@ -226,7 +231,7 @@ Material:
     - _RefractionAmount: 0.05
     - _RefractionChromaticAberration: 1
     - _RefractionOn: 0
-    - _RefractionStrength: 0.267
+    - _RefractionStrength: 0
     - _RimRize: 1
     - _RimTiling: 0.025
     - _RiverModeOn: 0
@@ -245,18 +250,21 @@ Material:
     - _SlopeThreshold: 0.25
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SparkleIntensity: 4
-    - _SparkleSize: 0.7
+    - _SparkleIntensity: 2.2
+    - _SparkleSize: 0.81
     - _SpecularHighlights: 1
     - _SpecularReflectionsOn: 1
-    - _Speed: 1
+    - _Speed: 0.61
     - _SrcBlend: 1
-    - _SunReflectionDistortion: 0.71
+    - _SunReflectionDistortion: 0.56
     - _SunReflectionPerturbance: 0.548
-    - _SunReflectionSize: 0.948
+    - _SunReflectionSize: 0.92
     - _SunReflectionStrength: 10
     - _Surface: 0
     - _TEXTURE_INTERSECTIONOn: 0
+    - _TessMax: 15
+    - _TessMin: 0
+    - _TessValue: 16
     - _Texture_IntersectionOn: 1
     - _Tiling: 0.5
     - _Translucency: 0
@@ -273,12 +281,12 @@ Material:
     - _VertexColorWaveFlattening: 0
     - _WaveCount: 1
     - _WaveDistance: 0.763
-    - _WaveHeight: 0
+    - _WaveHeight: 0.4
     - _WaveNormalStr: 0.291
-    - _WaveSpeed: 1
+    - _WaveSpeed: 1.5
     - _WaveSteepness: 0
-    - _WaveTint: 0.029
-    - _WavesOn: 0
+    - _WaveTint: -0.1
+    - _WavesOn: 1
     - _WorkflowMode: 1
     - _WorldSpaceUV: 1
     - _ZClip: 1
