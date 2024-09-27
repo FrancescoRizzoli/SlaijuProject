@@ -1,5 +1,6 @@
 using Grid;
 using Cysharp.Threading.Tasks;
+using System;
 
 namespace LevelEditor
 {
@@ -8,8 +9,12 @@ namespace LevelEditor
         public delegate void PositionCellEvent();
         public event PositionCellEvent OnCellPositioning = null;
 
+        public delegate void ReplacedCellEvent(Type cell);
+        public event ReplacedCellEvent OnCellReplaced = null;
+
         public override void HandleClick(BaseCell targetCell)
         {
+            OnCellReplaced?.Invoke(targetCell.GetType());
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
             OnCellPositioning?.Invoke();
             if (!controller.uiController.lastSelectedButton.limitQuantity || (controller.uiController.lastSelectedButton.limitQuantity && controller.uiController.lastSelectedButton.currentQuantity > 0))

@@ -52,6 +52,7 @@ namespace LevelEditor
             trashButton.Init(editorController);
             rotateButton.Init(editorController);
             editorController.deleteCellAction.OnCellDeleted += HandleCellDeleted;
+            editorController.positionCellAction.OnCellReplaced += HandleCellDeleted;
             editorController.currentGrid.OnSimulationCondition += HandleGridFullEvent;
 
             recentlyUsedCells.Init(editorController);
