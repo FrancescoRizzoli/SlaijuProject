@@ -14,6 +14,9 @@ namespace LevelEditor
         [Header("Cameras")]
         [SerializeField] private CinemachineVirtualCamera smallGridCamera = null;
         [SerializeField] private CinemachineVirtualCamera largeGridCamera = null;
+        [Header("Grid External Frames")]
+        [SerializeField] private GameObject smallFrame = null;
+        [SerializeField] private GameObject largeFrame = null;
 
         public CustomLevelSave customLevelSave { get; private set; } = new CustomLevelSave(LevelEditorController.SAVE_PATH);
 
@@ -34,6 +37,9 @@ namespace LevelEditor
 
             smallGridCamera.Priority = customGrid.isSmallGrid ? 10 : 9;
             largeGridCamera.Priority = customGrid.isSmallGrid ? 9 : 10;
+
+            smallFrame.SetActive(customGrid.isSmallGrid);
+            largeFrame.SetActive(!customGrid.isSmallGrid);
 
             LevelEditorNewLevelSetup.levelName = customGrid.gridName;
             LevelEditorNewLevelSetup.isSmallGrid = customGrid.isSmallGrid;

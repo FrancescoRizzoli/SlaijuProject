@@ -10,6 +10,7 @@ namespace LevelEditor
     {
         [Header("Cell Type Filter")]
         [SerializeField] private LevelEditorCellTypeFilterData[] environmentCellFilterDataArray = null;
+        [SerializeField] private LevelEditorCellTypeFilterData[] frameCellFilterData = null;
         [SerializeField] private LevelEditorCellTypeFilterData objectiveCellFilterData = null;
         [SerializeField] private LevelEditorCellTypeFilterData roadCellFilterData = null;
         [SerializeField] private TextMeshProUGUI cellTypeFilterName = null;
@@ -37,7 +38,7 @@ namespace LevelEditor
         private GameObject[] filterGOArray;
         private List<LevelEditorCellButton> editorCellButtonList = new List<LevelEditorCellButton>();
         private Dictionary<Type, LevelEditorCellButton> limitedCellButton = new Dictionary<Type, LevelEditorCellButton>();
-        LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = new LevelEditorCellTypeFilterData[3];
+        LevelEditorCellTypeFilterData[] cellTypeFilterDataArray = new LevelEditorCellTypeFilterData[4];
 
         public LevelEditorCellButton lastSelectedButton { get; private set; } = null;
 
@@ -58,6 +59,7 @@ namespace LevelEditor
             cellTypeFilterDataArray[0] = environmentCellFilterDataArray[(int)LevelEditorNewLevelSetup.levelColor];
             cellTypeFilterDataArray[1] = objectiveCellFilterData;
             cellTypeFilterDataArray[2] = roadCellFilterData;
+            cellTypeFilterDataArray[3] = frameCellFilterData[(int)LevelEditorNewLevelSetup.levelColor];
 
             PopulateViewport();
             SelectFilter(true);

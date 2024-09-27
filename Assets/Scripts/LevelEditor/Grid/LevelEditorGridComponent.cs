@@ -202,10 +202,23 @@ namespace LevelEditor
 
             for( int i = 0; i < width;i++)
                 for (int j = 0; j < height; j++)
-                    if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1)
+                    if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1 || i == 0 || j == 0 || i == width -1 || j == height-1)
                         visualCell[i,j].ToggleGrayBox(true);
                     else
                         visualCell[i,j].ToggleSelectCubes(true);
+        }
+
+        [ContextMenu("Test FrameCellSelected")]
+        public void FrameCellSelected()
+        {
+            TurnOffVisualCells();
+
+            for (int i = 0; i < width; i++)
+                for (int j = 0; j < height; j++)
+                    if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1 || (i > 0 && j > 0 && i < width - 1 && j < height - 1))
+                        visualCell[i, j].ToggleGrayBox(true);
+                    else
+                        visualCell[i, j].ToggleSelectCubes(true);
         }
 
         [ContextMenu("Test RoadCellSelected")]

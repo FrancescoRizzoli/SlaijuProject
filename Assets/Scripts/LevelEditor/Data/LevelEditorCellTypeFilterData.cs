@@ -9,7 +9,7 @@ namespace LevelEditor
     {
         public string setHeaderName;
         public BaseCell cellPrefab;
-        public Sprite cellSprite;
+        public Sprite[] cellSprite;
         public bool limited;
         [Min(0)] public int maxQuantity;
     }
@@ -18,7 +18,8 @@ namespace LevelEditor
     {
         Environment,
         Objective,
-        Road
+        Road,
+        Frame
     }
 
     [CreateAssetMenu(fileName = "LevelEditorCellTypeFilterData", menuName = "ScriptableObject/LevelEditor/LevelEditorCellTypeFilterData")]

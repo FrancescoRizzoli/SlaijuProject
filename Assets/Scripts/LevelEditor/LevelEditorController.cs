@@ -31,6 +31,9 @@ namespace LevelEditor
         [Header("Grid Prefabs")]
         [SerializeField] private LevelEditorGridComponent largeGridPrefab = null;
         [SerializeField] private LevelEditorGridComponent smallGridPrefab = null;
+        [Header("Grid External Frames")]
+        [SerializeField] private GameObject smallFrame = null;
+        [SerializeField] private GameObject largeFrame = null;
         [Header("Simulation")]
         [SerializeField] private GridControls gridControls = null;
         [SerializeField] private LevelEditorLevelController levelController = null;
@@ -100,13 +103,19 @@ namespace LevelEditor
                 {
                     customGrid = savedGrid;
                     if (!savedGrid.isSmallGrid)
+                    {
                         SetLargeCamera();
+                        SetLargeExternalFrame();
+                    }
                     await cellSpawner.Init(this, savedGrid.isSmallGrid ? smallGridPrefab : largeGridPrefab, savedGrid);
                     return;
                 }
 
             if (!LevelEditorNewLevelSetup.isSmallGrid)
+            {
                 SetLargeCamera();
+                SetLargeExternalFrame();
+            }
             cellSpawner.Init(this, LevelEditorNewLevelSetup.isSmallGrid ? smallGridPrefab : largeGridPrefab);
         }
 
@@ -114,6 +123,12 @@ namespace LevelEditor
         {
             smallGridCamera.Priority--;
             largeGridCamera.Priority += 2;
+        }
+
+        private void SetLargeExternalFrame()
+        {
+            smallFrame.SetActive(false);
+            largeFrame.SetActive(true);
         }
 
         public void RequestNewCellPositioning(BaseCell prefab, LevelEditorCellButton buttonClicked)

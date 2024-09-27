@@ -26,7 +26,10 @@ namespace LevelEditor
             limitQuantity = cellData.limited;
             controller = editorController;
             recentCells = recentlyUsedCells;
-            button.image.sprite = cellData.cellSprite;
+            if (cellType == EditorCellType.Environment || cellType == EditorCellType.Frame)
+                button.image.sprite = cellData.cellSprite[0];
+            else
+                button.image.sprite = cellData.cellSprite[(int)LevelEditorNewLevelSetup.levelColor];
             cellPrefab = cellData.cellPrefab;
             SetOnClickEvents();
 
@@ -62,6 +65,9 @@ namespace LevelEditor
                     break;
                 case EditorCellType.Road:
                     button.onClick.AddListener(controller.currentGrid.RoadCellSelected);
+                    break;
+                case EditorCellType.Frame:
+                    button.onClick.AddListener(controller.currentGrid.FrameCellSelected);
                     break;
             }
 
