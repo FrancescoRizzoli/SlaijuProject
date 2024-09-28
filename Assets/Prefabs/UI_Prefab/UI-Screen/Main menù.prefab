@@ -3679,7 +3679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5741156426335977743, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1504
+      value: -0.1826
       objectReference: {fileID: 0}
     - target: {fileID: 5741156426335977743, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3739,7 +3739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6548708718069493396, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0823
+      value: -0.1652
       objectReference: {fileID: 0}
     - target: {fileID: 6548708718069493396, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3799,7 +3799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6790153030547180017, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1348
+      value: 0.196
       objectReference: {fileID: 0}
     - target: {fileID: 6790153030547180017, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3935,7 +3935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9166346350026587631, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0955
+      value: 0.1696
       objectReference: {fileID: 0}
     - target: {fileID: 9166346350026587631, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4025,7 +4025,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3320366465523054264}
+      addedObject: {fileID: 435899090322312067}
     - targetCorrespondingSourceObject: {fileID: 7750397243111347764, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6250693228985755449}
@@ -4632,10 +4632,10 @@ MonoBehaviour:
   click:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 459489248953130061}
-        m_TargetAssemblyTypeName: UnityEngine.UI.ButtonUIController, UI
-        m_MethodName: OnButtonClick
-        m_Mode: 1
+      - m_Target: {fileID: 435899090322312067}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4668,7 +4668,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5d70bb32c37b03429ac3f630aad3014, type: 3}
   m_PrefabInstance: {fileID: 7964259381356964657}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3320366465523054264
+--- !u!95 &435899090322312067
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
