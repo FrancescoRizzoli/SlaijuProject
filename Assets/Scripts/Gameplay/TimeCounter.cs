@@ -35,7 +35,7 @@ namespace Gameplay
                     continue;
                 }
                 elapsedTime += Time.unscaledDeltaTime;
-                timeCounterUI.text = ("Elapsed Time: " + elapsedTime.ToString("F2")); 
+                timeCounterUI.text = (elapsedTime.ToString("F2")); 
                 await UniTask.Yield(); 
             }
         }
