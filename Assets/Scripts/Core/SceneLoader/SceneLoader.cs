@@ -125,6 +125,7 @@ namespace Core
             Animator loadingScreenAnimator;
             if (loadingScreen.TryGetComponent<Animator>(out loadingScreenAnimator))
             {
+
                 loadingScreenAnimator.SetTrigger(fadeIn);
                 var animationLength = loadingScreenAnimator.GetCurrentAnimatorStateInfo(0).length;
                 await UniTask.Delay(TimeSpan.FromSeconds(animationLength), ignoreTimeScale: true);
