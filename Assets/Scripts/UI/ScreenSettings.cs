@@ -1,4 +1,6 @@
 
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using UnityEngine.UIElements;
 using Utility;
 
 namespace UnityEngine.UI
@@ -12,6 +14,10 @@ namespace UnityEngine.UI
         Slider barMusic;
         [SerializeField]
         Toggle cameraToggle;
+        [SerializeField]
+        GameObject isometric;
+        [SerializeField]
+        GameObject topDonw;
 
         private void Start()
         {
@@ -36,6 +42,11 @@ namespace UnityEngine.UI
         private void SetCameraToggle()
         {
             cameraToggle.isOn = Settings.keysValues[nameof(SettingType.Camera)] == 1;
+            if(cameraToggle.isOn )
+            {
+                isometric.SetActive(true);
+                topDonw.SetActive(false);
+            }
         }
 
 
@@ -52,7 +63,8 @@ namespace UnityEngine.UI
         {
            
             Settings.SetInt(nameof(SettingType.Camera),toggle ? 1 : 0);
-
+            isometric.SetActive(toggle);
+            topDonw.SetActive(!toggle);
             Settings.SaveSettings();
         }
 
