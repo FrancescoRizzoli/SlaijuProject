@@ -163,14 +163,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 56aba522c3babf741ae2f9ff128a4a22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -414,6 +414,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6984194789375061794}
     m_Modifications:
+    - target: {fileID: 4947733383507197082, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947733383507197082, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5846239561734089424, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Name
       value: EditButton
@@ -424,16 +432,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828404899847599174, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.8901961
       objectReference: {fileID: 0}
     - target: {fileID: 6828404899847599174, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.99607843
       objectReference: {fileID: 0}
     - target: {fileID: 6828404899847599174, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6828404899847599174, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 2baf08e534330994ea3d6061d0be1395, type: 3}
     - target: {fileID: 6828404899847599174, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 70
@@ -531,16 +543,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
-      value: 0.2784314
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Colors.m_NormalColor.g
-      value: 0.2784314
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Colors.m_NormalColor.r
-      value: 0.2784314
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380242912879210535, guid: e23320021c4bfc646b32e7739a81b171, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
