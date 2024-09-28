@@ -164,6 +164,7 @@ namespace LevelEditor
             return new Vector2Int(-1, -1);
         }
 
+#if UNITY_EDITOR
         [ContextMenu("Fill Grid")]
         private void FillGrid()
         {
@@ -180,6 +181,7 @@ namespace LevelEditor
             InitializeGrid();
             emptyCellsCounter = 0;
         }
+#endif
 
         [ContextMenu("Initialize Grid")]
         private void InitGrid() => InitializeGrid();
