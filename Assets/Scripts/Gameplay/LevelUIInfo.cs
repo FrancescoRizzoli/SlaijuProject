@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 using TMPro;
-using log4net.Core;
+
 namespace Gameplay
 {
     public class LevelUIInfo : MonoBehaviour
