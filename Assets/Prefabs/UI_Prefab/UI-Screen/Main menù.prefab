@@ -338,6 +338,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereRigidbody: {fileID: 3471173024077326419}
   duration: 0.5
+  velocityThreshold: 0.01
+  angularVelocityThreshold: 0.01
+  resetButton: {fileID: 5819513848459912464}
 --- !u!1 &2106548031358021443
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +724,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereRigidbody: {fileID: 8719406186940319451}
   duration: 0.5
+  velocityThreshold: 0.01
+  angularVelocityThreshold: 0.01
+  resetButton: {fileID: 5819513848459912464}
 --- !u!1 &7947115889799775121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +2742,10 @@ PrefabInstance:
     - target: {fileID: 3995624698509072936, guid: f20c8fab71f7e1445a9cdcffe2494a28, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995624698509072936, guid: f20c8fab71f7e1445a9cdcffe2494a28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7630121303656750987, guid: f20c8fab71f7e1445a9cdcffe2494a28, type: 3}
       propertyPath: m_Sprite
