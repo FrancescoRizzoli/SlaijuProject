@@ -1,4 +1,6 @@
 using Core;
+using Cysharp.Threading.Tasks;
+using LeaderBoard;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,11 +33,15 @@ namespace Gameplay
         TMP_Text moves;
         [SerializeField]
         TimeCounter timeCounter;
+        [Header("LeaderboardData")]
+        [SerializeField]
+        LevelPlayerData playerData;
         [Header("Win")]
         [SerializeField]
         TMP_Text timeCounterWin;
         [SerializeField]
         TMP_Text moveWin;
+        
         [Header("Pause")]
         [SerializeField]
         TMP_Text timePause;
@@ -48,6 +54,8 @@ namespace Gameplay
         TMP_Text moveLoose;
         [SerializeField]
         TMP_Text timeCounterLoose;
+        
+
 
         bool pauseState = false;
 
@@ -65,6 +73,8 @@ namespace Gameplay
                 return;
             cityText.text = "0";
             moves.text = "0";
+            
+            playerData.GetScore(scene.SceneName.ToString()).Forget();
         }
 
         private void OnEnable()
@@ -91,9 +101,12 @@ namespace Gameplay
             Debug.Log("pauseState" + pauseState);
             playerInput.enabled = !pauseState;
             UIManager.instance.ManageScreen(ScreenType.Pause, pauseState);
-            timePause.text = timeCounter.elapsedTime.ToString("F2");
-            movesPause.text = moves.text;
+            timePause.text = timeCounter.elapsedTime.ToString("F2") +"/"+ playerData.timeText;
+            movesPause.text = moves.text+ "/" + playerData.movesText;
             cityTextPause.text = cityText.text;
+
+
+
             if (pauseState)
                 levelSpeed.Freeze();
             else
@@ -104,8 +117,8 @@ namespace Gameplay
         {
             playerInput.enabled = false;
             UIManager.instance.ManageScreen(ScreenType.GameWin, true);
-            timeCounterWin.text = timeCounter.elapsedTime.ToString("F2");
-            moveWin.text = moves.text;
+            timeCounterWin.text = timeCounter.elapsedTime.ToString("F2") + "/" + playerData.timeText;
+            moveWin.text = moves.text + "/" + playerData.movesText;
         }
 
         public void GameOver()
@@ -113,9 +126,10 @@ namespace Gameplay
             
             playerInput.enabled = false;
             Debug.Log(timeCounterLoose.text = timeCounter.elapsedTime.ToString());
-            timeCounterLoose.text = timeCounter.elapsedTime.ToString("F2");
+            timeCounterLoose.text = timeCounter.elapsedTime.ToString("F2") + "/" + playerData.timeText;
             UIManager.instance.ManageScreen(ScreenType.GameOver, true);
-            moveLoose.text = moves.text;
+            moveLoose.text = moves.text + "/" + playerData.movesText;
+
         }
 
         public void SpeedUp()
