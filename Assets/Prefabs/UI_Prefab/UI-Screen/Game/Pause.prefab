@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a0c2e9d4dc1e0e429a0ebd2990c5007, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11da8c1e614ac054e82087dd6ede1a81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 5253455598917512325}
   - component: {fileID: 5790495587288933114}
   m_Layer: 5
-  m_Name: Objectives icon
+  m_Name: Icon_Objectives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 560c1eaca36303148b95646903c8c904, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 503ba157029ca6340987c14a72a00378, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 8568711396341837504}
   - component: {fileID: 5642977613641139258}
   m_Layer: 5
-  m_Name: Moves time
+  m_Name: Icon_Stopwatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b64085fa8b61cc419ad1bf975184cf6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4031f7db53d8c5c47aebe7ec538d7d8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 8235581061638392932}
   - component: {fileID: 8075136122156146001}
   m_Layer: 5
-  m_Name: Moves image
+  m_Name: Icon_Moves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8adf1fc27dc1d6d4d8d703fcb854dfa8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1140,6 +1140,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7407808654756757864, guid: 2092daa321c20d048a5c42284c3c5581, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8729c1b226818d3459e359aed033f900, type: 2}
+    - target: {fileID: 7407808654756757864, guid: 2092daa321c20d048a5c42284c3c5581, type: 3}
       propertyPath: m_fontColor.b
       value: 0.89019614
       objectReference: {fileID: 0}
@@ -1156,8 +1160,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7407808654756757864, guid: 2092daa321c20d048a5c42284c3c5581, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8704363984837327617, guid: 8729c1b226818d3459e359aed033f900, type: 2}
+    - target: {fileID: 7407808654756757864, guid: 2092daa321c20d048a5c42284c3c5581, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4293131774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407808654756757864, guid: 2092daa321c20d048a5c42284c3c5581, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
