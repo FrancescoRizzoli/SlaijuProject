@@ -78,7 +78,7 @@ namespace Grid
                     {
                         // Debug.Log($"Entered boundary of cell {currentGridPosition} near cell {boundaryCell}");
                         BaseCell cell = gridComponent.gridArray[boundaryCell.x, boundaryCell.y];
-                        
+
                         if (cell.ID == CellID.City || cell.ID == CellID.Generator)
                             objectToCheck.HandleCell(cell).Forget();
 
@@ -86,8 +86,8 @@ namespace Grid
                     isWithinBoundary = true;
                 }
                 else if (isWithinBoundary && !IsWithinBoundary(objectToCheck.transform.position, currentGridPosition))
-                    {
-                 
+                {
+
                     isWithinBoundary = false;
                     BaseCell cell = gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y];
                     Vector2Int nextCellPos;
@@ -101,14 +101,18 @@ namespace Grid
                     }
                     else
                     {
-                    nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, objectToCheck.transform.forward);
+                        nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, objectToCheck.transform.forward);
 
-                    cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
-                    objectToCheck.Warn(cell);
+                        if (gridComponent.width < nextCellPos.x)
+                        {
+                            cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
+                            objectToCheck.Warn(cell);
+
+                        }
                     }
-                    
+
                 }
-                
+
 
                 if (IsOutOfGrid(newGridPosition) && !isOutOfGrid)
                 {
@@ -131,7 +135,7 @@ namespace Grid
 
             bool withinXBoundary = Mathf.Abs(position.x - cellCenter.x) >= (boundaryWidth);
             bool withinZBoundary = Mathf.Abs(position.z - cellCenter.z) >= (boundaryWidth);
-         
+
             return withinXBoundary || withinZBoundary;
         }
 

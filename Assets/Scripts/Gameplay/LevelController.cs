@@ -48,7 +48,10 @@ namespace Gameplay
         [SerializeField]
         protected AudioComponent audioComponent;
 
-
+        private void Start()
+        {
+            Debug.Log(levelControllerScene.SceneName.ToString());
+        }
 
         [ContextMenu("Start Counter")]
         public void StartCounter()
@@ -155,7 +158,7 @@ namespace Gameplay
             levelUiController.GameWin();
             timeCounter.StopStopwatch();
             levelSpeed.Freeze();
-            sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.name.ToString());
+            sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.SceneName.ToString());
         }
         protected virtual void GameOver()
         {
