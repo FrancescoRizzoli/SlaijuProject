@@ -67,7 +67,6 @@ Material:
   - COLORRAMP_ON
   - FADE_ON
   - HSV_ON
-  - PREMULTIPLYCOLOR_ON
   - RIM_ON
   - SHAPE1CONTRAST_ON
   - SHAPE2CONTRAST_ON
@@ -82,7 +81,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -188,7 +188,7 @@ Material:
     - _DistortionPower: 5
     - _DistortionScrollXSpeed: 0
     - _DistortionScrollYSpeed: 0
-    - _DstMode: 10
+    - _DstMode: 1
     - _EditorDrawers: 63
     - _FadeAmount: -0.1
     - _FadeBurnGlow: 5
@@ -217,7 +217,7 @@ Material:
     - _RandomSh1Mult: 1
     - _RandomSh2Mult: 1
     - _RandomSh3Mult: 1
-    - _RenderingMode: 3
+    - _RenderingMode: 1
     - _RimAddAmount: 1
     - _RimBias: 0
     - _RimErodesAlpha: 0
