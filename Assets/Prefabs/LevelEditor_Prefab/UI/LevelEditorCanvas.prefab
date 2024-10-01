@@ -1271,7 +1271,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.000046253}
-  m_SizeDelta: {x: 120, y: 73.22}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7592741156336876462
 CanvasRenderer:
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ffea1a2a52bd954c8b784704cff2461, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecc03f18b57f19c4693ea1ffb99cd99d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1346,7 +1346,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.000046253}
-  m_SizeDelta: {x: 120, y: 73.22}
+  m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9190947852621224785
 CanvasRenderer:
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ffea1a2a52bd954c8b784704cff2461, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecc03f18b57f19c4693ea1ffb99cd99d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1623,6 +1623,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814827014831177392, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8729c1b226818d3459e359aed033f900, type: 2}
+    - target: {fileID: 814827014831177392, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
       propertyPath: m_fontColor.b
       value: 0.89019614
       objectReference: {fileID: 0}
@@ -1633,6 +1637,14 @@ PrefabInstance:
     - target: {fileID: 814827014831177392, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
       propertyPath: m_fontColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814827014831177392, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8704363984837327617, guid: 8729c1b226818d3459e359aed033f900, type: 2}
+    - target: {fileID: 814827014831177392, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028840044872802055, guid: 04444984401eb0c4d858f1aae816434b, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
