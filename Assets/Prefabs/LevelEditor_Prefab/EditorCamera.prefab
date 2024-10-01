@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 2944094144635460248}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.5, y: 0, z: 27}
+  m_LocalPosition: {x: 2.5, y: 0, z: 20.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 40
+    OrthographicSize: 35
     NearClipPlane: 0.3
     FarClipPlane: 123
     Dutch: 0
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797089282573877497, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 48
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1164545575508158931, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_Name
@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911205198183104153, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4911205198183104153, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27
+      value: 20.25
       objectReference: {fileID: 0}
     - target: {fileID: 4911205198183104153, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_LocalRotation.w
@@ -224,11 +224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6959249018465346346, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 6959249018465346346, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.5
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 7208488250831883502, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: m_Priority
@@ -238,13 +238,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: EditorCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7666332285463364186, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_DefaultBlend.m_Time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: orthographic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
       propertyPath: orthographic size
-      value: 40
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682094525850213348, guid: 275ba07537c223d45aae032842288a46, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
