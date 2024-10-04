@@ -1881,6 +1881,10 @@ PrefabInstance:
       value: "Button_Main men\xF9"
       objectReference: {fileID: 0}
     - target: {fileID: 5002860052571919797, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002860052571919797, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2035,8 +2039,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2294910144379485298, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4201828047078652913}
   m_SourcePrefab: {fileID: 100100000, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
+--- !u!1 &862875589548977185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2294910144379485298, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
+  m_PrefabInstance: {fileID: 1450339781690118227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4201828047078652913
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862875589548977185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b2b240c1c9560d4da179e4121b6b487, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!224 &8792403305268307663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7936539225321453212, guid: 2674b12dea6666941bff5d6c5e0edb06, type: 3}
@@ -2545,6 +2578,14 @@ PrefabInstance:
     - target: {fileID: 5338829604312734109, guid: 87f65c4dfb2596b44adac804348cd48c, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4293132031
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870982376027043941, guid: 87f65c4dfb2596b44adac804348cd48c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3b2b240c1c9560d4da179e4121b6b487, type: 2}
+    - target: {fileID: 5870982376027043941, guid: 87f65c4dfb2596b44adac804348cd48c, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8127719280496510363, guid: 87f65c4dfb2596b44adac804348cd48c, type: 3}
       propertyPath: m_Name
