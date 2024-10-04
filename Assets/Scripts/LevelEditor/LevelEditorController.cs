@@ -152,6 +152,7 @@ namespace LevelEditor
                 currentAction = deleteCellAction;
             }
 
+            uiController.rotateButton.ResetButtonAnimation();
             currentAction.previousSelectedCell = null;
         }
 
@@ -159,6 +160,7 @@ namespace LevelEditor
         {
             currentAction = rotateCellAction;
             uiController.trashButton.clicked = false;
+            uiController.trashButton.ResetButtonAnimation();
         }
 
         public void GoToStandardAction() => currentAction = null;

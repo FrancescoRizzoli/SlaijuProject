@@ -20,6 +20,11 @@ namespace LevelEditor
             controller.currentGrid.OnCellPositioned += ToggleButton;
         }
 
+        public void ResetButtonAnimation()
+        {
+            animator.SetBool("Clicked", false);
+        }
+
         protected abstract void ButtonClicked();
 
         public abstract void ToggleButton();
