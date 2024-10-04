@@ -18,6 +18,7 @@ namespace LevelEditor
             }
 
             clicked = !clicked;
+            animator.SetBool("Clicked", clicked);
         }
     }
 }
