@@ -2,6 +2,7 @@ using Cinemachine;
 using Core;
 using Cysharp.Threading.Tasks;
 using Grid;
+using Grid.Cell;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,8 @@ namespace LevelEditor
         [Header("Cameras")]
         [SerializeField] private CinemachineVirtualCamera smallGridCamera = null;
         [SerializeField] private CinemachineVirtualCamera largeGridCamera = null;
+        [Header("Cameras")]
+        [SerializeField] private GameObject editorAudio = null;
 
         public LevelEditorGridComponent currentGrid { get; set; } = null;
         public ALevelEditorAction currentAction { get; private set; } = null;
@@ -186,9 +189,11 @@ namespace LevelEditor
         {
             currentAction = null;
             uiController.ToggleSimulation(true);
+            editorAudio.SetActive(false);
 
             simulationGrid =  cellSpawner.SpawnGrid(currentGrid);
             simulationGrid.InitializeGrid();
+            ((StartCell)simulationGrid.GetCellsByID(CellID.Start)[0]).OnCharacterReturn.AddListener(StopSimulation);
             currentGrid.TurnOffVisualCells();
             currentGrid.gameObject.SetActive(false);
 
@@ -211,6 +216,7 @@ namespace LevelEditor
             gridControls.transform.gameObject.SetActive(false);
             uiController.ToggleSimulation(false);
             currentAction = rotateCellAction;
+            editorAudio.SetActive(true);
         }
 
         public void SaveLevel()
