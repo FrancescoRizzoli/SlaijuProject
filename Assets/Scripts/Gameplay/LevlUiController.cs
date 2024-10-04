@@ -54,7 +54,12 @@ namespace Gameplay
         TMP_Text moveLoose;
         [SerializeField]
         TMP_Text timeCounterLoose;
-        
+        [Header("LevelDataInfo")]
+        [SerializeField]
+        LevelInfoObject levelInfoObject;
+        [SerializeField]
+        TMP_Text levelNameText;
+
 
 
         bool pauseState = false;
@@ -74,6 +79,7 @@ namespace Gameplay
             cityText.text = "0";
             moves.text = "0";
             
+            SetLevelName();
             playerData.GetScore(scene.SceneName.ToString()).Forget();
         }
 
@@ -196,6 +202,12 @@ namespace Gameplay
             moves.text = moveNumber.ToString();
         }
 
+        private void SetLevelName()
+        {
+           LevelInfo info = levelInfoObject.GetLevelInfoBySceneName(scene.SceneName);
+            if (levelNameText != null)
+                levelNameText.text = info.name;
+        }
 
     }
 }

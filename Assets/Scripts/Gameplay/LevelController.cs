@@ -47,7 +47,7 @@ namespace Gameplay
         AudioClip loose;
         [SerializeField]
         protected AudioComponent audioComponent;
-
+        
         private void Start()
         {
             Debug.Log(levelControllerScene.SceneName.ToString());
