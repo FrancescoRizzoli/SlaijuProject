@@ -128,6 +128,9 @@ namespace LevelEditor
             if (lastSelectedButton != null && lastSelectedButton.limitQuantity)
                 lastSelectedButton.UnsubscribeCellPositioning();
 
+            if (lastSelectedButton != null)
+                lastSelectedButton.ResetClickAnimation();
+
             lastSelectedButton = button;
         }
 

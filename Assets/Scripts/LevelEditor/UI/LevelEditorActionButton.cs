@@ -1,13 +1,9 @@
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace LevelEditor
 {
     public abstract class LevelEditorActionButton : LevelEditorCellButton
     {
-
-        [SerializeField] protected Animator animator = null;
-
         public bool clicked { get; set; } = false;
 
         public override void Init(LevelEditorController editorController)

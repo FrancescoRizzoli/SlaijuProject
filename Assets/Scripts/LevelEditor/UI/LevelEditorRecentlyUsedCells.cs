@@ -34,7 +34,7 @@ namespace LevelEditor
         private void UpdateRecentCell(int index, LevelEditorCellButton target)
         {
             cellButton[index].cellPrefab = target.cellPrefab;
-            cellButton[index].button.image.sprite = target.button.image.sprite;
+            cellButton[index].cellImage.sprite = target.cellImage.sprite;
             cellButton[index].cellType = target.cellType;
             cellButton[index].button.onClick.RemoveAllListeners();
             cellButton[index].SetOnClickEvents();

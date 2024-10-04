@@ -8,7 +8,9 @@ namespace LevelEditor
     public class LevelEditorCellButton : MonoBehaviour
     {
         public Button button = null;
+        public Image cellImage = null;
         [SerializeField] private TextMeshProUGUI quantityTextArea = null;
+        [SerializeField] protected Animator animator = null;
 
         private int maxQuantity = 1;
 
@@ -27,9 +29,9 @@ namespace LevelEditor
             controller = editorController;
             recentCells = recentlyUsedCells;
             if (cellType == EditorCellType.Environment || cellType == EditorCellType.Frame)
-                button.image.sprite = cellData.cellSprite[0];
+                cellImage.sprite = cellData.cellSprite[0];
             else
-                button.image.sprite = cellData.cellSprite[(int)LevelEditorNewLevelSetup.levelColor];
+                cellImage.sprite = cellData.cellSprite[(int)LevelEditorNewLevelSetup.levelColor];
             cellPrefab = cellData.cellPrefab;
             SetOnClickEvents();
 
@@ -42,7 +44,11 @@ namespace LevelEditor
             controller = editorController;
         }
 
-        protected void SpawnRequested() => controller.RequestNewCellPositioning(cellPrefab, this);
+        protected void SpawnRequested()
+        {
+            controller.RequestNewCellPositioning(cellPrefab, this);
+            animator.SetBool("Clicked", true);
+        }
 
         protected void HandleRecentCellClick() => recentCells.AddCell(this);
 
@@ -93,12 +99,15 @@ namespace LevelEditor
         {
             if (--currentQuantity == 0)
             {
+                ResetClickAnimation();
                 button.interactable = false;
                 UnsubscribeCellPositioning();
             }
 
             quantityTextArea.text = $"{currentQuantity}/{maxQuantity}";
         }
+
+        public void ResetClickAnimation() => animator.SetBool("Clicked", false);
 
         public void IncrementQuantityAvailable()
         {
