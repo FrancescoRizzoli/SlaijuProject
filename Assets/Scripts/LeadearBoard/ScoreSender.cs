@@ -21,7 +21,7 @@ namespace LeaderBoard
             var scoreCompletionSource = new UniTaskCompletionSource<bool>();
             string playerID = PlayerPrefs.GetString("PlayerID");
 
-            LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, key, (response) =>
+            LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, key,time, (response) =>
             {
                 if (response.success)
                 {
