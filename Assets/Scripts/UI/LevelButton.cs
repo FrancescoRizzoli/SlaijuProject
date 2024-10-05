@@ -65,8 +65,9 @@ namespace UnityEngine.UI
 
         private void SetPlayerData()
         {
-             if(leaderBoard.playerInfo[level.ToString()] != null)
+             if(leaderBoard.playerInfo[level.ToString()].metadata != null)
             {
+               
                movePlayer.text = leaderBoard.playerInfo[level.ToString()].score.ToString();
                timePlayer.text = leaderBoard.playerInfo[level.ToString()].metadata.ToString();
             }
