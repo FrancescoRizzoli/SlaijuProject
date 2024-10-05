@@ -34,15 +34,16 @@ namespace UnityEngine.UI
         }
         public void PopulatePlayerData(SceneName level)
         {
+            Debug.Log("leaderboard button" + level);
+            foreach (Transform child in infoDataContainer.transform)
+            {
+                Destroy(child.gameObject);
+            }
             // Clear existing player data objects in the container
             if (!data.leaderboardInfo.ContainsKey(level.ToString()))
             {
                 Debug.LogWarning($"Level {level} does not exist in the leaderboard info.");
                 return;
-            }
-            foreach (Transform child in infoDataContainer.transform)
-            {
-                Destroy(child.gameObject);
             }
 
             LootLockerLeaderboardMember[] playersData = data.leaderboardInfo[level.ToString()] ;

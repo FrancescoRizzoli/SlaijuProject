@@ -14,6 +14,7 @@ namespace UnityEngine.UI
         private void Awake()
         {
             GetComponent<Button>().onClick.AddListener(()=> OnButtonLoadLevel?.Invoke(level));
+            
         }
         
     }
