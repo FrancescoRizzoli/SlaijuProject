@@ -64,7 +64,11 @@ namespace UnityEngine.UI
                
             }
             var player = data.playerInfo[level.ToString()];
-            playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), player.score.ToString(), player.metadata);
+            Debug.Log(player.metadata);
+            if(player.metadata != null)
+                playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), player.score.ToString(), player.metadata);
+            else
+                playerInfoLevel.setUpData("0","0","0","0");
         }
 
     }
