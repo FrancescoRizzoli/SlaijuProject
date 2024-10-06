@@ -9,6 +9,19 @@ namespace Core
 {
     public class Continue : MonoBehaviour
     {
+        [SerializeField]
+        GameObject playText;
+        [SerializeField]
+        GameObject continueText;
+        private void Start()
+        {
+            int levelReached = Settings.GetLevelReached();
+            if(levelReached > (int)SceneName.Level1)
+            {
+                playText.SetActive(false);
+                continueText.SetActive(true);
+            }
+        }
         public void OnButtonClick()
         {
             LoadCurrentLevel().Forget();
@@ -17,6 +30,8 @@ namespace Core
         {
             await SceneLoader.LoadScene(Settings.GetLevelReached());
         }
+
+
 
     }
 }
