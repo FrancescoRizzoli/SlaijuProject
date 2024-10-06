@@ -11,6 +11,7 @@ namespace Utility
         //use to make the audio pitch change sound more tuned
         private int[] pentatonicSemitones = new[] { 0, 2, 4, 7, 9 };
         const float pitchFactor = 1.059463f;
+        public AnimationCurve volumeCurve;
 
 
         #region Singleton
@@ -145,10 +146,22 @@ namespace Utility
         {
             if (AudioMixer == null)
                 return;
-                AudioMixer.SetFloat("SFXVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Sfx)]));
-                AudioMixer.SetFloat("MusicVolume",Mathf.Lerp(-80,0, Settings.keysFloatValues[nameof(SettingType.Music)]));
 
 
+            float sfxVolume = Settings.keysFloatValues[nameof(SettingType.Sfx)];
+            float musicVolume = Settings.keysFloatValues[nameof(SettingType.Music)];
+
+         
+            float mappedSfxVolume = volumeCurve.Evaluate(sfxVolume);
+            float mappedMusicVolume = volumeCurve.Evaluate(musicVolume);
+
+            
+            float finalSfxVolume = Mathf.Lerp(-80, 0, mappedSfxVolume);
+            float finalMusicVolume = Mathf.Lerp(-80, 0, mappedMusicVolume);
+
+         
+            AudioMixer.SetFloat("SFXVolume", finalSfxVolume);
+            AudioMixer.SetFloat("MusicVolume", finalMusicVolume);
         }
 
         public void TogglePauseAudio(bool pause)

@@ -85,7 +85,8 @@ namespace Utility
         Tutorial,
         LeaderBoard,
         LevelEditor,
-        LevelEditorNew
+        LevelEditorNew,
+        LevelLoader
     }
     public enum SimpleDirection
     {
