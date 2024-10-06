@@ -21,6 +21,8 @@ namespace UnityEngine.UI
         SceneName level;
         [SerializeField]
         bool defaultUnlock = false;
+        [SerializeField]
+        GameObject completitionFlower;
         
         [SerializeField]
         TMP_Text timeDev;
@@ -38,8 +40,13 @@ namespace UnityEngine.UI
         private void Awake()
         {
             if (CheckUnlock() || defaultUnlock)
+            {
                 Unlock();
+                CheckComplete();
+            }
             
+
+
             LevelInfo info = levelInfo.GetLevelInfoBySceneName(level);
             if (info == null)
                 return;
@@ -55,6 +62,15 @@ namespace UnityEngine.UI
             int levelReached = Settings.GetLevelReached();
             Debug.Log("leavle Reached"+ levelReached);
             return (int)level <= levelReached;
+        }
+        private void CheckComplete()
+        {
+            int levelReached = Settings.GetLevelReached();
+          
+            if((int)level < levelReached && completitionFlower!=null)
+            {
+                completitionFlower.SetActive(true);
+            }
         }
 
         private void Unlock()
