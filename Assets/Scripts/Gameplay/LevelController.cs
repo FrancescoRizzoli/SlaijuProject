@@ -9,6 +9,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using LeaderBoard;
+using UnityEngine.SceneManagement;
 
 
 namespace Gameplay
@@ -153,12 +154,15 @@ namespace Gameplay
         protected virtual void GameWin()
         {
             playerInput.enabled = false;
-            Settings.UpdateLevelReached((int)levelControllerScene.SceneName +1);
+            if (SceneManager.GetActiveScene().buildIndex != (int)SceneName.CustomLevelPlay)
+            {
+                Settings.UpdateLevelReached((int)levelControllerScene.SceneName +1);
+                sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.SceneName.ToString());
+            }
             AudioManager.instance.PlayAudioClip(win, sfx);
             levelUiController.GameWin();
             timeCounter.StopStopwatch();
             levelSpeed.Freeze();
-            sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.SceneName.ToString());
         }
         protected virtual void GameOver()
         {
