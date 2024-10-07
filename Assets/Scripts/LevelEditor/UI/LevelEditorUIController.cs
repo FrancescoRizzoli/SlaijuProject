@@ -57,9 +57,9 @@ namespace LevelEditor
 
             recentlyUsedCells.Init(editorController);
 
-            cellTypeFilterDataArray[0] = environmentCellFilterDataArray[(int)LevelEditorNewLevelSetup.levelColor];
-            cellTypeFilterDataArray[1] = objectiveCellFilterData;
-            cellTypeFilterDataArray[2] = roadCellFilterData;
+            cellTypeFilterDataArray[0] = objectiveCellFilterData;
+            cellTypeFilterDataArray[1] = roadCellFilterData;
+            cellTypeFilterDataArray[2] = environmentCellFilterDataArray[(int)LevelEditorNewLevelSetup.levelColor];
             cellTypeFilterDataArray[3] = frameCellFilterData[(int)LevelEditorNewLevelSetup.levelColor];
 
             PopulateViewport();
