@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 1891450007}
+  m_LightingDataAsset: {fileID: 112000000, guid: ca79ed8ee55684242abd75ce0048ff9a, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 03d1ce5b8f34ef34dadb386997d66ac1, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4120,7 +4120,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5488,70 +5488,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 167822990229841086, guid: 754babd7d13d64f46a11d31e934687f3, type: 3}
   m_PrefabInstance: {fileID: 1766793551}
   m_PrefabAsset: {fileID: 0}
---- !u!850595691 &1891450007
-LightingSettings:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 6
-  m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
-  m_EnableRealtimeLightmaps: 0
-  m_RealtimeEnvironmentLighting: 1
-  m_BounceScale: 1
-  m_AlbedoBoost: 1
-  m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
-  m_BakeBackend: 1
-  m_LightmapMaxSize: 1024
-  m_BakeResolution: 40
-  m_Padding: 2
-  m_LightmapCompression: 3
-  m_AO: 0
-  m_AOMaxDistance: 1
-  m_CompAOExponent: 1
-  m_CompAOExponentDirect: 0
-  m_ExtractAO: 0
-  m_MixedBakeMode: 2
-  m_LightmapsBakeMode: 1
-  m_FilterMode: 1
-  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
-  m_ExportTrainingData: 0
-  m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
-  m_ForceWhiteAlbedo: 0
-  m_ForceUpdates: 0
-  m_FinalGather: 0
-  m_FinalGatherRayCount: 256
-  m_FinalGatherFiltering: 1
-  m_PVRCulling: 1
-  m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 512
-  m_PVREnvironmentSampleCount: 256
-  m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRMinBounces: 2
-  m_PVREnvironmentImportanceSampling: 1
-  m_PVRFilteringMode: 1
-  m_PVRDenoiserTypeDirect: 1
-  m_PVRDenoiserTypeIndirect: 1
-  m_PVRDenoiserTypeAO: 1
-  m_PVRFilterTypeDirect: 0
-  m_PVRFilterTypeIndirect: 0
-  m_PVRFilterTypeAO: 0
-  m_PVRFilteringGaussRadiusDirect: 1
-  m_PVRFilteringGaussRadiusIndirect: 5
-  m_PVRFilteringGaussRadiusAO: 2
-  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-  m_PVRFilteringAtrousPositionSigmaIndirect: 2
-  m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_PVRTiledBaking: 0
-  m_NumRaysToShootPerTexel: -1
-  m_RespectSceneVisibilityWhenBakingGI: 0
 --- !u!1001 &2146258726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6282,6 +6218,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -187.82434
       objectReference: {fileID: 0}
+    - target: {fileID: 4202194872441219297, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202194872441219297, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202194872441219297, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4277548658413254075, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6492,7 +6440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5853191938740540618, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -11158.24
+      value: -75883.73
       objectReference: {fileID: 0}
     - target: {fileID: 6018809027034935598, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6592,11 +6540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6534652692039693200, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10296.832
+      value: -63184.86
       objectReference: {fileID: 0}
     - target: {fileID: 6534652692039693200, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3171.7942
+      value: -9530.943
       objectReference: {fileID: 0}
     - target: {fileID: 6590153741042375501, guid: 84d8e4cfd8686b34f938a29b4f1fad40, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9143,7 +9091,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8027b36d034385648956d10486fd52d4, type: 2}
     - target: {fileID: 7060905904408996491, guid: 7e25f332c0eb6c0439b36930181bb31f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70078
+      value: 70100
       objectReference: {fileID: 0}
     - target: {fileID: 9177994257525740568, guid: 7e25f332c0eb6c0439b36930181bb31f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
