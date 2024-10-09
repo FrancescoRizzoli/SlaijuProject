@@ -11,6 +11,7 @@ namespace Core
     {
         static int fadeIn = Animator.StringToHash("FadeIn");
         static int fadeOut = Animator.StringToHash("FadeOut");
+        static bool loading = false;
 
         // Start the loading of a new scene
         public static event Action OnLoadingStarted;
@@ -21,6 +22,9 @@ namespace Core
 
         public static async UniTask LoadScene(int sceneIndex, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
+            if (loading)
+                return;
+            loading = true;
             OnLoadingStarted?.Invoke();
             await LoadLoadingSceneAndAnimate();
 
@@ -33,6 +37,7 @@ namespace Core
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex));
             await FadeOutAndUnloadLoadingScene();
             OnLoadingCompleted?.Invoke();
+            loading = false;
             Time.timeScale = 1.0f;
         }
 
