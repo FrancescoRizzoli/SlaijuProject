@@ -33,7 +33,7 @@ namespace LevelEditor
         {
             controller.newSelectedBaseCell.gameObject.SetActive(!value);
             controller.currentGrid.gridArray[previousSelectedCellPosition.x, previousSelectedCellPosition.y].gameObject.SetActive(value);
-            controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleSelectCubes(value);
+            controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleSelectCubes(value, controller.currentGrid.gridArray[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ID != CellID.LevelEditorEmpty);
         }
     }
 }

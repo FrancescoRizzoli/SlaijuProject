@@ -39,7 +39,7 @@ namespace LevelEditor
 
         protected override void ToggleVisuals(bool value)
         {
-            controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleSelectCubes(value);
+            controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleSelectCubes(value, controller.currentGrid.gridArray[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ID != CellID.LevelEditorEmpty);
             controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleDeleteCubes(!value);
         }
     }
