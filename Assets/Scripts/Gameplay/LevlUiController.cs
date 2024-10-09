@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using LeaderBoard;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utility;
 
@@ -204,8 +205,8 @@ namespace Gameplay
 
         private void SetLevelName()
         {
-           LevelInfo info = levelInfoObject.GetLevelInfoBySceneName(scene.SceneName);
-            if (levelNameText != null)
+            LevelInfo info = levelInfoObject.GetLevelInfoBySceneName(scene.SceneName);
+            if (levelNameText != null && SceneManager.GetActiveScene().buildIndex != (int)SceneName.CustomLevelPlay)
                 levelNameText.text = info.name;
         }
 

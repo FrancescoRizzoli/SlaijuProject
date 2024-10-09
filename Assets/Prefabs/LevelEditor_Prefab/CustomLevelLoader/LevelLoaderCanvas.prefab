@@ -1956,7 +1956,6 @@ GameObject:
   - component: {fileID: 7697616523145493022}
   - component: {fileID: 1689115393120419672}
   - component: {fileID: 701558617604475614}
-  - component: {fileID: 352829035322038691}
   m_Layer: 5
   m_Name: LevelLoaderCanvas
   m_TagString: Untagged
@@ -2065,31 +2064,13 @@ MonoBehaviour:
   colorFilterName: {fileID: 5644427287218752145}
   colorFilterNextButton: {fileID: 1690951707254388865}
   colorFilterPreviousButton: {fileID: 4087450549621001}
+  setName: {fileID: 5789906479139013819}
+  allColorsFilterName: UHASDHAUSD
   setGridGroup: {fileID: 97644451107061604}
   customLevelLoaderButtonPrefab: {fileID: 3467068321591977893, guid: 7f177c73624888644a875dd0a8f24ca8, type: 3}
   playButton: {fileID: 7041585519935837114}
   randomLevels: {fileID: 9223045362359872058}
   editButton: {fileID: 6269295795279340397}
---- !u!114 &352829035322038691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6057109543926632531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12a47592f5bb5a4d948db11ff1fc2cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenType: 18
-  canvasGroup: {fileID: 0}
-  disableCameraRendering: 0
-  sortOrderModifier: 0
-  containerRectTransform: {fileID: 0}
-  animationType: 0
-  slideDirection: 0
-  animationDuration: 0
 --- !u!1 &6397557676076040845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,7 +3443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00002861023}
+  m_AnchoredPosition: {x: 0, y: 0.00006175041}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4722615772553258881
@@ -4607,7 +4588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4615,11 +4596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 408.00003
+      value: 408
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4655,11 +4636,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 204.00002
+      value: 204
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -65.81
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472128920786581615, guid: bf5b9ed0138e2364f82a98004bd40a95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4825,6 +4806,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5467585952748935915, guid: f635f980919ddcf42916fcad1612f327, type: 3}
   m_PrefabInstance: {fileID: 6902005978744384634}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5789906479139013819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1121740019279472833, guid: f635f980919ddcf42916fcad1612f327, type: 3}
+  m_PrefabInstance: {fileID: 6902005978744384634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6985500652046147231
 PrefabInstance:
   m_ObjectHideFlags: 0
