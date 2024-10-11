@@ -51,7 +51,7 @@ namespace Gameplay
         
         private void Start()
         {
-            Debug.Log(levelControllerScene.SceneName.ToString());
+           
             playerInput.enabled = false;
         }
 
