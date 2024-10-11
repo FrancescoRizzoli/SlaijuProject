@@ -100,8 +100,6 @@ namespace LevelEditor
                 if (c.GetType() == typeof(ShieldedCityCell))
                     shieldedCityCell = (ShieldedCityCell)c;
             }
-
-            EvaluateSimulationCondition();
         }
 
         public async UniTask PositionCell(BaseCell newCell, BaseCell toBeReplacedCell)
@@ -151,14 +149,9 @@ namespace LevelEditor
 
             if (emptyCellsCounter == maxEmptyCellNumber)
                 TurnOffVisualCells();
-
-            EvaluateSimulationCondition();
-            OnCellPositioned?.Invoke();
-        }
-
-        private void EvaluateSimulationCondition()
-        {
+            
             OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && cityQuantity > 0 && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
+            OnCellPositioned?.Invoke();
         }
 
         public Vector2Int GetCellIndexes(BaseCell targetCell)
@@ -202,16 +195,6 @@ namespace LevelEditor
                     visualCell[i,j].ToggleGrayBox(false);
                     visualCell[i,j].ToggleSelectCubes(false);
                 }
-        }
-
-        public void EnableLevelButtonsGrayBox()
-        {
-            TurnOffVisualCells();
-
-            for (int i = 0; i < width; i++)
-                for (int j = 0; j < height; j++)
-                    if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1)
-                        visualCell[i, j].ToggleGrayBox(true);
         }
 
         [ContextMenu("Test EnvironmentCellSelected")]

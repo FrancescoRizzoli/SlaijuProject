@@ -1,4 +1,3 @@
-using Core;
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +15,6 @@ namespace Gameplay
         LevelSpeed levelSpeed;
         [SerializeField]
         TMP_Text timeCounterUI;
-     
 
         private void Start()
         {
@@ -27,7 +25,6 @@ namespace Gameplay
         public async UniTaskVoid StartStopwatchAsync()
         {
             isRunning = true;
-            
 
             while (isRunning)
             {
@@ -40,7 +37,6 @@ namespace Gameplay
                 elapsedTime += Time.unscaledDeltaTime;
                 timeCounterUI.text = (elapsedTime.ToString("F2")); 
                 await UniTask.Yield(); 
-
             }
         }
 

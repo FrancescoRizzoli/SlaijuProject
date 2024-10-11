@@ -90,7 +90,7 @@ namespace Character
         public async UniTask HandleCell(BaseCell cell)
         {
             bool safe = CheckCellSafeSide(cell);
-           
+            Debug.Log(cell.ID);
             if (safe)
             {
                 switch (cell.ID)
