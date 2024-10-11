@@ -30,7 +30,7 @@ namespace Grid
                 currentGridPosition = gridComponent.WorldToGridPosition(objectToCheck.transform.position);
                 previousGridPosition = currentGridPosition;
                 objectToCheck.HandleCell(gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y]).Forget();
-                
+                Debug.Log(gridComponent.gridArray[currentGridPosition.x, currentGridPosition.y].name);
                 init = true;
             }
         }
@@ -103,9 +103,8 @@ namespace Grid
                     {
                         nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, objectToCheck.transform.forward);
 
-                        if (gridComponent.width > nextCellPos.x)
+                        if (gridComponent.width < nextCellPos.x)
                         {
-                            Debug.Log(gridComponent.gridArray[nextCellPos.x, nextCellPos.y]);
                             cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
                             objectToCheck.Warn(cell);
 
