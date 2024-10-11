@@ -52,6 +52,7 @@ namespace Gameplay
         private void Start()
         {
             Debug.Log(levelControllerScene.SceneName.ToString());
+            playerInput.enabled = false;
         }
 
         [ContextMenu("Start Counter")]
@@ -75,7 +76,7 @@ namespace Gameplay
             levelSpeed.SetLevelSpeed();
             SetUpCity();
             timeCounter.StartStopwatchAsync().Forget();
-
+            playerInput.enabled = true;
         }
 
         public void PuaseGame()
