@@ -193,7 +193,7 @@ namespace LevelEditor
                 for (int j = 0;j < height; j++)
                 {
                     visualCell[i,j].ToggleGrayBox(false);
-                    visualCell[i,j].ToggleSelectCubes(false);
+                    visualCell[i,j].ToggleSelectCubes(false, gridArray[i,j].ID != CellID.LevelEditorEmpty);
                 }
         }
 
@@ -207,7 +207,7 @@ namespace LevelEditor
                     if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1 || i == 0 || j == 0 || i == width -1 || j == height-1)
                         visualCell[i,j].ToggleGrayBox(true);
                     else
-                        visualCell[i,j].ToggleSelectCubes(true);
+                        visualCell[i,j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
 
         [ContextMenu("Test FrameCellSelected")]
@@ -220,7 +220,7 @@ namespace LevelEditor
                     if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1 || (i > 0 && j > 0 && i < width - 1 && j < height - 1))
                         visualCell[i, j].ToggleGrayBox(true);
                     else
-                        visualCell[i, j].ToggleSelectCubes(true);
+                        visualCell[i, j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
 
         [ContextMenu("Test RoadCellSelected")]
@@ -242,7 +242,7 @@ namespace LevelEditor
 
             for (int i = 1; i < width - 1; i++)
                 for (int j = 1; j < height-1; j++)
-                    visualCell[i, j].ToggleSelectCubes(true);
+                    visualCell[i, j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
 
         [ContextMenu("Test StartCellSelected")]
@@ -255,7 +255,7 @@ namespace LevelEditor
                     if (i != 0 || j == 0 || j == height-1)
                         visualCell[i,j].ToggleGrayBox(true);
                     else
-                        visualCell[i,j].ToggleSelectCubes(true);
+                        visualCell[i,j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
 
         [ContextMenu("Test ExitCellSelected")]
@@ -268,7 +268,7 @@ namespace LevelEditor
                     if (i != width - 1 || j == 0 || j == height - 1)
                         visualCell[i, j].ToggleGrayBox(true);
                     else
-                        visualCell[i, j].ToggleSelectCubes(true);
+                        visualCell[i, j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
 
         public void CellRemoverSelected()
@@ -280,7 +280,7 @@ namespace LevelEditor
                     if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1 || gridArray[i,j].ID == CellID.LevelEditorEmpty)
                         visualCell[i, j].ToggleGrayBox(true);
                     else
-                        visualCell[i, j].ToggleSelectCubes(true);
+                        visualCell[i, j].ToggleSelectCubes(true, gridArray[i, j].ID != CellID.LevelEditorEmpty);
         }
     }
 }

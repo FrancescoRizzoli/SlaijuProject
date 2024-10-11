@@ -13,6 +13,8 @@ namespace LevelEditor
         [SerializeField] private TextMeshProUGUI colorFilterName = null;
         [SerializeField] private Button colorFilterNextButton = null;
         [SerializeField] private Button colorFilterPreviousButton = null;
+        [SerializeField] private TextMeshProUGUI setName = null;
+        [SerializeField] private string allColorsFilterName = "All colors";
         [Header("Scroll view")]
         [SerializeField] private Transform setGridGroup = null;
         [SerializeField] private CustomLevelLoaderButton customLevelLoaderButtonPrefab = null;
@@ -68,7 +70,8 @@ namespace LevelEditor
         {
             if (colorFilters[currentColorFilterIndex] == -1)
             {
-                colorFilterName.text = "All colors";
+                setName.text = allColorsFilterName;
+                colorFilterName.text = allColorsFilterName;
                 foreach (CustomLevelLoaderButton button in levelButtons)
                 {
                     button.gameObject.SetActive(true);
@@ -79,6 +82,7 @@ namespace LevelEditor
             {
                 int colorValue = colorFilters[currentColorFilterIndex];
                 colorFilterName.text = ((LevelColor)colorValue).ToString();
+                setName.text = colorFilterName.text;
                 foreach (CustomLevelLoaderButton button in levelButtons)
                 {
                     if (button.customGrid.gridColor == (LevelColor)colorValue)
