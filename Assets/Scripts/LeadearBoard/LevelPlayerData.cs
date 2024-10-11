@@ -16,7 +16,7 @@ namespace LeaderBoard
 
         public async UniTask GetScore(string key)
         {
-            Debug.Log(key);
+            
             var fetchCompletionSource = new UniTaskCompletionSource<bool>();
             string playerID = PlayerPrefs.GetString("PlayerID");
 
