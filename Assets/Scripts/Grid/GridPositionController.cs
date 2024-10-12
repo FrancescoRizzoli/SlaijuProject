@@ -98,14 +98,17 @@ namespace Grid
                         nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, nextDirection);
                         cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
                         objectToCheck.Warn(cell, nextDirection);
+                       
+                      
                     }
                     else
                     {
                         nextCellPos = gridComponent.GetNextGridPosition(objectToCheck.transform.position, objectToCheck.transform.forward);
 
-                        if (gridComponent.width < nextCellPos.x)
+                        if (gridComponent.width > nextCellPos.x)
                         {
                             cell = gridComponent.gridArray[nextCellPos.x, nextCellPos.y];
+                            Debug.Log("nextCell X:" + nextCellPos.x +"Y: "+ nextCellPos.y);
                             objectToCheck.Warn(cell);
 
                         }

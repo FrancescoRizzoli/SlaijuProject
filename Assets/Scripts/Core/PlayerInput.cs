@@ -43,7 +43,7 @@ namespace Core
             if (Physics.Raycast(ray, out hit))
             {
                 onObjectClicked?.Invoke(hit.collider.gameObject);
-                Debug.Log(hit.collider.gameObject.name);
+              //  Debug.Log(hit.collider.gameObject.name);
                 //Instantiate(particle, hit.point, transform.rotation); // Create a particle if hit
             }
         }

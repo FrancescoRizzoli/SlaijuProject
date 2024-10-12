@@ -101,7 +101,7 @@ namespace Grid
                 else if (currentSelectedCell != emptyVector)
                 {
                     AudioManager.instance.PlayAudioClip(deselectAudio, sfxGroup);
-                    Debug.Log("different");
+                   
 
                     CellDeselect();
                     currentSelectedCell = position;
@@ -120,7 +120,7 @@ namespace Grid
             }
             else if (inputCell.ID == CellID.Empty && interchangebleCells.Contains(inputCell))
             {
-                Debug.Log("Exchange cell " + inputCell + " with " + gridComponent.gridArray[currentSelectedCell.x, currentSelectedCell.y]);
+               // Debug.Log("Exchange cell " + inputCell + " with " + gridComponent.gridArray[currentSelectedCell.x, currentSelectedCell.y]);
                 isExchanging = true;
                 move++;
                 onPlayerMoves?.Invoke(move);
@@ -155,7 +155,7 @@ namespace Grid
             {
 
                 gridComponent.gridArray[currentSelectedCell.x, currentSelectedCell.y].SelectDeselect();
-                Debug.Log(currentSelectedCell + "deselect");
+                //Debug.Log(currentSelectedCell + "deselect");
             }
             catch (IndexOutOfRangeException e)
             {

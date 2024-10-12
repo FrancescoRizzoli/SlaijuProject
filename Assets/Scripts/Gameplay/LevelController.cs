@@ -54,7 +54,7 @@ namespace Gameplay
         private void Start()
         {
             pauseButton.enabled = false;
-            Debug.Log(levelControllerScene.SceneName.ToString());
+           
         }
 
         [ContextMenu("Start Counter")]

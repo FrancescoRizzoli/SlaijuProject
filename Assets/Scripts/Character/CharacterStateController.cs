@@ -90,7 +90,7 @@ namespace Character
         public async UniTask HandleCell(BaseCell cell)
         {
             bool safe = CheckCellSafeSide(cell);
-            Debug.Log(cell.ID);
+           // Debug.Log(cell.ID);
             if (safe)
             {
                 switch (cell.ID)
@@ -185,9 +185,13 @@ namespace Character
 
             foreach (Vector3 safeSide in cell.safeSide)
             {
-                Debug.Log(safeSide);
-                if (predictedDirection == -safeSide)
+                // Debug.Log(safeSide);
+               
+                if ((predictedDirection + safeSide).sqrMagnitude < 0.1f)
+                {
+                    Debug.Log("safe");
                     return true;
+                }
 
             }
 
