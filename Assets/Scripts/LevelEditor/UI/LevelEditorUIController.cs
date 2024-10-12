@@ -29,6 +29,7 @@ namespace LevelEditor
         public LevelEditorRotateButton rotateButton = null;
         [Header("Simulation")]
         public Button simulateButton = null;
+        public Button warningSimulationButton = null;
         [SerializeField] private Canvas simulationCanvas = null;
 
         private LevelEditorController editorController = null;
@@ -151,7 +152,11 @@ namespace LevelEditor
                 limitedCellButton[cellType].HandleCellPositioned();
         }
 
-        private void HandleGridFullEvent(bool conditionValue) => simulateButton.interactable = conditionValue;
+        private void HandleGridFullEvent(bool conditionValue)
+        {
+            warningSimulationButton.gameObject.SetActive(!conditionValue);
+            simulateButton.interactable = conditionValue;
+        }
 
         public void ResetUI()
         {

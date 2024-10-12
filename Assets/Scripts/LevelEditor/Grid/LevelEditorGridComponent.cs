@@ -100,6 +100,8 @@ namespace LevelEditor
                 if (c.GetType() == typeof(ShieldedCityCell))
                     shieldedCityCell = (ShieldedCityCell)c;
             }
+
+            EvaluateSimulationCondition();
         }
 
         public async UniTask PositionCell(BaseCell newCell, BaseCell toBeReplacedCell)
@@ -149,9 +151,14 @@ namespace LevelEditor
 
             if (emptyCellsCounter == maxEmptyCellNumber)
                 TurnOffVisualCells();
-            
-            OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && cityQuantity > 0 && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
+
+            EvaluateSimulationCondition();
             OnCellPositioned?.Invoke();
+        }
+
+        private void EvaluateSimulationCondition()
+        {
+            OnSimulationCondition?.Invoke(emptyCellsCounter == 0 && startCell != null && exitCell != null && cityQuantity > 0 && ((generatorCell == null && shieldedCityCell == null) || (generatorCell != null && shieldedCityCell != null)));
         }
 
         public Vector2Int GetCellIndexes(BaseCell targetCell)

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fea98594091c5f4992ba7580889b4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreSceneLoading: 0
   uiController: {fileID: 0}
   cellSpawner: {fileID: 2703933007138241558}
   playerInput: {fileID: 1175831895669810001}
@@ -57,10 +58,13 @@ MonoBehaviour:
   deleteCellAction: {fileID: 209005906376417916}
   largeGridPrefab: {fileID: 480289727379446347, guid: bbfeea484ce2e574bb4fcf2ffbf88ce7, type: 3}
   smallGridPrefab: {fileID: 5718111476440484500, guid: 55f9852485809684abf7367aec25d026, type: 3}
+  smallFrame: {fileID: 0}
+  largeFrame: {fileID: 0}
   gridControls: {fileID: 0}
   levelController: {fileID: 0}
   smallGridCamera: {fileID: 0}
   largeGridCamera: {fileID: 0}
+  editorAudio: {fileID: 0}
 --- !u!114 &2703933007138241558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a446e70d3c71d46988e81c6f5fe842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
+  deleteAudioClip: {fileID: 0}
 --- !u!114 &4128207472661248759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955f187974fccfc47b636701923e7833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
+  positionAudioClip:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5298516054205207176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3800d4d22ac80724bab30b2712e1dbaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
+  rotateAudioClip: {fileID: 0}

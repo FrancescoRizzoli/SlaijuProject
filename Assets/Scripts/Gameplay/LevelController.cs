@@ -156,7 +156,7 @@ namespace Gameplay
             playerInput.enabled = false;
             if (SceneManager.GetActiveScene().buildIndex != (int)SceneName.CustomLevelPlay)
             {
-                Settings.UpdateLevelReached((int)levelControllerScene.SceneName +1);
+                Settings.UpdateLevelReached((int)levelControllerScene.SceneName + ((levelControllerScene.SceneName != SceneName.Level30) ? 1 : 4));
                 sender.UploadScore(gridcontrols.move, timeCounter.elapsedTime, levelControllerScene.SceneName.ToString());
             }
             AudioManager.instance.PlayAudioClip(win, sfx);

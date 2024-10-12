@@ -1,11 +1,14 @@
 using Grid;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace LevelEditor
 {
     [RequireComponent(typeof(LevelEditorController))]
     public abstract class ALevelEditorAction : MonoBehaviour
     {
+        [SerializeField] protected AudioMixerGroup mixerGroup = null;
+
         protected LevelEditorController controller = null;
         public BaseCell previousSelectedCell { get; set; } = null;
         protected Vector2Int previousSelectedCellPosition;

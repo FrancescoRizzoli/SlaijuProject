@@ -1,11 +1,15 @@
 using Cysharp.Threading.Tasks;
 using Grid;
 using System;
+using UnityEngine;
+using Utility;
 
 namespace LevelEditor
 {
     public class LevelEditorDeleteCellAction : ALevelEditorAction
     {
+        [SerializeField] private AudioClip deleteAudioClip = null;
+
         public delegate void DeleteCellEvent(Type cell);
         public event DeleteCellEvent OnCellDeleted = null;
 
@@ -19,6 +23,8 @@ namespace LevelEditor
 
             OnCellDeleted?.Invoke(targetCell.GetType());
             controller.currentGrid.PositionCell(controller.newSelectedBaseCell, targetCell).Forget();
+            if (deleteAudioClip != null)
+                AudioManager.instance.PlayAudioClip(deleteAudioClip, mixerGroup, PitchType.random);
             controller.currentGrid.visualCell[previousSelectedCellPosition.x, previousSelectedCellPosition.y].ToggleDeleteCubes(false);
             controller.newSelectedBaseCell.gameObject.SetActive(true);
             controller.newSelectedBaseCell = null;
