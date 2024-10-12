@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 6334991026881861852}
   - component: {fileID: 5129409857956509910}
   - component: {fileID: 994145949249685673}
+  - component: {fileID: 8852826976880028556}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -1049,6 +1050,7 @@ MonoBehaviour:
   playerInput: {fileID: 1969070058233233039}
   timeCounter: {fileID: 528839349096915150}
   counter: {fileID: 2140553619003778796}
+  pauseButton: {fileID: 8852826976880028556}
   sender: {fileID: 4856459419496662155}
   sfx: {fileID: 8574499180644622293, guid: 58d23227adf018a4c8151a07a7e22ff0, type: 2}
   win: {fileID: 8300000, guid: f965a32fc83e63546952552b619d9bbc, type: 3}
@@ -1208,6 +1210,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2376a5f9252da8749a18a5e341d9ed7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8852826976880028556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974366763585460436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ae3b5a35ec1794cab21e96512f62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseKey: 27
+  levelUiController: {fileID: 3727316530242622849}
 --- !u!1 &2054680180685802006
 GameObject:
   m_ObjectHideFlags: 0

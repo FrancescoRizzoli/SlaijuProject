@@ -34,6 +34,8 @@ namespace Gameplay
         [SerializeField]
         Counter counter;
         [SerializeField]
+        PauseButton pauseButton;
+        [SerializeField]
         ScoreSender sender;
         protected Vector3 monsterStartOffset = new Vector3(0.0f, 1.09f, 0.0f);
         private int cityNumber = 0;
@@ -51,6 +53,7 @@ namespace Gameplay
         
         private void Start()
         {
+            pauseButton.enabled = false;
             Debug.Log(levelControllerScene.SceneName.ToString());
         }
 
@@ -75,6 +78,7 @@ namespace Gameplay
             levelSpeed.SetLevelSpeed();
             SetUpCity();
             timeCounter.StartStopwatchAsync().Forget();
+            pauseButton.enabled = true;
 
         }
 
@@ -163,6 +167,7 @@ namespace Gameplay
             levelUiController.GameWin();
             timeCounter.StopStopwatch();
             levelSpeed.Freeze();
+            pauseButton.enabled = false;
         }
         protected virtual void GameOver()
         {
@@ -172,6 +177,7 @@ namespace Gameplay
             levelUiController.GameOver();
             timeCounter.StopStopwatch();
             levelSpeed.Freeze();
+            pauseButton.enabled = false;
             
         }
 
