@@ -52,6 +52,7 @@ namespace Utility
         LevelEditor,
         CustomLevelLoad,
         CustomLevelPlay,
+        Endgame,
         Level31,
         Level32,
         Level33,
