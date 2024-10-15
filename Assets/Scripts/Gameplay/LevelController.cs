@@ -77,6 +77,7 @@ namespace Gameplay
             positionController.Init(characterStateController, gridComponent);
             levelSpeed.SetLevelSpeed();
             SetUpCity();
+            playerInput.enabled = true;
             timeCounter.StartStopwatchAsync().Forget();
             pauseButton.enabled = true;
 
