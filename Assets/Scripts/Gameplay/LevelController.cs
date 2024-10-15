@@ -122,6 +122,18 @@ namespace Gameplay
             {
                 cityCell.OnDestruction += CityDestroyed;
             }
+            List<BreakableRoad> crackRoad = gridComponent.GetBreakableCells();
+            if(crackRoad != null)
+            {
+                Debug.Log("ciao Crack");
+                foreach (BreakableRoad road in crackRoad)
+                {
+                    road.OnDestructionRoad += gridcontrols.ResetCrossSelect;
+                }
+            }
+            
+
+            
 
             List<BaseCell> generator = gridComponent.GetCellsByID(CellID.Generator);
 
