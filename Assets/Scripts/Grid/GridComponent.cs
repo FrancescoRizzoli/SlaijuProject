@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Grid.Cell;
 
 namespace Grid
 {
@@ -149,6 +150,23 @@ namespace Grid
                 return null;
             else
                 return cells;
+        }
+        public List<BreakableRoad> GetBreakableCells()
+        {
+            List<BreakableRoad> breakableCells = new List<BreakableRoad>();
+
+            foreach (BaseCell cell in gridArray)
+            {
+                if (cell is BreakableRoad)
+                {
+                    breakableCells.Add(cell as BreakableRoad);
+                }
+            }
+
+            if (breakableCells.Count == 0)
+                return null;
+            else
+                return breakableCells;
         }
 
         /// <summary>

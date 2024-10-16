@@ -7,6 +7,8 @@ namespace Grid.Cell
     {
         [SerializeField] private int health = 0;
         [SerializeField] private BreakableRoadView view = null;
+        public delegate void DestructionRoadEvent();
+        public event DestructionRoadEvent OnDestructionRoad = null;
 
 
 #if UNITY_EDITOR
@@ -21,6 +23,7 @@ namespace Grid.Cell
 
             if (health == 0)
             {
+                OnDestructionRoad?.Invoke();
                 view.ChangeView().Forget();
                 SetCellAsEmpty();
             }

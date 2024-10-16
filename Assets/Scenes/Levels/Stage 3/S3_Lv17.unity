@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2268,6 +2268,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb20390303fc3bd4cb59decdf52500cf, type: 3}
+--- !u!114 &740796708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3294156782723934605, guid: fb20390303fc3bd4cb59decdf52500cf, type: 3}
+  m_PrefabInstance: {fileID: 740796707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &742693778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4516,17 +4527,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8957150235771840054, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
   m_PrefabInstance: {fileID: 1692358044}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1429135432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528839349096915150, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-  m_PrefabInstance: {fileID: 1692358044}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2258841be558b4896f887156b03b34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1435787876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5369,6 +5369,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2127589308183828299, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2140553619003778796, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: text
       value: 
@@ -5490,29 +5494,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: moveWin
-      value: 
-      objectReference: {fileID: 169311234}
-    - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: moveLoose
-      value: 
-      objectReference: {fileID: 1948896643}
-    - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: timeCounter
-      value: 
-      objectReference: {fileID: 1429135432}
-    - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: changeCamera
       value: 
       objectReference: {fileID: 1388440899}
-    - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: timeCounterWin
-      value: 
-      objectReference: {fileID: 1299780014}
-    - target: {fileID: 3727316530242622849, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: timeCounterLoose
-      value: 
-      objectReference: {fileID: 1408569402}
     - target: {fileID: 3799453939511289112, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5540,7 +5524,7 @@ PrefabInstance:
     - target: {fileID: 3974080845162749713, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: eventSystemPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 740796708}
     - target: {fileID: 4136375896664600565, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.099998
@@ -5671,10 +5655,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6019028340062536603, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
-      propertyPath: timeCounter
-      value: 
-      objectReference: {fileID: 1429135432}
     - target: {fileID: 6019028340062536603, guid: 6c6a8fea8b019a34d9878ee7882620a6, type: 3}
       propertyPath: gridComponent
       value: 

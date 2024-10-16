@@ -183,6 +183,7 @@ namespace Gameplay
 
         public void ResetLevel()
         {
+            playerInput.enabled = false;
             reset.TogglePosition();
             scene.Reload();
         }
