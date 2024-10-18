@@ -34,6 +34,7 @@ namespace LevelEditor
             positionController.Init(characterStateController, gridComponent);
             levelSpeed.SetLevelSpeed();
             SetUpCity();
+            playerInput.enabled = true;
         }
 
         protected override void GameOver()

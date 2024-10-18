@@ -204,6 +204,16 @@ namespace LevelEditor
                 }
         }
 
+        public void EnableLevelButtonsGrayBox()
+        {
+            TurnOffVisualCells();
+
+            for (int i = 0; i < width; i++)
+                for (int j = 0; j < height; j++)
+                    if (Array.IndexOf<BaseCell>(levelButtonArray, gridArray[i, j]) != -1)
+                        visualCell[i, j].ToggleGrayBox(true);
+        }
+
         [ContextMenu("Test EnvironmentCellSelected")]
         public void EnvironmentCellSelected()
         {

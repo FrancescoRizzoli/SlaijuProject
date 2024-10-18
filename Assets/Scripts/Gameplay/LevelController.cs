@@ -28,7 +28,7 @@ namespace Gameplay
         [SerializeField]
         LevelUiController levelUiController;
         [SerializeField]
-        PlayerInput playerInput;
+        protected PlayerInput playerInput;
         [SerializeField]
         TimeCounter timeCounter;
         [SerializeField]
@@ -53,8 +53,8 @@ namespace Gameplay
         
         private void Start()
         {
-            pauseButton.enabled = false;
-           
+            if (pauseButton != null)
+                pauseButton.enabled = false;
         }
 
         [ContextMenu("Start Counter")]

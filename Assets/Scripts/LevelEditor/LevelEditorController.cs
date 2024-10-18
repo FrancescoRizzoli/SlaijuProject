@@ -194,7 +194,7 @@ namespace LevelEditor
             simulationGrid =  cellSpawner.SpawnGrid(currentGrid);
             simulationGrid.InitializeGrid();
             ((StartCell)simulationGrid.GetCellsByID(CellID.Start)[0]).OnCharacterReturn.AddListener(StopSimulation);
-            currentGrid.TurnOffVisualCells();
+            currentGrid.EnableLevelButtonsGrayBox();
             currentGrid.gameObject.SetActive(false);
 
             gridControls.gridComponent = simulationGrid;
@@ -212,6 +212,7 @@ namespace LevelEditor
             Destroy(simulationGrid.gameObject);
             levelController.characterStateController.gameObject.SetActive(false);
             levelController.characterStateController.ResetState();
+            currentGrid.TurnOffVisualCells();
             currentGrid.gameObject.SetActive(true);
             gridControls.transform.gameObject.SetActive(false);
             uiController.ToggleSimulation(false);
