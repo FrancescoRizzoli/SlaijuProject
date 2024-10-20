@@ -77,8 +77,8 @@ namespace UnityEngine.UI
             if (float.TryParse(input, out float number))
             {
 
-                Debug.Log(number.ToString("F3"));
-                return number.ToString("F3");
+                Debug.Log(number.ToString("F2"));
+                return number.ToString("F2");
             }
             else
             {
