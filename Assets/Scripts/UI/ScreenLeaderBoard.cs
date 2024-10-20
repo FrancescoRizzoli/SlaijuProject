@@ -61,7 +61,7 @@ namespace UnityEngine.UI
                 PlayerData newPlayerData = Instantiate(playerDataPrefab, infoDataContainer.transform);
 
                 // Set up the new PlayerData object with the player's information
-                newPlayerData.setUpData(players.rank.ToString(), players.player.id.ToString(), players.score.ToString(), players.metadata);
+                newPlayerData.setUpData(players.rank.ToString(), players.player.id.ToString(), players.score.ToString(), FormatStringToThreeDecimals(players.metadata));
                
             }
             var player = data.playerInfo[level.ToString()];
@@ -76,7 +76,8 @@ namespace UnityEngine.UI
            
             if (float.TryParse(input, out float number))
             {
-               
+
+                Debug.Log(number.ToString("F3"));
                 return number.ToString("F3");
             }
             else
