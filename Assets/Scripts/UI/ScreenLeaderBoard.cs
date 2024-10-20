@@ -53,6 +53,7 @@ namespace UnityEngine.UI
                 Debug.Log("no data for:" + level);
                 return;
             }
+            
             // Populate new player data
             foreach (var players in playersData)
             {
@@ -64,11 +65,25 @@ namespace UnityEngine.UI
                
             }
             var player = data.playerInfo[level.ToString()];
-            Debug.Log(player.metadata);
+            Debug.Log(player.rank);
             if(player.metadata != null)
-                playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), player.score.ToString(), player.metadata);
+                playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), player.score.ToString(), FormatStringToThreeDecimals(player.metadata));
             else
                 playerInfoLevel.setUpData("0","0","0","0");
+        }
+        public string FormatStringToThreeDecimals(string input)
+        {
+           
+            if (float.TryParse(input, out float number))
+            {
+               
+                return number.ToString("F3");
+            }
+            else
+            {
+                
+                return "Invalid input: not a valid number";
+            }
         }
 
     }
