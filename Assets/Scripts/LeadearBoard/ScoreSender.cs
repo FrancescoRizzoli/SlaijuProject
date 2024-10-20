@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using LootLocker.Requests;
 using UnityEngine;
+using Utility;
 
 namespace LeaderBoard
 {
@@ -13,7 +14,7 @@ namespace LeaderBoard
         public void UploadScore(int score, float time, string key)
         {
             string timetext = time.ToString();
-            SubmitScoreRoutine(score, timetext, key).Forget(); // Use UniTask's Forget() to handle without awaiting
+            SubmitScoreRoutine(Commons.LeaderboardValueIn(score,time), timetext, key).Forget(); // Use UniTask's Forget() to handle without awaiting
         }
 
         private async UniTask SubmitScoreRoutine(int scoreToUpload, string time, string key)

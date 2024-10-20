@@ -4,6 +4,7 @@ using UnityEngine;
 using LeaderBoard;
 using Utility;
 using LootLocker.Requests;
+using static UnityEditor.Experimental.GraphView.GraphView;
 namespace UnityEngine.UI
 {
 
@@ -61,13 +62,13 @@ namespace UnityEngine.UI
                 PlayerData newPlayerData = Instantiate(playerDataPrefab, infoDataContainer.transform);
 
                 // Set up the new PlayerData object with the player's information
-                newPlayerData.setUpData(players.rank.ToString(), players.player.id.ToString(), players.score.ToString(), FormatStringToThreeDecimals(players.metadata));
+                newPlayerData.setUpData(players.rank.ToString(), players.player.id.ToString(), Commons.LeaderboardValueOut(players.score).ToString(), FormatStringToThreeDecimals(players.metadata));
                
             }
             var player = data.playerInfo[level.ToString()];
             Debug.Log(player.rank);
             if(player.metadata != null)
-                playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), player.score.ToString(), FormatStringToThreeDecimals(player.metadata));
+                playerInfoLevel.setUpData(player.rank.ToString(), player.player.id.ToString(), Commons.LeaderboardValueOut(player.score).ToString(), FormatStringToThreeDecimals(player.metadata));
             else
                 playerInfoLevel.setUpData("0","0","0","0");
         }

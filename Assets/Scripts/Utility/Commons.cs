@@ -158,5 +158,30 @@ namespace Utility
             return int.Parse(DateTime.Today.ToString("yyyyMMdd"));
         }
 
+        public  static int LeaderboardValueIn(int integerValue, float floatValue)
+        {
+           
+            float adjustedFloat = floatValue;
+            while (adjustedFloat >= 1)
+            {
+                adjustedFloat /= 10;
+            }
+
+            
+            float result = integerValue + adjustedFloat;
+
+            result *= 10000;
+
+            
+            return Mathf.RoundToInt(result); 
+        }
+        public static int LeaderboardValueOut(int integerValue)
+        {
+            float result = integerValue;
+            result = integerValue / 10000;
+            return Mathf.RoundToInt(result);
+
+        }
+
     }
 }
